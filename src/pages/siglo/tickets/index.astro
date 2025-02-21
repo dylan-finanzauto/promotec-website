@@ -1,0 +1,219 @@
+---
+import Dashboard from "@/layouts/Dashboard.astro";
+import Progress from "@/components/Progress.astro";
+import Select from "@ui/Select";
+import TablePieces from "@/ui/TablePieces";
+
+const items = [
+    {
+        key: "value1",
+        value: "1",
+    },
+    {
+        key: "value2",
+        value: "2",
+    },
+    {
+        key: "value3",
+        value: "3",
+    },
+];
+---
+
+<Dashboard>
+    <div class="space-y-2">
+        <h1 class="font-semibold text-2xl text-text">
+            Bienvenida, Daniela Latorre
+        </h1>
+        <p class="text-sm text-text2">
+            Esta es la información que tenemos para mostrarte
+        </p>
+        <Progress />
+        <div class="bg-white rounded-[14px] p-5 space-y-5">
+            <h3 class="text-xl text-text font-bold">
+                Formulario novedades / reclamos
+            </h3>
+            <div class="space-y-4">
+                <h4 class="text-secn-blue font-bold">
+                    Prealerta del concesionario
+                </h4>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Cliente</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Código concesionario</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Catálogo</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Ocurrencia Novedad</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Entrega Vehículo</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Pre-alerta</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Persona de contacto</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >E-mail</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Teléfono</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-secn-blue font-bold">Datos del reclamo</h4>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Concesionario</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Vehículo</label
+                        >
+                        <Select client:visible items={items} />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Serie</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Número DUA</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Número remesa</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-secn-blue font-bold">Conductor</h4>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Nombre completo</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-[#2F3036] text-xs font-semibold"
+                            >Placa</label
+                        >
+                        <input
+                            class="h-10 border border-[#DEE5ED] rounded-lg px-3 py-[10px] outline-secn-blue"
+                            type="text"
+                            name=""
+                            id=""
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-5 rounded-[10px] border border-princ-blue space-y-3">
+                <div class="flex justify-between">
+                    <h4 class="font-semibold">Registro de piezas</h4>
+                    <button
+                        class="rounded-lg border border-tirth h-10 inline-flex items-center px-10 text-tirth cursor-pointer"
+                        >Añadir pieza</button
+                    >
+                </div>
+                <div class="">
+                    <TablePieces />
+                </div>
+            </div>
+        </div>
+    </div>
+</Dashboard>

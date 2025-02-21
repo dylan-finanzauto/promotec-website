@@ -1,0 +1,33 @@
+---
+interface Props {
+    href: string;
+    text: string;
+    active: boolean;
+}
+
+import clsx from "clsx";
+
+const { href, text, active } = Astro.props;
+---
+
+<a
+    class={clsx(
+        "flex items-center gap-[14px] py-3 px-6 h-14  rounded-[10px]",
+        active
+            ? "bg-[#FFF6EB] border-[0.5px] border-tirth"
+            : "hover:bg-princ-blue transition",
+    )}
+    href={href}
+>
+    <div
+        class={clsx(
+            "size-8 rounded-lg grid place-items-center",
+            active ? "bg-tirth" : "bg-white2 shadow-sm",
+        )}
+    >
+        <slot />
+    </div>
+    <h5 class={clsx(active ? "text-secn-blue font-bold" : "text-text3")}>
+        {text}
+    </h5>
+</a>

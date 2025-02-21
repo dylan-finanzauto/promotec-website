@@ -1,0 +1,20 @@
+---
+import Promotec from "./icons/Promotec.astro";
+import Bell from "./icons/Bell.astro";
+import Wrapper from "./Wrapper.astro";
+import Notification from "@ui/Notification";
+---
+
+<header class="bg-secn-blue">
+    <Wrapper className="h-24 flex justify-between py-5 items-center">
+        <Promotec className="text-white" />
+        <div class="flex gap-4">
+            <Notification client:visible />
+            <div
+                class="grid place-items-center rounded-full h-12 bg-[#3155A3] px-8 text-white"
+            >
+                <h4>07/10/2024 - 11:47 am</h4>
+            </div>
+        </div>
+    </Wrapper>
+</header>

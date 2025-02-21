@@ -1,0 +1,70 @@
+---
+import AnglesIcon from "@/components/icons/AnglesIcon.astro";
+import Layout from "@/layouts/Layout.astro";
+import promotecLogo from "@/assets/svg/promotec.svg";
+import LoaderSiglo from "@/components/LoaderSiglo.astro";
+---
+
+<Layout>
+    <!-- <LoaderSiglo /> -->
+    <div class="h-screen bg-princ-blue flex justify-center items-center">
+        <div class="bg-white rounded-[40px] w-7xl min-w-0 grid md:grid-cols-2">
+            <div class="flex justify-center">
+                <div class="w-sm self-center">
+                    <div class="text-center space-y-5 mb-10">
+                        <h1 class="text-secn-blue text-5xl font-bold">
+                            Ingreso SIGLO
+                        </h1>
+                        <p class="text-text2 text-xl">
+                            Bienvenido, digita tus credenciales para acceder a
+                            la plataforma.
+                        </p>
+                    </div>
+                    <form action="" class="space-y-6">
+                        <div class="flex flex-col gap-1">
+                            <label for="username">Usuario</label>
+                            <input
+                                class="py-3 px-4 outline-none shadow-sm rounded-lg border-[1px] border-[#E2E8F0] w-full transition-all"
+                                type="text"
+                                name=""
+                                id="username"
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <label for="password">Contraseña</label>
+                            <div class="relative">
+                                <input
+                                    class="py-3 px-4 outline-none shadow-sm rounded-lg border-[1px] border-[#E2E8F0] w-full transition-all"
+                                    type="password"
+                                    name=""
+                                    id="password"
+                                />
+                                <AnglesIcon
+                                    class="absolute right-0 mr-4 top-1/2 -translate-y-1/2"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="pt-14 mx-3">
+                            <a
+                                class="py-3 block w-full text-center bg-tirth text-white rounded-lg"
+                                href="/siglo/tickets">Iniciar sesión</a
+                            >
+                        </div>
+                    </form>
+
+                    <div class="flex justify-center mt-16">
+                        <img class="" src={promotecLogo.src} alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-2 ml-2">
+                <img src="/images/picture.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <!-- <LoaderSiglo /> -->
+</Layout>

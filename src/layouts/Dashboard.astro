@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Sidebar from "@/components/Sidebar.astro";
+import Wrapper from "@/components/Wrapper.astro";
+---
+
+<Layout>
+    <div
+        class="grid grid-cols-1 grid-rows-[96px_1fr] gap-5 min-h-screen bg-[#F0F2F9]"
+    >
+        <div class="col-span-2">
+            <Header />
+        </div>
+
+        <Wrapper>
+            <div class="grid grid-cols-[280px_1fr] gap-5 h-full">
+                <Sidebar />
+                <main class="pb-12 overflow-hidden">
+                    <slot />
+                </main>
+            </div>
+        </Wrapper>
+    </div>
+</Layout>

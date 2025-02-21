@@ -1,0 +1,19 @@
+---
+import Dashboard from "@/layouts/Dashboard.astro";
+import SearchCriteria from "@/ui/SearchCriteria";
+---
+
+<Dashboard>
+    <div class="space-y-5">
+        <div class="space-y-2">
+            <h1 class="font-semibold text-2xl text-text">
+                Buscar / editar formularios
+            </h1>
+            <p class="text-sm text-text2">
+                Espacio para búsqueda y/o edición de formularios creados
+            </p>
+        </div>
+
+        <SearchCriteria client:visible />
+    </div>
+</Dashboard>

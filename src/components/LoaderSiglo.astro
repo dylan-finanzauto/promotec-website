@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import promotecLogo from "../assets/svg/promotec.svg";
+---
+
+<Layout>
+    <div
+        class="h-screen w-full bg-princ-blue grid place-items-center fixed z-10 top-0 left-0"
+    >
+        <img class="w-3xl loader" src={promotecLogo.src} alt="" />
+    </div>
+</Layout>
+
+<style>
+    .loader {
+        animation-name: loader;
+        animation-duration: 1s;
+    }
+
+    @keyframes loader {
+        from {
+            opacity: 0.2;
+        }
+        to {
+            opacity: 1;
+            transform: scale(0.25);
+        }
+    }
+</style>

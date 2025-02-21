@@ -1,0 +1,71 @@
+---
+import NavItem from "./NavItem.astro";
+import Card from "./icons/Card.astro";
+import Like from "./icons/Like.astro";
+import Sheet from "./icons/Sheet.astro";
+import Shield from "./icons/Shield.astro";
+import SideUser from "@ui/SideUser";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname;
+
+const nav = [
+    {
+        href: "/siglo/tickets",
+        text: "Reclamos",
+        icon: Shield,
+    },
+    {
+        href: "/siglo/options",
+        text: "Buscar / editar",
+        icon: Sheet,
+    },
+    {
+        href: "/siglo/memos",
+        text: "Memofichas",
+        icon: Card,
+    },
+    {
+        href: "/siglo/reports",
+        text: "Informes",
+        icon: Like,
+    },
+];
+
+const user = {
+    name: "Paula Daniela Latorre Mora",
+    email: "daniela.latorre@promotec.com.co",
+    rol: "ADMIN",
+    img: "/images/image11.png",
+};
+---
+
+<aside class="flex flex-col h-full pb-5">
+    <nav class="flex-1">
+        <ul class="space-y-[10px]">
+            {
+                nav.map((i) => {
+                    const isActive = currentPath === i.href;
+
+                    return (
+                        <li>
+                            <NavItem
+                                href={i.href}
+                                text={i.text}
+                                active={isActive}
+                            >
+                                <i.icon
+                                    className={
+                                        isActive ? "text-white" : "text-tirth"
+                                    }
+                                />
+                            </NavItem>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </nav>
+
+    <SideUser client:visible user={user} onExit={() => {}} />
+</aside>
