@@ -1,9 +1,9 @@
 ---
 import NavItem from "./NavItem.astro";
-import Card from "./icons/Card.astro";
-import Like from "./icons/Like.astro";
-import Sheet from "./icons/Sheet.astro";
-import Shield from "./icons/Shield.astro";
+import Card from "@ui/icons/CardIcon";
+import Like from "@ui/icons/LikeIcon";
+import Sheet from "@ui/icons/SheetIcon";
+import Shield from "@ui/icons/ShieldIcon";
 import SideUser from "@ui/SideUser";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -67,5 +67,5 @@ const user = {
         </ul>
     </nav>
 
-    <SideUser client:visible user={user} onExit={() => {}} />
+    <SideUser client:only user={user} onExit={() => {}} />
 </aside>

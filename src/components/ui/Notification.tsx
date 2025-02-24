@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import BellIcon from "./icons/BellIcon"
 import TrashIcon from "./icons/TrashIcon";
+import clsx from "clsx";
 
 type Props = {
 
@@ -25,12 +26,12 @@ const Notification: React.FC<Props> = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    },)
+    }, [])
 
     return (
         <div className="relative" ref={containerRef}>
             <div
-                className="grid place-items-center rounded-full size-12 bg-[#3155A3] cursor-pointer"
+                className="grid place-items-center rounded-full size-12 bg-[#3155A3] cursor-pointer outline-2 outline-transparent hover:outline-tirth"
                 onClick={toggleClick}
             >
                 <BellIcon className="size-5 text-white" />
@@ -50,13 +51,13 @@ const Notification: React.FC<Props> = () => {
 
                             {Array.from({ length: 3 }).map((_, i) => (
                                 <>
-                                    <div className="p-4 flex items-center gap-4 border-l-[3px] border-[#0020A8] rounded-sm">
+                                    <div className="group p-4 flex items-center gap-4 border-l-[3px] border-[#0020A8] rounded-sm hover:bg-[#DEE5ED] transition">
                                         <div className="space-y-1 flex-1">
                                             <h6 className="text-sm font-semibold">Ingreso de PQR</h6>
                                             <p className="text-sm">La petición 23422 se le ha asignado.</p>
                                             <p className="text-xs text-end">9:00am</p>
                                         </div>
-                                        <TrashIcon className="size-4 text-[#7C93B5]" />
+                                        <TrashIcon className="size-4 text-[#7C93B5] group-hover:text-black" />
                                     </div>
 
                                     {i !== 2 && (

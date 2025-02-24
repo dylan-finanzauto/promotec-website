@@ -1,4 +1,4 @@
-import Select from "./Select";
+import Calendar from "./Calendar";
 
 const SearchCriteria: React.FC = () => {
     return (
@@ -8,7 +8,7 @@ const SearchCriteria: React.FC = () => {
                 <div className="flex flex-col gap-1">
                     <label className="text-[#2F3036] text-xs font-semibold"
                     >Buscar por</label>
-                    <Select className="w-xs" items={[]} />
+                    <Calendar className="w-xs" />
                 </div>
                 <button className="h-10 self-end rounded-lg bg-tirth text-white w-[200px] cursor-pointer">Buscar</button>
             </div>

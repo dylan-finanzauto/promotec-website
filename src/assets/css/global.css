@@ -8,6 +8,7 @@
     --color-text2: #6C8EBA;
     --color-text3: #A1A2A1;
     --color-white2: #F4F4F4;
+    --color-gray1: #F0F2F9;
     --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -46,6 +47,15 @@
     /* Estilo para la esquina donde se encuentran ambas barras */
     ::-webkit-scrollbar-corner {
         background: #DEE5ED;
+    }
+
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+        display: none;
+    }
+
+    .scroll-hidden::-webkit-scrollbar {
+        display: none;
     }
 
 }

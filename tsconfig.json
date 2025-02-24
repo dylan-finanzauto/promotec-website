@@ -23,7 +23,7 @@
         "src/layouts/*"
       ],
       "@ui/*": [
-        "src/ui/*"
+        "src/components/ui/*"
       ],
       "@pages/*": [
         "src/pages/*"

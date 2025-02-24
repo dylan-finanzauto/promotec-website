@@ -1,7 +1,6 @@
-import type { SVGProps } from "react"
-import type React from "react"
+import type { SVGProps } from "react";
 
-const AnglesIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+const EyeIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     <svg
         width="18"
         height="17"
@@ -16,4 +15,4 @@ const AnglesIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     </svg>
 )
 
-export default AnglesIcon;
+export default EyeIcon;
