@@ -1,0 +1,9 @@
+import { SVGProps } from "react";
+
+const FacebookIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path fillRule="evenodd" clipRule="evenodd" d="M22.8828 11.0664C22.8828 4.9552 17.9574 0 11.8828 0C5.80826 0 0.882812 4.9552 0.882812 11.0664C0.882812 16.5898 4.90469 21.168 10.1641 21.999V14.2663H7.37036V11.0664H10.1641V8.62837C10.1641 5.85534 11.8067 4.32234 14.319 4.32234C15.5226 4.32234 16.7817 4.53873 16.7817 4.53873V7.26236H15.394C14.0283 7.26236 13.6011 8.11507 13.6011 8.99149V11.0664H16.6516L16.1645 14.2663H13.6016V22C18.8609 21.1695 22.8828 16.5913 22.8828 11.0664Z" fill="currentColor" />
+  </svg>
+)
+
+export default FacebookIcon;

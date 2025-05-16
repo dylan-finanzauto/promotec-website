@@ -1,6 +1,9 @@
+import WebsiteProviders from "@/modules/shared/providers/WebsiteProviders";
+import Footer from "@/modules/website/components/Footer";
+import Header from "@/modules/website/components/Header";
+import Navigation from "@/modules/website/components/Navigation";
+import Attention from "@/modules/website/ui/Attention";
 import type { Metadata } from "next";
-import Header from "./_components/Header";
-import Navigation from "./_components/Navigation";
 
 export const metadata: Metadata = {
   title: "Promotec | Personas",
@@ -13,15 +16,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <WebsiteProviders>
       <div className="sticky inset-0 z-40">
         <Header />
         <Navigation />
       </div>
 
-      {/* <Footer /> */}
-
       {children}
-    </>
+
+      <Footer />
+      <Attention />
+    </WebsiteProviders>
   );
 }
