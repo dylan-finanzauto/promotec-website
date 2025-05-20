@@ -28,7 +28,7 @@ const Navigation: React.FC = () => {
   const path = usePathname()
 
   return (
-    <div className="h-20 bg-gray1">
+    <div className="h-20 bg-gray1 border-b-[0.5px] border-princ-blue">
       <Wrapper className="flex gap-10 py-[18px] h-full">
         <Link href={"/"}>
           <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH}/promotec.svg`} alt="Logo" width={156} height={44} />
@@ -55,14 +55,16 @@ const Navigation: React.FC = () => {
             href={"/cliente"}
           >
             <button
-              className="h-10 w-[162px] text-secn-blue border border-secn-blue rounded-[10px] bg-transparent hover:bg-[#EDEDED] hover:border-[#D9D9D9] hover:text-text transition-all cursor-pointer font-medium"
-            >Soy cliente</button>
+              className="h-10 w-[162px] text-secn-blue border border-secn-blue rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium hover:bg-secn-blue hover:text-white disabled:bg-[#EDEDED] disabled:border disabled:border-[#D9D9D9] disabled:text-text4 disabled:cursor-default"
+            >
+              Soy cliente
+            </button>
           </Link>
           <Link
             href={"/pagos"}
           >
             <button
-              className="h-10 w-[162px] bg-tirth hover:bg-[#e18205] disabled:bg-tirth/70 text-white rounded-[10px] cursor-pointer font-medium transition-all"
+              className="h-10 w-[162px] bg-tirth text-white rounded-[10px] cursor-pointer font-medium transition-all duration-500 hover:bg-tirth-hover disabled:bg-[#EDEDED] disabled:border disabled:border-[#D9D9D9] disabled:text-text4 disabled:cursor-default"
             >Pagos en línea</button>
           </Link>
         </div>

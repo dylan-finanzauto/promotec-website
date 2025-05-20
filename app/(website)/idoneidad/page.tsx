@@ -1,6 +1,9 @@
 'use client';
 import Pagination from "@/modules/shared/components/Pagination";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import Banner from "@/modules/website/ui/Banner";
+
+const cols = ["Nombre y apellidos", "Tipo de documento", "Identificación", "Agencia de seguros", "Nit", "Fecha de vinculación"];
 
 const data = [
   {
@@ -61,15 +64,13 @@ const data = [
   },
 ];
 
-const columns = ["Nombre y apellidos", "Tipo de documento", "Identificación", "Agencia de seguros", "Nit", "Fecha de vinculación"];
-
 function Table() {
   return (
     <div className="overflow-x-auto rounded-lg">
       <table className="min-w-full text-left">
         <thead>
           <tr className="bg-text2 text-princ-blue text-[20px]">
-            {columns.map((col) => (
+            {cols.map((col) => (
               <th key={col} className="py-4 px-[10px] text-center text-nowrap">
                 {col}
               </th>
@@ -82,7 +83,7 @@ function Table() {
               key={idx}
               className={idx % 2 === 0 ? "bg-transparent" : "bg-gray2"}
             >
-              {columns.map((col, i) => (
+              {cols.map((col, i) => (
                 <td key={i} className="py-6 px-[10px] text-nowrap">{item[col]}</td>
               ))}
             </tr>
@@ -96,7 +97,7 @@ function Table() {
 const Suitability: React.FC = () => {
   return (
     <>
-      <header className="h-[500px] bg-princ-blue"></header>
+      <Banner titleTop="Listado de" titleBottom="Idoneidad" img="/Promotec.Website.Client/images/banner-suitability.png" />
 
       <section className="py-[70px]">
         <Wrapper>

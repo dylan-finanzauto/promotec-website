@@ -15,7 +15,7 @@ const Footer = () => (
             href={"/cliente"}
           >
             <button
-              className="h-10 w-[162px] text-white border border-white rounded-[10px] bg-transparent hover:bg-[#EDEDED] hover:border-[#D9D9D9] hover:text-text transition-all cursor-pointer"
+              className="h-10 w-[162px] text-white border border-white rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium hover:bg-white hover:text-secn-blue disabled:bg-[#EDEDED] disabled:border disabled:border-[#D9D9D9] disabled:text-text4 disabled:cursor-default"
             >
               Soy cliente
             </button>
@@ -24,10 +24,8 @@ const Footer = () => (
             href={"/pagos"}
           >
             <button
-              className="h-10 w-[162px] bg-tirth hover:bg-[#e18205] disabled:bg-tirth/70 transition-all text-white rounded-[10px] cursor-pointer"
-            >
-              Pagos en línea
-            </button>
+              className="h-10 w-[162px] bg-tirth text-white rounded-[10px] cursor-pointer font-medium transition-all duration-500 hover:bg-tirth-hover disabled:bg-[#EDEDED] disabled:border disabled:border-[#D9D9D9] disabled:text-text4 disabled:cursor-default"
+            >Pagos en línea</button>
           </Link>
         </div>
       </div>

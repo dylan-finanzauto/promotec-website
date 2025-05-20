@@ -9,6 +9,7 @@ import TextareaField from "@/modules/shared/components/TextareaField";
 import { InputField } from "@/modules/shared/components/InputField";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
+import Banner from "@/modules/website/ui/Banner";
 
 const formSchema = z.object({
   tipoDocumento: z.string().nonempty(),
@@ -165,7 +166,7 @@ const ContactForm: React.FC = () => {
       </div>
 
       <div className="flex justify-center">
-        <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth/80 text-white cursor-pointer">Enviar</button>
+        <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth-hover text-white transition-all cursor-pointer">Enviar</button>
       </div>
 
     </form>
@@ -176,13 +177,13 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <header className="h-[500px] bg-princ-blue"></header>
+      <Banner titleTop="Comunícate" titleBottom="con nosotros" />
 
       <section className="py-28 bg-gray1">
         <Wrapper>
           <div className="flex gap-10">
             <div className="relative">
-              <div className="size-[576px] bg-[url('/promotec.portal/images/young-happy-couple.jpg')] bg-cover bg-center mask-[url('/promotec.portal/icons/p.svg')] mask-no-repeat mask-center mask-size-contain">
+              <div className="fade-left size-[576px] bg-[url('/Promotec.Website.Client/images/young-happy-couple.jpg')] bg-cover bg-center mask-[url('/Promotec.Website.Client/icons/p.svg')] mask-no-repeat mask-center mask-size-contain">
               </div>
               <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
@@ -193,31 +194,37 @@ const Contact: React.FC = () => {
                 <p className="text-[20px] text-text4 font-medium">Si tienes preguntas, necesitas ayuda o deseas más información sobre nuestros productos y servicios, no dudes en comunicarte con nosotros.</p>
               </div>
               <ul className="space-y-[30px] mt-[100px]">
-                <li className="flex items-center gap-5">
-                  <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                    <PhoneIcon className="size-6 text-secn-blue" />
-                  </div>
-                  <div className="space-y-1">
-                    <h6 className="">Línea nacional:</h6>
-                    <h5 className="text-[20px] text-secn-blue font-bold">(601) 742 3700</h5>
-                  </div>
-                </li>
-                <li className="flex items-center gap-5">
-                  <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                    <WhatsappIcon className="size-6 text-secn-blue" />
-                  </div>
-                  <div className="space-y-1">
-                    <h6 className="">Chat en línea:</h6>
-                    <h5 className="text-[20px] text-secn-blue font-bold">+ 57 310 851 5340</h5>
+                <li className="">
+                  <div className="zoom-in inline-flex items-center gap-5">
+                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
+                      <PhoneIcon className="size-6 text-secn-blue" />
+                    </div>
+                    <div className="space-y-1">
+                      <h6 className="">Línea nacional:</h6>
+                      <h5 className="text-[20px] text-secn-blue font-bold">(601) 742 3700</h5>
+                    </div>
                   </div>
                 </li>
-                <li className="flex items-center gap-5">
-                  <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                    <MailIcon className="size-6 text-secn-blue" />
+                <li className="">
+                  <div className="zoom-in inline-flex items-center gap-5">
+                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
+                      <WhatsappIcon className="size-6 text-secn-blue" />
+                    </div>
+                    <div className="space-y-1">
+                      <h6 className="">Chat en línea:</h6>
+                      <h5 className="text-[20px] text-secn-blue font-bold">+ 57 310 851 5340</h5>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <h6 className="">Correo electrónico:</h6>
-                    <h5 className="text-[20px] text-secn-blue font-bold">servicioalcliente@promotec.com.co</h5>
+                </li>
+                <li className="">
+                  <div className="zoom-in inline-flex items-center gap-5">
+                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
+                      <MailIcon className="size-6 text-secn-blue" />
+                    </div>
+                    <div className="space-y-1">
+                      <h6 className="">Correo electrónico:</h6>
+                      <h5 className="text-[20px] text-secn-blue font-bold">servicioalcliente@promotec.com.co</h5>
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -230,7 +237,7 @@ const Contact: React.FC = () => {
         <Wrapper>
           <div className="space-y-[70px]">
 
-            <div className="py-10 px-8 rounded-[30px] bg-text2 space-y-8">
+            <div className="fade-up py-10 px-8 rounded-[30px] bg-text2 space-y-8">
               <h2 className="text-4xl text-center text-white font-extrabold">¿Necesitas acompañamiento en tu proceso de indemnización?</h2>
               <div className="flex justify-center">
                 <button className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth/80 text-white cursor-pointer">Ver más</button>
@@ -256,22 +263,22 @@ const Contact: React.FC = () => {
               <p className="text-[20px] text-center text-text4 font-medium">En caso de una emergencia, contacta directamente al equipo de asistencia inmediata de cada aseguradora, disponible las 24 horas del día, los 7 días de la semana.</p>
             </div>
             <div className="grid grid-cols-2 gap-4 h-[448px]">
-              <div className="relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-text2">
+              <div className="zoom-in relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-text2">
                 <h4 className="text-[40px] text-princ-blue leading-none font-semibold">
                   <div className="">Radica</div>
                   <div className="text-white">una PQRS</div>
                 </h4>
                 <div className="flex justify-center">
-                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth/80 text-white cursor-pointer">Crear</button>
+                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth-hover text-white cursor-pointer">Crear</button>
                 </div>
               </div>
-              <div className="relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-text2">
+              <div className="zoom-in relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-text2">
                 <h4 className="text-[40px] text-princ-blue leading-none font-semibold">
                   <div className="">Consulta</div>
                   <div className="text-white">una PQRS</div>
                 </h4>
                 <div className="flex justify-center">
-                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth/80 text-white cursor-pointer">Consultar</button>
+                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth-hover text-white cursor-pointer">Consultar</button>
                 </div>
               </div>
             </div>

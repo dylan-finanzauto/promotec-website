@@ -3,7 +3,7 @@ import POutlinedIcon from "@/modules/shared/components/icons/POutlinedIcon";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative flex items-center justify-center w-full aspect-[11/4] bg-[url('/promotec.portal/images/hero.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden">
+    <section className="relative flex items-center justify-center w-full aspect-[11/4] bg-[url('/Promotec.Website.Client/images/hero.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden">
       {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
 
       <div className="absolute top-0 left-0 ml-20">
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="absolute bottom-0 right-0 mb-24 mr-52">
-        <button className="text-[22px] font-medium text-white px-8 py-[14px] rounded-lg bg-tirth hover:bg-[#e18205] cursor-pointer">¡Cotiza tu seguro aquí!</button>
+        <button className="text-[22px] font-medium text-white px-8 py-[14px] rounded-lg bg-tirth hover:bg-tirth-hover cursor-pointer">¡Cotiza tu seguro aquí!</button>
       </div>
 
     </section>

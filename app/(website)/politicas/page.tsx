@@ -1,5 +1,6 @@
 import Wrapper from "@/modules/shared/ui/Wrapper"
 import { POLICIES } from "@/modules/website/data/policies";
+import Banner from "@/modules/website/ui/Banner";
 
 type CardProps = {
   image: string;
@@ -8,7 +9,7 @@ type CardProps = {
 
 const PolicyCard: React.FC<CardProps> = ({ image, text }) => {
   return (
-    <div className="flex flex-col rounded-[30px] bg-gray1 overflow-hidden">
+    <div className="fade-up flex flex-col rounded-[30px] bg-gray1 overflow-hidden">
       <div
         style={{
           backgroundImage: `url(${image})`
@@ -28,7 +29,7 @@ const PolicyCard: React.FC<CardProps> = ({ image, text }) => {
 const Policies: React.FC = () => {
   return (
     <>
-      <header className="h-[500px] bg-princ-blue"></header>
+      <Banner titleTop="Nuestras" titleBottom="políticas" />
 
       <section className="py-20">
         <Wrapper>

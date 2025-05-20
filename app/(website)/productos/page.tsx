@@ -1,14 +1,15 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { PRODUCTS } from "@/modules/website/data/products";
+import Banner from "@/modules/website/ui/Banner";
 
 type CardProps = {
   image: string;
   text: string;
 }
 
-const ProductCard: React.FC<CardProps> = ({ image, text }) => {
+export const ProductCard: React.FC<CardProps> = ({ image, text }) => {
   return (
-    <div className="flex flex-col rounded-[30px] bg-gray1 overflow-hidden">
+    <div className="fade-up flex flex-col rounded-[30px] bg-gray1 overflow-hidden">
       <div
         style={{
           backgroundImage: `url(${image})`
@@ -19,15 +20,15 @@ const ProductCard: React.FC<CardProps> = ({ image, text }) => {
         <h3 className="text-[30px] text-text1 leading-tight font-bold">
           {text}
         </h3>
-        <button className="py-3 w-[160px] rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth/80 text-white cursor-pointer">Ver más</button>
+        <button className="py-3 w-[160px] rounded-[10px] text-[20px] font-medium bg-tirth hover:bg-tirth-hover text-white transition-all cursor-pointer">Ver más</button>
       </div>
     </div>
   )
 }
 
-const AlterProductCard: React.FC<CardProps> = ({ image, text }) => {
+export const AlterProductCard: React.FC<CardProps> = ({ image, text }) => {
   return (
-    <div className="flex col-span-2 rounded-[30px] bg-gray1 overflow-hidden">
+    <div className="fade-up flex col-span-2 rounded-[30px] bg-gray1 overflow-hidden">
       <div className="w-2/5 px-24 flex flex-col justify-center gap-14">
         <h3 className="text-[30px] text-text1 leading-tight font-bold">
           <div>Póliza de</div>
@@ -49,7 +50,7 @@ const AlterProductCard: React.FC<CardProps> = ({ image, text }) => {
 const Products: React.FC = () => {
   return (
     <>
-      <header className="h-[500px] bg-princ-blue"></header>
+      <Banner titleTop="Nuestros" titleBottom="productos" img="/Promotec.Website.Client/images/banner-products.png" />
 
       <section className="py-[100px]">
         <Wrapper>
@@ -62,7 +63,7 @@ const Products: React.FC = () => {
               <p className="text-[20px] text-center text-text4 font-medium">¡Nos preocupamos por ti! por eso, diseñamos seguros que se ajustan a lo que realmente necesitas.</p>
             </div>
             <div className="grid grid-cols-3 auto-rows-[408px] gap-5">
-              <AlterProductCard image={"/promotec.portal/images/auto_1@3x.png"} text={"Póliza de Carros y Motos"} />
+              <AlterProductCard image={"/Promotec.Website.Client/images/auto_1@3x.png"} text={"Póliza de Carros y Motos"} />
 
               {PRODUCTS.map((p, i) => (
                 <ProductCard

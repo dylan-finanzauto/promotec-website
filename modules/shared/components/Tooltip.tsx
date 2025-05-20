@@ -74,7 +74,7 @@ const Tooltip: React.FC<Props> = ({ text, children, position = 'top' }) => {
       {visible &&
         ReactDOM.createPortal(
           <div
-            className={`absolute px-2 py-1 text-sm text-white rounded-lg bg-[#444D64] shadow-lg z-50 whitespace-nowrap animate-scale-up transition-all`}
+            className="zoom-in absolute px-2 py-1 text-white rounded-lg bg-[#333333] shadow-lg z-50 whitespace-nowrap animate-show transition-all"
             style={{
               top: coords.top,
               left: coords.left,

@@ -1,6 +1,7 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Cookies from "@/modules/website/components/Cookies";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,6 +21,8 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => (
       className={`${inter.variable} antialiased`}
     >
       {children}
+
+      <Cookies />
     </body>
   </html>
 );

@@ -5,6 +5,7 @@ import PhoneIcon from "@/modules/shared/components/icons/PhoneIcon";
 import POutlinedIcon from "@/modules/shared/components/icons/POutlinedIcon";
 import React from "react";
 import CheckCircleIcon from "@/modules/shared/components/icons/CheckCircleIcon";
+import Banner from "@/modules/website/ui/Banner";
 
 const coverages = [
   { name: "Croquis", ppd: true, ptd: true, pph: true, pth: true, rce: true },
@@ -61,13 +62,13 @@ const Indemnizaciones: React.FC = () => {
 
   return (
     <>
-      <header className="h-[500px] bg-princ-blue"></header>
+      <Banner titleBottom="Indemnizaciones" />
 
       <section className="py-28 bg-gray1">
         <Wrapper>
           <div className="flex gap-10">
             <div className="relative">
-              <div className="size-[576px] bg-[url('/promotec.portal/images/promotec14.jpg')] bg-cover bg-center mask-[url('/promotec.portal/icons/p.svg')] mask-no-repeat mask-center mask-size-contain">
+              <div className="fade-left size-[576px] bg-[url('/Promotec.Website.Client/images/promotec14.jpg')] bg-cover bg-center mask-[url('/Promotec.Website.Client/icons/p.svg')] mask-no-repeat mask-center mask-size-contain">
               </div>
               <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
@@ -78,22 +79,26 @@ const Indemnizaciones: React.FC = () => {
                 <p className="text-[20px] text-text4 font-medium">Nuestro compromiso es acompañarte de manera rápida, justa y sin complicaciones, en tu proceso de reclamación en caso de siniestro.</p>
               </div>
               <ul className="space-y-[30px] mt-[100px]">
-                <li className="flex items-center gap-5">
-                  <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                    <PhoneIcon className="size-6 text-secn-blue" />
-                  </div>
-                  <div className="space-y-1">
-                    <h6 className="">Línea nacional:</h6>
-                    <h5 className="text-[20px] text-secn-blue font-bold">(601) 742 3700 Opción. 4</h5>
+                <li className="">
+                  <div className="zoom-in inline-flex items-center gap-5">
+                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
+                      <PhoneIcon className="size-6 text-secn-blue" />
+                    </div>
+                    <div className="space-y-1">
+                      <h6 className="">Línea nacional:</h6>
+                      <h5 className="text-[20px] text-secn-blue font-bold">(601) 742 3700 Opción. 4</h5>
+                    </div>
                   </div>
                 </li>
-                <li className="flex items-center gap-5">
-                  <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                    <MailIcon className="size-6 text-secn-blue" />
-                  </div>
-                  <div className="space-y-1">
-                    <h6 className="">Correo electrónico:</h6>
-                    <h5 className="text-[20px] text-secn-blue font-bold">servicioalcliente@promotec.com.co</h5>
+                <li className="">
+                  <div className="zoom-in inline-flex items-center gap-5">
+                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
+                      <MailIcon className="size-6 text-secn-blue" />
+                    </div>
+                    <div className="space-y-1">
+                      <h6 className="">Correo electrónico:</h6>
+                      <h5 className="text-[20px] text-secn-blue font-bold">servicioalcliente@promotec.com.co</h5>
+                    </div>
                   </div>
                 </li>
               </ul>

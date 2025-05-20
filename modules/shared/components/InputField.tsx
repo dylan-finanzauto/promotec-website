@@ -15,7 +15,6 @@ export const FieldInfo: React.FC<{ field: AnyFieldApi }> = ({ field }) => {
       {field.state.meta.isTouched && field.state.meta.errors.length ? (
         <em className="text-red-500 text-sm">{field.state.meta.errors.join(',')}</em>
       ) : null}
-      {/* {field.state.meta.isValidating ? 'Validating...' : null} */}
     </>
   )
 }
@@ -26,7 +25,7 @@ export const InputField: React.FC<Props> = ({ className, type, error, ...props }
   return (
     <div className="relative flex">
       <input
-        className={`h-10 flex-1 border rounded-lg text-[#1F2024] px-3 py-[10px] max-w-full shadow-sm transition-all bg-white disabled:bg-slate-50 ${error ? "border-red-400 outline-red-500" : "border-[#DEE5ED] outline-secn-blue"} ${className}`}
+        className={`h-10 flex-1 border rounded-lg text-[#1F2024] px-3 py-[10px] max-w-full shadow-sm transition-all bg-white disabled:bg-slate-50 ${error ? "border-red-400 outline-red-500" : "border-[#DEE5ED] outline-secn-blue hover:border-secn-blue"} ${className ? className : ""}`}
         {...props}
         type={type === 'password' && passwordVisible ? 'text' : type}
       />

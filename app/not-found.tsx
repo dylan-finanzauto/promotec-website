@@ -2,6 +2,7 @@ import BikeIcon from '@/modules/shared/components/icons/BikeIcon'
 import CarIcon from '@/modules/shared/components/icons/CarIcon'
 import HeartbeatIcon from '@/modules/shared/components/icons/HeartbeatIcon'
 import HomeIcon from '@/modules/shared/components/icons/HomeIcon'
+import WebsiteProviders from '@/modules/shared/providers/WebsiteProviders'
 import Wrapper from '@/modules/shared/ui/Wrapper'
 import Footer from '@/modules/website/components/Footer'
 import Header from '@/modules/website/components/Header'
@@ -52,16 +53,18 @@ const OptionButton: React.FC<OptionProps> = ({ text, icon, active }) => {
 
 const NotFound = () => {
   return (
-    <>
-
+    <WebsiteProviders>
       <div className="sticky inset-0 z-40">
         <Header />
         <Navigation />
       </div>
 
-      <main className="py-16 bg-princ-blue">
-        <Wrapper>
-          <div className="w-4xl space-y-10">
+      <main className="bg-princ-blue">
+        <Wrapper className="relative">
+
+          <img className="absolute right-0 bottom-0 h-[90%]" src={"/Promotec.Website.Client/images/3. bearded-young-man-wearing-shirt.png"} alt="" />
+
+          <div className="relative w-4xl py-16 space-y-10">
             <div className="space-y-5">
               <h1 className="text-[60px] text-secn-blue font-bold">
                 <div className="">¡Oops!</div>
@@ -81,7 +84,7 @@ const NotFound = () => {
                   />
                 ))}
               </div>
-              <div className="p-10 rounded-[20px] flex justify-between bg-gray1">
+              <div className="zoom-in p-10 rounded-[20px] flex justify-between bg-gray1">
                 <div className="space-y-5">
                   <h2 className="text-[40px] text-secn-blue font-extrabold">Cotizar Seguro de Carros</h2>
                   <p className="text-[20px] text-text">Recorre kilómetros seguros con tu Póliza de Carros.</p>
@@ -98,15 +101,15 @@ const NotFound = () => {
                 className="text-secn-blue underline font-medium hover:font-semibold transition-all"
               >Ver todos los productos</Link>
             </div>
-
           </div>
+
         </Wrapper>
       </main>
 
       <Footer />
 
       <Attention />
-    </>
+    </WebsiteProviders>
   )
 }
 
