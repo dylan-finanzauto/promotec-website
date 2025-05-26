@@ -85,7 +85,7 @@ const renderers = {
 
 const Polizas: React.FC = () => {
 
-  const [filters, setFilters] = useState({
+  const [, setFilters] = useState({
     PageNumber: 1,
     PageSize: 5
   });
@@ -108,7 +108,7 @@ const Polizas: React.FC = () => {
     "Estado": p.Estado,
     "Archivos": p.Archivos,
     "Acción": "Detalle"
-  })), [data])
+  })), [])
 
   return (
     <div className="space-y-5">

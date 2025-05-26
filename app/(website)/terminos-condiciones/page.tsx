@@ -1,17 +1,16 @@
 'use client';
-import { LlianzIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { ATTENDANCES } from "@/modules/website/data/attendances";
 import Image from "next/image";
 import { useState } from "react";
 
-const icons = [
-  {
-    id: 0,
-    icon: <LlianzIcon className="text-blue-primary" />
-  },
-]
+// const icons = [
+//   {
+//     id: 0,
+//     icon: <LlianzIcon className="text-blue-primary" />
+//   },
+// ]
 
 const ButtonOption: React.FC<{
   img: string,
@@ -21,13 +20,13 @@ const ButtonOption: React.FC<{
     <button
       className={`h-[82px] w-full rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? "bg-yellow-primary" : "border border-blue-terciary bg-white"}`}
     >
-      {/* <Image
+      <Image
         src={img}
         alt=""
         width={112}
         height={32}
         style={{ width: 'auto', height: '100%' }}
-      /> */}
+      />
 
     </button>
   )
@@ -54,7 +53,7 @@ const TermCard: React.FC = () => {
 
 const TermsConditions: React.FC = () => {
 
-  const [index, setIndex] = useState(0);
+  const [index] = useState(0);
 
   return (
     <div className="relative">

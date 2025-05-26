@@ -62,7 +62,7 @@ const Home: React.FC = () => {
     "Póliza": p["Póliza"],
     "Valor": p.Valor,
     "Acción": "Pagar"
-  })), [data])
+  })), [])
 
   return (
     <main className="pt-[30px] pb-[60px] bg-gray-3">

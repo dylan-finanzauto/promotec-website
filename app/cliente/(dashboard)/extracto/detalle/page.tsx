@@ -3,7 +3,6 @@ import Pagination from "@/modules/shared/components/Pagination";
 import { ChevronLeftFilledIcon, InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Table from "@/modules/shared/components/Table";
 import Tooltip from "@/modules/shared/components/Tooltip";
-import Wrapper from "@/modules/shared/ui/Wrapper";
 import Link from "next/link";
 
 const cols = ["Poliza", "Placa", "Remision", "Fecha cobro", "Aseguradora", "Ramo", "Valor"]

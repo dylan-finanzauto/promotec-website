@@ -2,9 +2,8 @@
 import Pagination from "@/modules/shared/components/Pagination";
 import { DocumentOutlinedIcon, EyeIcon, InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Table from "@/modules/shared/components/Table";
-import { useForm } from "@tanstack/react-form";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 const cols = ["Fecha vencimiento", "Poliza", "Valor", "Acción"];
 
@@ -46,17 +45,17 @@ const renderers = {
 
 const Extract: React.FC = () => {
 
-  const [filters, setFilters] = useState({
-    PageNumber: 1,
-    PageSize: 5
-  });
+  // const [filters, setFilters] = useState({
+  //   PageNumber: 1,
+  //   PageSize: 5
+  // });
 
   const extracts = useMemo(() => data.map(p => ({
     "Fecha vencimiento": p["Fecha vencimiento"],
     "Poliza": p.Poliza,
     "Valor": p.Valor,
     "Acción": "Pagar"
-  })), [data])
+  })), [])
 
   return (
     <div className="space-y-5">
