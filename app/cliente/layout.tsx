@@ -1,7 +1,6 @@
+import Header from "@/modules/cliente/components/Header";
 import WebsiteProviders from "@/modules/shared/providers/WebsiteProviders";
 import Footer from "@/modules/website/components/Footer";
-import Header from "@/modules/website/components/Header";
-import Navigation from "@/modules/website/components/Navigation";
 import Attention from "@/modules/website/ui/Attention";
 import type { Metadata } from "next";
 
@@ -17,13 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <WebsiteProviders>
-      <div className="sticky inset-0 z-40">
-        <Header />
-        <Navigation />
+      <div className="grid grid-cols-1 grid-rows-[96px_1fr] min-h-screen bg-gray-3">
+
+        <div className="col-span-2">
+          <Header />
+        </div>
+
+        {children}
       </div>
-
-      {children}
-
       <Footer />
       <Attention />
     </WebsiteProviders>

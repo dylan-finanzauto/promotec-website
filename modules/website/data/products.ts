@@ -1,34 +1,36 @@
+import { getAssetPath } from "@/modules/shared/utils/paths";
+
 export const PRODUCTS = [
   {
-    image: '/Promotec.Website.Client/images/bici_1@3x.png',
+    image: getAssetPath('/images/products/2.png'),
     text: 'Póliza de Bicis'
   },
   {
-    image: '/Promotec.Website.Client/images/woman-playing-with-her-dog-park.png',
+    image: getAssetPath('/images/products/3.png'),
     text: 'Póliza de Mascotas'
   },
   {
-    image: '/Promotec.Website.Client/images/Hogar@3x.png',
+    image: getAssetPath('/images/products/4.png'),
     text: 'Póliza de Hogar'
   },
   {
-    image: '/Promotec.Website.Client/images/dip29_seguro_vida.png',
+    image: getAssetPath('/images/products/5.png'),
     text: 'Póliza de Vida'
   },
   {
-    image: '/Promotec.Website.Client/images/exequias@3x.png',
+    image: getAssetPath('/images/products/6.png'),
     text: 'Póliza de Exequias'
   },
   {
-    image: '/Promotec.Website.Client/images/long-shot-happy-family-living-room.png',
+    image: getAssetPath('/images/products/7.png'),
     text: 'Póliza de Arrendamiento'
   },
   {
-    image: '/Promotec.Website.Client/images/man-with-broken-leg-cast-reads-books-against-light-background-interior-room.png',
+    image: getAssetPath('/images/products/8.png'),
     text: 'Accidentes Personales'
   },
   {
-    image: '/Promotec.Website.Client/images/couple-with-travel-map-is-planning-travel.png',
+    image: getAssetPath('/images/products/9.png'),
     text: 'Asistencia en Viajes'
   },
 ]

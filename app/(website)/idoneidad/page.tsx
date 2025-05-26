@@ -1,6 +1,7 @@
 'use client';
 import Pagination from "@/modules/shared/components/Pagination";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 
 const cols = ["Nombre y apellidos", "Tipo de documento", "Identificación", "Agencia de seguros", "Nit", "Fecha de vinculación"];
@@ -69,7 +70,7 @@ function Table() {
     <div className="overflow-x-auto rounded-lg">
       <table className="min-w-full text-left">
         <thead>
-          <tr className="bg-text2 text-princ-blue text-[20px]">
+          <tr className="bg-blue-secondary text-blue-terciary text-[20px]">
             {cols.map((col) => (
               <th key={col} className="py-4 px-[10px] text-center text-nowrap">
                 {col}
@@ -78,10 +79,10 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item: any, idx) => (
+          {data.map((item: Record<string, string>, idx) => (
             <tr
               key={idx}
-              className={idx % 2 === 0 ? "bg-transparent" : "bg-gray2"}
+              className={idx % 2 === 0 ? "bg-transparent" : "bg-gray-2"}
             >
               {cols.map((col, i) => (
                 <td key={i} className="py-6 px-[10px] text-nowrap">{item[col]}</td>
@@ -97,13 +98,17 @@ function Table() {
 const Suitability: React.FC = () => {
   return (
     <>
-      <Banner titleTop="Listado de" titleBottom="Idoneidad" img="/Promotec.Website.Client/images/banner-suitability.png" />
+      <Banner
+        titleTop="Listado de"
+        titleBottom="Idoneidad"
+        img={getAssetPath("/images/suitability/banner.png")}
+      />
 
       <section className="py-[70px]">
         <Wrapper>
-          <h3 className="pt-[30px] pb-[100px] text-[30px] text-center text-secn-blue font-bold">Conoce el listado de idoneidad de nuestros funcionarios</h3>
-          <div className="py-16 px-24 rounded-[30px] bg-white2 space-y-[30px]">
-            <h3 className="text-3xl text-text text-center font-bold">Listado de funcionarios acreditados</h3>
+          <h3 className="pt-[30px] pb-[100px] text-[30px] text-center text-blue-primary font-bold">Conoce el listado de idoneidad de nuestros funcionarios</h3>
+          <div className="py-16 px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
+            <h3 className="text-3xl text-text-4 text-center font-bold">Listado de funcionarios acreditados</h3>
             <Table />
             <Pagination
               page={1}

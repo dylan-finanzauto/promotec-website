@@ -15,25 +15,26 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-princ-blue: #D5E4F6;
-  --color-secn-blue: #345BB0;
-  --color-tirth: #FF9302;
-  --color-tirth-hover: #FFAC3D;
-  --color-text: #041C3C;
-  --color-text1: #466DA0;
-  --color-text2: #6C8EBA;
-  --color-text3: #A1A2A1;
-  --color-text4: #4D4D4D;
-  --color-white2: #F4F4F4;
-  --color-gray1: #F0F2F9;
-  --color-gray2: #EFEFEF;
+  --color-blue-primary: #345BB0;
+  --color-blue-secondary: #6C8EBA;
+  --color-blue-terciary: #D5E4F6;
+  --color-yellow-primary: #FF9302;
+  --color-yellow-primary-hover: #FFAC3D;
   --color-green: #45A245;
-  --color-green-100: #E4F5E3;
   --color-red: #ED2D15;
-  --color-red-100: #FFE2DF;
+  --color-gray-1: #F4F4F4;
+  --color-gray-2: #EFEFEF;
+  --color-gray-3: #F0F2F9;
+  --color-gray-4: #A1A2A1;
+  --color-gray-5: #7E7E7E;
+  --color-text-1: #466DA0;
+  --color-text-2: #A1A2A1;
+  --color-text-3: #4D4D4D;
+  --color-text-4: #041C3C;
+
   --font-sans: "Inter", system-ui, sans-serif;
-  --animate-marquee: marquee 25s linear infinite;
-  --animate-marquee2: marquee2 25s linear infinite;
+  --animate-marquee: marquee 10s linear infinite;
+  --animate-marquee2: marquee2 10s linear infinite;
 }
 
 @layer base {

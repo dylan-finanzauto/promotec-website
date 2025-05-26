@@ -1,7 +1,7 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Cookies from "@/modules/website/components/Cookies";
+import CookieConsent from "@/modules/website/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +22,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => (
     >
       {children}
 
-      <Cookies />
+      <CookieConsent />
     </body>
   </html>
 );

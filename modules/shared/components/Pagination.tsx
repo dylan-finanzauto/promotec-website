@@ -1,8 +1,6 @@
 'use client';
-import ChevronLeftDoubleIcon from "./icons/ChevronLeftDoubleIcon";
-import ChevronLeftIcon from "./icons/ChevronLeftIcon";
-import ChevronRightDoubleIcon from "./icons/ChevronRightDoubleIcon";
-import ChevronRightIcon from "./icons/ChevronRightIcon";
+
+import { ChevronLeftDoubleIcon, ChevronLeftIcon, ChevronRightDoubleIcon, ChevronRightIcon } from "./SVGIcons";
 
 type Props = {
   page: number;
@@ -27,28 +25,28 @@ const Pagination: React.FC<Props> = ({ page, pageSize, totalCount, hasNextPage, 
       <div className="sm:hidden">{`${page} / ${totalPages}`}</div>
       <div className="flex gap-2">
         <button
-          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-princ-blue rounded-lg cursor-pointer disabled:cursor-auto"
+          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-blue-terciary rounded-lg cursor-pointer disabled:cursor-auto"
           onClick={() => onPageChange(1)}
           disabled={!hasPreviousPage}
         >
           <ChevronLeftDoubleIcon />
         </button>
         <button
-          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-princ-blue rounded-lg cursor-pointer disabled:cursor-auto"
+          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-blue-terciary rounded-lg cursor-pointer disabled:cursor-auto"
           onClick={() => onPageChange(page - 1)}
           disabled={!hasPreviousPage}
         >
           <ChevronLeftIcon />
         </button>
         <button
-          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-princ-blue rounded-lg cursor-pointer disabled:cursor-auto"
+          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-blue-terciary rounded-lg cursor-pointer disabled:cursor-auto"
           onClick={() => onPageChange(page + 1)}
           disabled={!hasNextPage}
         >
           <ChevronRightIcon />
         </button>
         <button
-          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-princ-blue rounded-lg cursor-pointer disabled:cursor-auto"
+          className="size-10 grid place-items-center border border-[#DEE5ED] disabled:text-blue-terciary rounded-lg cursor-pointer disabled:cursor-auto"
           onClick={() => onPageChange(totalPages)}
           disabled={!hasNextPage}
         >

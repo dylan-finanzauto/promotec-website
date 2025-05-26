@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   }, [path])
 
   return (
-    <header className="h-10 bg-secn-blue">
+    <header className="h-10 bg-blue-primary">
       <Wrapper className="flex justify-between h-full">
         <div className="flex items-end">
           {routes.map((r) => {
@@ -32,10 +32,10 @@ const Header: React.FC = () => {
               <Link
                 key={r.text}
                 href={r.url}
-                className={`relative h-9 rounded-t-[10px] py-2 px-3 text-[15px] ${r.active ? 'bg-gray1 text-secn-blue font-semibold' : 'text-white font-medium'}`}
+                className={`relative h-9 rounded-t-[10px] py-2 px-3 text-[15px] ${r.active ? 'bg-gray-3 text-blue-primary font-semibold' : 'text-white font-medium'}`}
               >
                 {r.text}
-                <span className="absolute bottom-0 left-1/2 -translate-1/2 h-0.5 w-1/3 bg-secn-blue" />
+                <span className="absolute bottom-0 left-1/2 -translate-1/2 h-0.5 w-1/3 bg-blue-primary" />
               </Link>
             );
           })}
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
             Portales
           </div>
           <ul
-            className="hidden hover:flex absolute right-0 top-8 z-10 flex-col rounded-b-3xl bg-secn-blue px-8 py-2 text-white shadow-lg"
+            className="hidden hover:flex absolute right-0 top-8 z-10 flex-col rounded-b-3xl bg-blue-primary px-8 py-2 text-white shadow-lg"
           >
             <li className="text-sm cursor-pointer">
               <Link href="/siglo">SIGLO</Link>

@@ -1,21 +1,19 @@
 'use client';
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import MailIcon from "@/modules/shared/components/icons/MailIcon";
-import PhoneIcon from "@/modules/shared/components/icons/PhoneIcon";
-import POutlinedIcon from "@/modules/shared/components/icons/POutlinedIcon";
 import React from "react";
-import CheckCircleIcon from "@/modules/shared/components/icons/CheckCircleIcon";
 import Banner from "@/modules/website/ui/Banner";
+import { CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
+import { getAssetPath } from "@/modules/shared/utils/paths";
 
 const coverages = [
-  { name: "Croquis", ppd: true, ptd: true, pph: true, pth: true, rce: true },
-  { name: "Cédula", ppd: true, ptd: true, pph: true, pth: true, rce: true },
-  { name: "Licencia de conducción", ppd: true, ptd: true, pph: true, pth: true, rce: true },
-  { name: "Tarjeta de propiedad", ppd: true, ptd: true, pph: true, pth: true, rce: true },
-  { name: "Reclamo del tercero", ppd: false, ptd: false, pph: false, pth: false, rce: true },
-  { name: "Traslado de la compañía", ppd: false, ptd: true, pph: false, pth: true, rce: false },
-  { name: "Denuncia ante la autoridad", ppd: false, ptd: false, pph: true, pth: true, rce: false },
-  { name: "Cancelación de matrícula", ppd: false, ptd: false, pph: false, pth: true, rce: false },
+  { "name": "Croquis", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
+  { "name": "Cédula", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
+  { "name": "Licencia de conducción", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
+  { "name": "Tarjeta de propiedad", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
+  { "name": "Reclamo del tercero", "ppd": false, "ptd": false, "pph": false, "pth": false, "rce": true },
+  { "name": "Traslado de la compañía", "ppd": false, "ptd": true, "pph": false, "pth": true, "rce": false },
+  { "name": "Denuncia ante la autoridad", "ppd": false, "ptd": false, "pph": true, "pth": true, "rce": false },
+  { "name": "Cancelación de matrícula", "ppd": false, "ptd": false, "pph": false, "pth": true, "rce": false },
 ];
 
 const columns = ["PPD", "PTD", "PPH", "PTH", "RCE"];
@@ -25,7 +23,7 @@ function CoverageTable() {
     <div className="overflow-x-auto rounded-lg">
       <table className="min-w-full text-left">
         <thead>
-          <tr className="bg-text2 text-princ-blue text-[20px]">
+          <tr className="bg-blue-secondary text-blue-terciary text-[20px]">
             <th className="py-5 px-10">Amparos</th>
             {columns.map((col) => (
               <th key={col} className="py-5 px-10 text-center">
@@ -35,16 +33,16 @@ function CoverageTable() {
           </tr>
         </thead>
         <tbody>
-          {coverages.map((item: any, idx) => (
+          {coverages.map((item: Record<string, string | boolean>, idx) => (
             <tr
               key={idx}
-              className={idx % 2 === 0 ? "bg-transparent" : "bg-gray2"}
+              className={idx % 2 === 0 ? "bg-transparent" : "bg-gray-2"}
             >
               <td className="py-5 px-10">{item.name}</td>
               {columns.map((col) => (
                 <td key={col} className="py-5 px-10 text-center">
                   {item[col.toLowerCase()] ? (
-                    <CheckCircleIcon className="text-secn-blue inline w-5 h-5" />
+                    <CheckCircleIcon className="text-blue-primary inline w-5 h-5" />
                   ) : (
                     <CheckCircleIcon className="text-gray-400 inline w-5 h-5" />
                   )}
@@ -58,46 +56,54 @@ function CoverageTable() {
   );
 }
 
-const Indemnizaciones: React.FC = () => {
+const Compensations: React.FC = () => {
 
   return (
     <>
-      <Banner titleBottom="Indemnizaciones" />
+      <Banner
+        titleBottom="Indemnizaciones"
+        img={getAssetPath("/images/compensations/banner.png")}
+      />
 
-      <section className="py-28 bg-gray1">
+      <section className="py-28 bg-gray-3">
         <Wrapper>
           <div className="flex gap-10">
             <div className="relative">
-              <div className="fade-left size-[576px] bg-[url('/Promotec.Website.Client/images/promotec14.jpg')] bg-cover bg-center mask-[url('/Promotec.Website.Client/icons/p.svg')] mask-no-repeat mask-center mask-size-contain">
-              </div>
+              <div
+                className="fade-left size-[576px] bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
+                style={{
+                  backgroundImage: `url(${getAssetPath("/images/compensations/p.jpg")})`,
+                  maskImage: `url(${getAssetPath("/icons/p.svg")})`
+                }}
+              />
               <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
 
             <div className="">
               <div className="space-y-[30px]">
-                <h2 className="text-[40px] text-secn-blue font-bold">¡Estamos contigo!</h2>
-                <p className="text-[20px] text-text4 font-medium">Nuestro compromiso es acompañarte de manera rápida, justa y sin complicaciones, en tu proceso de reclamación en caso de siniestro.</p>
+                <h2 className="text-[40px] text-blue-primary font-bold">¡Estamos contigo!</h2>
+                <p className="text-[20px] text-text-3 font-medium">Nuestro compromiso es acompañarte de manera rápida, justa y sin complicaciones, en tu proceso de reclamación en caso de siniestro.</p>
               </div>
               <ul className="space-y-[30px] mt-[100px]">
                 <li className="">
                   <div className="zoom-in inline-flex items-center gap-5">
-                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                      <PhoneIcon className="size-6 text-secn-blue" />
+                    <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
+                      <PhoneIcon className="size-6 text-blue-primary" />
                     </div>
                     <div className="space-y-1">
                       <h6 className="">Línea nacional:</h6>
-                      <h5 className="text-[20px] text-secn-blue font-bold">(601) 742 3700 Opción. 4</h5>
+                      <h5 className="text-[20px] text-blue-primary font-bold">(601) 742 3700 Opción. 4</h5>
                     </div>
                   </div>
                 </li>
                 <li className="">
                   <div className="zoom-in inline-flex items-center gap-5">
-                    <div className="size-16 rounded-full bg-princ-blue grid place-items-center">
-                      <MailIcon className="size-6 text-secn-blue" />
+                    <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
+                      <MailIcon className="size-6 text-blue-primary" />
                     </div>
                     <div className="space-y-1">
                       <h6 className="">Correo electrónico:</h6>
-                      <h5 className="text-[20px] text-secn-blue font-bold">servicioalcliente@promotec.com.co</h5>
+                      <h5 className="text-[20px] text-blue-primary font-bold">servicioalcliente@promotec.com.co</h5>
                     </div>
                   </div>
                 </li>
@@ -109,10 +115,10 @@ const Indemnizaciones: React.FC = () => {
 
       <section className="py-[70px]">
         <Wrapper>
-          <div className="py-16 px-24 rounded-[30px] bg-white2 space-y-[30px]">
-            <h3 className="text-3xl text-text text-center font-bold">Documentación para reclamación de siniestros (carros, motos y bicicletas)</h3>
+          <div className="py-16 px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
+            <h3 className="text-3xl text-text-4 text-center font-bold">Documentación para reclamación de siniestros (carros, motos y bicicletas)</h3>
             <CoverageTable />
-            <p className="text-center text-text4 font-medium"><b>PPD:</b> Pérdida Parcial Daños / <b>PTD:</b> Pérdida Total Daños / <b>PPH:</b> Pérdida Parcial Hurto / <b>PTH:</b> Pérdida Total Hurto / <b>RCE:</b> Responsabilidad Civil Extracontractual</p>
+            <p className="text-center text-text-3 font-medium"><b>PPD:</b> Pérdida Parcial Daños / <b>PTD:</b> Pérdida Total Daños / <b>PPH:</b> Pérdida Parcial Hurto / <b>PTH:</b> Pérdida Total Hurto / <b>RCE:</b> Responsabilidad Civil Extracontractual</p>
           </div>
         </Wrapper>
       </section>
@@ -121,4 +127,4 @@ const Indemnizaciones: React.FC = () => {
   )
 }
 
-export default Indemnizaciones;
+export default Compensations;

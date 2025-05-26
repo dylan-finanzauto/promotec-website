@@ -1,18 +1,20 @@
+import { getAssetPath } from "@/modules/shared/utils/paths";
+
 export const POLICIES = [
   {
-    image: '/Promotec.Website.Client/images/4.2.jpg',
+    image: getAssetPath('/images/policies/1.jpg'),
     text: 'Protección de datos personales'
   },
   {
-    image: '/Promotec.Website.Client/images/4.3.jpg',
+    image: getAssetPath('/images/policies/2.jpg'),
     text: 'Política de cookies'
   },
   {
-    image: '/Promotec.Website.Client/images/4.4.jpg',
+    image: getAssetPath('/images/policies/3.jpg'),
     text: 'Seguridad y salud en el trabajo'
   },
   {
-    image: '/Promotec.Website.Client/images/4.1.jpg',
+    image: getAssetPath('/images/policies/4.jpg'),
     text: 'Política de calidad'
   }
 ]

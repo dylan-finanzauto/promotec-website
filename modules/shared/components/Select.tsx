@@ -2,10 +2,10 @@
 // Libraries
 import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
+import { ChevronDownIcon } from "./SVGIcons";
 // Components
-import ChevronDownIcon from "./icons/ChevronDownIcon";
 
-type Item = {
+export type Item = {
   key: string;
   value: any;
 };
@@ -104,7 +104,7 @@ export default function Select({ items, className, value, placeholder, error, di
       {items.map((i) => (
         <li
           key={i.value}
-          className={`h-10 px-3 flex items-center cursor-pointer rounded-lg truncate ${selectedItem == i ? "bg-gray1" : "hover:bg-gray1"}`}
+          className={`h-10 px-3 flex items-center cursor-pointer rounded-lg truncate ${selectedItem == i ? "bg-gray-3" : "hover:bg-gray-3"}`}
           onClick={() => handleSelect(i)}
         >
           {i.key}
@@ -118,7 +118,7 @@ export default function Select({ items, className, value, placeholder, error, di
       <div
         className={
           `h-10 w-full shadow-sm border border-[#DEE5ED] bg-white rounded-lg px-3 py-[10px] flex justify-between items-center gap-2 cursor-pointer
-          ${isOpen ? "outline" : ""} ${isOpen && error ? "outline-red-500" : "outline-secn-blue"}
+          ${isOpen ? "outline" : ""} ${isOpen && error ? "outline-red-500" : "outline-blue-primary"}
           ${error ? "border-red-500" : ""}
           ${disabled ? "bg-gray-100 cursor-not-allowed text-gray-400" : ""}
           ${className}
@@ -130,10 +130,10 @@ export default function Select({ items, className, value, placeholder, error, di
           {selectedItem ? (
             <span className="text-[#1F2024]">{selectedItem.key}</span>
           ) : (
-            <span className="text-text2">{placeholder || "Seleccione..."}</span>
+            <span className="text-blue-secondary">{placeholder || "Seleccione..."}</span>
           )}
         </div>
-        <ChevronDownIcon className={selectedItem ? "text-[#1F2024]" : "text-text2"} />
+        <ChevronDownIcon className={selectedItem ? "text-[#1F2024]" : "text-blue-secondary"} />
       </div>
       {portalContainer && !disabled && ReactDOM.createPortal(dropdown, portalContainer)}
     </div>

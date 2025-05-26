@@ -1,8 +1,7 @@
 'use client';
-import ChevronLeftIcon from "@/modules/shared/components/icons/ChevronLeftIcon";
-import ChevronRightIcon from "@/modules/shared/components/icons/ChevronRightIcon";
 import { useEffect, useState } from "react";
 import Hero from "./Hero";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/modules/shared/components/SVGIcons";
 
 const slides = [
   { id: 1, image: '/image1.jpg', alt: 'Slide 1' },
@@ -50,14 +49,14 @@ const Carousel: React.FC = () => {
           className="size-10 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out"
           onClick={() => prev()}
         >
-          <ChevronLeftIcon className="size-5 text-secn-blue" />
+          <ChevronLeftIcon className="size-5 text-blue-primary" />
         </button>
 
         <button
           className="size-10 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 ease-in-out"
           onClick={() => next()}
         >
-          <ChevronRightIcon className="size-5 text-secn-blue" />
+          <ChevronRightIcon className="size-5 text-blue-primary" />
         </button>
       </div>
 
