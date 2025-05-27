@@ -5,47 +5,55 @@ import { getAssetPath } from '@/modules/shared/utils/paths'
 import Footer from '@/modules/website/components/Footer'
 import Header from '@/modules/website/components/Header'
 import Navigation from '@/modules/website/components/Navigation'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+export const metadata: Metadata = {
+  title: "Promotec | 404 - Página no encontrada",
+  description: "Promotec ofrece seguros personalizados en automóviles, hogar, salud, vida, empresariales y de viaje, con asesoramiento experto y gestión eficiente de siniestros.",
+};
+
 type OptionProps = {
   text: string
   icon: React.ReactNode,
-  active: boolean,
+  href: string
 }
 
 const options: OptionProps[] = [
   {
     text: 'Carros',
     icon: <CarIcon />,
-    active: true
+    href: '/productos/vehiculos',
   },
   {
     text: 'Bicis',
     icon: <BikeIcon />,
-    active: false
+    href: '/productos/bicis',
   },
   {
     text: 'Vida',
     icon: <HeartbeatIcon />,
-    active: false
+    href: '/productos/vida',
   },
   {
     text: 'Hogar',
     icon: <HomeIcon />,
-    active: false
+    href: '/productos/hogar',
   },
 ]
 
-const OptionButton: React.FC<OptionProps> = ({ text, icon, active }) => {
+const OptionButton: React.FC<OptionProps> = ({ text, icon, href }) => {
   return (
-    <button className={`h-10 px-5 rounded-[10px] flex items-center gap-3 border border-blue-primary cursor-pointer ${active ? "bg-blue-primary text-white" : "bg-transparent text-blue-primary"}`}>
-      <div className="py-1 px-2 rounded-lg grid place-items-center bg-white text-blue-primary">
-        {icon}
-      </div>
-      {text}
-    </button>
+    <Link href={href}>
+      <button className="h-10 px-5 rounded-[10px] flex items-center gap-3 border border-blue-primary cursor-pointer bg-transparent text-blue-primary hover:bg-blue-primary hover:text-white">
+        <div className="py-1 px-2 rounded-lg grid place-items-center bg-white text-blue-primary">
+          {icon}
+        </div>
+        {text}
+      </button>
+    </Link>
   )
 }
 
@@ -84,7 +92,7 @@ const NotFound = () => {
                     key={i}
                     text={o.text}
                     icon={o.icon}
-                    active={o.active}
+                    href={o.href}
                   />
                 ))}
               </div>
@@ -94,14 +102,14 @@ const NotFound = () => {
                   <p className="text-[20px] text-text-4">Recorre kilómetros seguros con tu Póliza de Carros.</p>
                 </div>
                 <Link
-                  href={""}
+                  href={"/productos/vehiculo/cotizar"}
                   className="self-end"
                 >
                   <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
                 </Link>
               </div>
               <Link
-                href={"/"}
+                href={"/productos"}
                 className="text-blue-primary underline font-medium hover:font-semibold transition-all"
               >Ver todos los productos</Link>
             </div>

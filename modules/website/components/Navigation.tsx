@@ -43,7 +43,7 @@ const Navigation: React.FC = () => {
               <Link
                 key={r.text}
                 href={r.url}
-                className={`relative text-blue-primary ${isActive ? 'font-bold' : 'text-blue-primary font-medium'}`}
+                className={`relative text-lg text-blue-primary ${isActive ? 'font-bold' : 'text-blue-primary font-medium'}`}
               >
                 {r.text}
                 {isActive && <span className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] h-[2px] w-2/3 bg-yellow-primary"></span>}

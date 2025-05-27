@@ -48,7 +48,7 @@ const Header: React.FC = () => {
             className="hidden hover:flex absolute right-0 top-8 z-10 flex-col rounded-b-3xl bg-blue-primary px-8 py-2 text-white shadow-lg"
           >
             <li className="text-sm cursor-pointer">
-              <Link href="/siglo">SIGLO</Link>
+              <a href={process.env.NEXT_PUBLIC_SIGLO_URL} target="_blank">SIGLO</a>
             </li>
           </ul>
         </div>

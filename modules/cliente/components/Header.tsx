@@ -2,7 +2,6 @@
 import { LogoutIcon, PromotecIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const Header: React.FC = () => {
 

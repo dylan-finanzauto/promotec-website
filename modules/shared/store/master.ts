@@ -1,14 +1,14 @@
 import { create } from "zustand";
-import { Master } from "../types/master";
+import { Insurer, Master } from "../types/master";
 
 interface ITdStore {
   typeDocuments: Master[],
   updateTypeDocuments: (typeDocuments: Master[]) => void
 }
 
-interface ITpStore {
-  typeProducts: Master[],
-  updateTypeProducts: (typeProducts: Master[]) => void
+interface IInsurersStore {
+  insurers: Insurer[],
+  updateInsurers: (insurers: Insurer[]) => void
 }
 
 export const tdStore = create<ITdStore>((set) => ({
@@ -16,7 +16,7 @@ export const tdStore = create<ITdStore>((set) => ({
   updateTypeDocuments: (typeDocuments: Master[]) => set({ typeDocuments })
 }))
 
-export const tpStore = create<ITpStore>((set) => ({
-  typeProducts: [],
-  updateTypeProducts: (typeProducts: Master[]) => set({ typeProducts })
+export const insurersStore = create<IInsurersStore>((set) => ({
+  insurers: [],
+  updateInsurers: (insurers: Insurer[]) => set({ insurers })
 }))

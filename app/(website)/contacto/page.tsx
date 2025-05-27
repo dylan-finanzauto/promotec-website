@@ -6,7 +6,7 @@ import { InputField } from "@/modules/shared/components/InputField";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import Banner from "@/modules/website/ui/Banner";
-import { tdStore, tpStore } from "@/modules/shared/store/mastersStore";
+import { tdStore } from "@/modules/shared/store/master";
 import { useMemo } from "react";
 import Link from "next/link";
 import { MailIcon, PhoneIcon, POutlinedIcon, WhatsappIcon } from "@/modules/shared/components/SVGIcons";
@@ -26,7 +26,6 @@ const formSchema = z.object({
 const ContactForm: React.FC = () => {
 
   const { typeDocuments } = tdStore()
-  const { typeProducts } = tpStore()
 
   const form = useForm({
     defaultValues: {
@@ -48,12 +47,7 @@ const ContactForm: React.FC = () => {
   const tdItems = useMemo(() => typeDocuments.map(t => ({
     key: t.name,
     value: t.id
-  })), [typeDocuments])
-
-  const tpItems = useMemo(() => typeProducts.map(t => ({
-    key: t.name,
-    value: t.id
-  })), [typeProducts])
+  })), [])
 
   return (
 
@@ -159,7 +153,7 @@ const ContactForm: React.FC = () => {
             <div className="space-y-4">
               <label htmlFor="" className="text-sm font-medium">Tipo de produco</label>
               <Select
-                items={tpItems}
+                items={tdItems}
                 name={field.name}
                 value={field.state.value}
                 error={field.state.meta.errors.length > 0}

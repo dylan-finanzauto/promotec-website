@@ -1,26 +1,113 @@
-import { AnglesIcon, CarIcon } from "@/modules/shared/components/SVGIcons";
+'use client';
+import { BikeIcon, CarIcon, HeartbeatIcon, HomeIcon, KeyFilledIcon, MapPinIcon, PawFilledIcon, SeedlingIcon, ShieldIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { AlterProductCard, ProductCard } from "./ProductCard";
-import { getAssetPath } from "@/modules/shared/utils/paths";
-import { PRODUCTS } from "../data/products";
+import { productStore } from "@/modules/shared/store/product";
+import InsuranceSelect from "../components/InsuranceSelect";
+import { useMemo } from "react";
+import { useForm } from "@tanstack/react-form";
+import { redirect } from "next/navigation";
+
+const mapping: Record<string, any> = {
+  "Carros y Motos": {
+    icon: <CarIcon className="size-6 text-blue-primary" />,
+    href: "/productos/vehiculos",
+  },
+  "Bicis": {
+    icon: <BikeIcon className="size-6 text-blue-primary" />,
+    href: "/productos/bicis",
+  },
+  "Mascotas": {
+    icon: <PawFilledIcon className="size-6 text-blue-primary" />,
+    href: "/productos/mascotas",
+  },
+  "Hogar": {
+    icon: <HomeIcon className="size-6 text-blue-primary" />,
+    href: "/productos/hogar",
+  },
+  "Vida": {
+    icon: <HeartbeatIcon className="size-6 text-blue-primary" />,
+    href: "/productos/vida",
+  },
+  "Exequias": {
+    icon: <SeedlingIcon className="size-6 text-blue-primary" />,
+    href: "/productos/exequias",
+  },
+  "Arrendamiento": {
+    icon: <KeyFilledIcon className="size-6 text-blue-primary" />,
+    href: "/productos/arrendamiento",
+  },
+  "Accidentes Personales": {
+    icon: <ShieldIcon className="size-6 text-blue-primary" />,
+    href: "/productos/accidentes",
+  },
+  "Asistencia en viajes": {
+    icon: <MapPinIcon className="size-6 text-blue-primary" />,
+    href: "/productos/viajes",
+  }
+}
 
 const PolicyBar: React.FC = () => {
+
+  const { products } = productStore();
+
+  const form = useForm({
+    defaultValues: {
+      product: products.at(0)?.name || ''
+    },
+    onSubmit: ({ value }) => {
+      redirect(mapping[value.product]?.href || '/productos');
+    }
+  })
+
+  const productsItems = useMemo(() => products.map((p) => ({
+    key: p.name,
+    value: p.name,
+  })), [products]);
+
   return (
-    <div className="zoom-in p-6 flex items-center gap-6 rounded-3xl shadow-lg bg-white">
-      <span className="text-[20px] text-text-4 font-semibold">¿Qué seguro necesitas?</span>
-      <div className="p-4 rounded-lg w-xs border border-[#DEE5ED] flex items-center cursor-default">
-        <div className="grow flex items-center gap-4">
-          <CarIcon className="size-6 text-blue-primary" />
-          <span className="text-[20px] text-[#1F2024]">Carros y motos</span>
-        </div>
-        <AnglesIcon />
+    <form onSubmit={(e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      form.handleSubmit()
+    }}>
+      <div className="zoom-in p-6 flex items-center gap-6 rounded-3xl shadow-lg bg-white">
+        <span className="text-[20px] text-text-4 font-semibold">¿Qué seguro necesitas?</span>
+        <form.Field
+          name="product"
+          children={(field) => (
+            <InsuranceSelect
+              items={productsItems}
+              name={field.name}
+              value={field.state.value}
+              onChange={field.handleChange}
+              renderItem={(item) => (
+                <div className="flex items-center gap-4">
+                  {mapping[item.key]?.icon}
+                  <span className="text-[20px] text-[#1F2024]">{item.key}</span>
+                </div>
+              )}
+            />
+          )}
+        />
+        <form.Subscribe
+          selector={(state) => [state.canSubmit, state.isSubmitting]}
+          children={([canSubmit, isSubmitting]) => (
+            <button
+              className="py-4 px-6 text-[20px] rounded-[10px] bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer"
+              disabled={!canSubmit || isSubmitting}
+            >Cotizar</button>
+          )}
+        />
       </div>
-      <button className="py-4 px-6 text-[20px] rounded-[10px] bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Cotizar</button>
-    </div>
+    </form>
   )
 }
 
 function Quotes() {
+
+  const { products } = productStore();
+
   return (
     <section className="relative pt-28 pb-14">
 
@@ -35,13 +122,16 @@ function Quotes() {
             <p className="text-[20px] text-center text-text-3 font-medium">Ofrecemos una amplia gama de seguros, diseñados para proteger lo que más valoras.</p>
           </div>
           <div className="grid grid-cols-3 auto-rows-[408px] gap-5">
-            <AlterProductCard image={getAssetPath("/images/products/1.png")} text={"Póliza de Carros y Motos"} />
+            {products.slice(0, 1).map((p, i) => (
+              <AlterProductCard key={i} href={mapping[p.name]?.href || ''} image={p.images} text={`Póliza de ${p.name}`} />
+            ))}
 
-            {PRODUCTS.slice(0, 4).map((p, i) => (
+            {products.slice(1, 5).map((p, i) => (
               <ProductCard
                 key={i}
-                image={p.image}
-                text={p.text}
+                href={mapping[p.name]?.href || ''}
+                image={p.images}
+                text={`Póliza de ${p.name}`}
               />
             ))}
 

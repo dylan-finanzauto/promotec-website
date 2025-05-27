@@ -1,23 +1,64 @@
+'use client';
+import { AxaIcon, BolivarIcon, ColmenaIcon, ContinentalIcon, EquidadIcon, HdiIcon, LibertyIcon, LlianzIcon, MapfreIcon, PrevisoraIcon, SbsIcon, SolidariaIcon, SuraIcon, ZurichIcon } from "@/modules/shared/components/SVGIcons";
+import { insurersStore } from "@/modules/shared/store/master";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { ATTENDANCES } from "@/modules/website/data/attendances";
 import Banner from "@/modules/website/ui/Banner";
-import Image from "next/image";
 import Link from "next/link";
 
-type CardProps = {
-  url: string;
+const mapping: Record<string, { icon: React.ReactNode }> = {
+  "Allianz (II)": {
+    icon: <LlianzIcon />
+  },
+  "Suramericana": {
+    icon: <SuraIcon />
+  },
+  "CONTINENTAL ASSIST": {
+    icon: <ContinentalIcon />
+  },
+  "Aseguradora Solidaria": {
+    icon: <SolidariaIcon />
+  },
+  "Colmena Seguros": {
+    icon: <ColmenaIcon />
+  },
+  "Axa Colpatria": {
+    icon: <AxaIcon />
+  },
+  "HDI Seguros": {
+    icon: <HdiIcon />
+  },
+  "SBS Seguros": {
+    icon: <SbsIcon />
+  },
+  "Liberty Seguros": {
+    icon: <LibertyIcon />
+  },
+  "Equidad Seguros": {
+    icon: <EquidadIcon />
+  },
+  "Zurich Seguros": {
+    icon: <ZurichIcon />
+  },
+  "Seguros Bolivar": {
+    icon: <BolivarIcon />
+  },
+  "Mapfre Seguros": {
+    icon: <MapfreIcon />
+  },
+  "Previsora Seguros": {
+    icon: <PrevisoraIcon />
+  },
 }
 
-const AttendanceCard: React.FC<CardProps> = ({ url }) => {
+type CardProps = {
+  name: string;
+}
+
+const AttendanceCard: React.FC<CardProps> = ({ name }) => {
   return (
     <div className="fade-up rounded-[30px] overflow-hidden bg-gray-3 flex flex-col">
-      <div className="flex justify-center items-center flex-1">
-        <Image
-          src={url}
-          alt="Imágen de aseguradora"
-          width={120}
-          height={60}
-        />
+      <div className="flex justify-center items-center flex-1 text-gray-4">
+        {mapping[name]?.icon}
       </div>
       <div className="flex items-center gap-8 px-10 py-6 bg-blue-terciary">
         <h5 className="text-[40px] text-text-1 font-bold">#123</h5>
@@ -28,6 +69,8 @@ const AttendanceCard: React.FC<CardProps> = ({ url }) => {
 }
 
 const Emergency: React.FC = () => {
+
+  const { insurers } = insurersStore()
 
   return (
     <>
@@ -44,8 +87,8 @@ const Emergency: React.FC = () => {
               </div>
             </div>
             <div className="grid grid-cols-4 auto-rows-[262px] gap-4">
-              {ATTENDANCES.map((a, i) => (
-                <AttendanceCard key={i} url={a.url} />
+              {insurers.map((a, i) => (
+                <AttendanceCard key={i} name={a.name} />
               ))}
             </div>
             <div className="fade-up py-10 px-8 rounded-[30px] bg-blue-secondary space-y-8">

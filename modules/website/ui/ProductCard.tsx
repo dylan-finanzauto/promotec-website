@@ -1,44 +1,46 @@
+import Image from "next/image";
+import Link from "next/link";
+
 type CardProps = {
+  href: string;
   image: string;
   text: string;
 }
 
-export const ProductCard: React.FC<CardProps> = ({ image, text }) => {
+export const ProductCard: React.FC<CardProps> = ({ href, image, text }) => {
   return (
-    <div className="fade-up flex flex-col rounded-[30px] bg-gray-3 overflow-hidden">
-      <div
-        style={{
-          backgroundImage: `url(${image})`
-        }}
-        className="flex-1 bg-center bg-cover"
-      ></div>
-      <div className="h-[178px] px-12 py-16 flex justify-between items-center gap-7">
-        <h3 className="text-[30px] text-text-1 leading-tight font-bold">
+    <Link href={href} className="fade-up group flex flex-col rounded-[30px] overflow-hidden transition-all duration-500">
+      <div className="grow overflow-hidden">
+        <Image className="object-center object-cover group-hover:scale-110 duration-500 transition-all" src={image} alt="" width={200} height={100} style={{
+          width: "100%",
+          height: "100%"
+        }} />
+      </div>
+      <div className="h-[178px] px-12 py-16 flex justify-between items-center shrink-0 gap-7 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
+        <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold">
           {text}
         </h3>
         <button className="py-3 w-[160px] rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Ver más</button>
       </div>
-    </div>
+    </Link>
   )
 }
 
-export const AlterProductCard: React.FC<CardProps> = ({ image, text }) => {
+export const AlterProductCard: React.FC<CardProps> = ({ href, image, text }) => {
   return (
-    <div className="fade-up flex col-span-2 rounded-[30px] bg-gray-3 overflow-hidden">
-      <div className="w-2/5 px-24 flex flex-col justify-center gap-14">
-        <h3 className="text-[30px] text-text-1 leading-tight font-bold">
-          <div>Póliza de</div>
-          <div>Carros y</div>
-          <div>Motos</div>
+    <Link href={href} className="fade-up group flex col-span-2 rounded-[30px] overflow-hidden">
+      <div className="w-2/5 px-24 flex flex-col justify-center gap-14 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
+        <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold">
+          {text}
         </h3>
         <button className="py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Ver más</button>
       </div>
-      <div
-        style={{
-          backgroundImage: `url(${image})`
-        }}
-        className="flex-1 bg-center bg-cover"
-      ></div>
-    </div>
+      <div className="grow overflow-hidden">
+        <Image className="object-center object-cover group-hover:scale-110 transition-all duration-500" src={image} alt="" width={200} height={100} style={{
+          width: "100%",
+          height: "100%"
+        }} />
+      </div>
+    </Link>
   )
 }

@@ -1,11 +1,16 @@
 import axios from "axios";
-import { Master } from "../types/master";
+import { BasicResponse } from "../types/generic";
+import { Insurer, Master } from "../types/master";
 
-export const typeDocuments = async (): Promise<Master[]> => {
+export const insurer = async (): Promise<Insurer[]> => {
   try {
-    const response = await axios.get<Master[]>('https://my-json-server.typicode.com/readans/db-json-api/posts');
+    const response = await axios.get<BasicResponse<Insurer[]>>(`${process.env.NEXT_PUBLIC_API_URL}/master/insurer`);
 
-    return response.data;
+    if (response.data.isFailure) {
+      throw new Error(response.data.error.description);
+    }
+
+    return response.data.value;
   } catch (error) {
     if (axios.isAxiosError(error) && error.code === 'ECONNABORTED') {
       throw new Error('Request timed out');
@@ -14,9 +19,9 @@ export const typeDocuments = async (): Promise<Master[]> => {
   }
 };
 
-export const typeProducts = async (): Promise<Master[]> => {
+export const typeDocument = async (): Promise<Master[]> => {
   try {
-    const response = await axios.get<Master[]>('https://my-json-server.typicode.com/readans/db-json-api/comments');
+    const response = await axios.get<Master[]>(`${process.env.NEXT_PUBLIC_API_URL}/master/type-document`);
 
     return response.data;
   } catch (error) {

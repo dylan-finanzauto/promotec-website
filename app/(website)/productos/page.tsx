@@ -1,10 +1,26 @@
+'use client'
+import { productStore } from "@/modules/shared/store/product";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
-import { PRODUCTS } from "@/modules/website/data/products";
 import Banner from "@/modules/website/ui/Banner";
 import { AlterProductCard, ProductCard } from "@/modules/website/ui/ProductCard";
 
+const hrefs = [
+  "/productos/vehiculos",
+  "/productos/bicis",
+  "/productos/mascotas",
+  "/productos/hogar",
+  "/productos/vida",
+  "/productos/exequias",
+  "/productos/arrendamiento",
+  "/productos/accidentes",
+  "/productos/viajes",
+]
+
 const Products: React.FC = () => {
+
+  const { products } = productStore();
+
   return (
     <>
       <Banner
@@ -24,13 +40,17 @@ const Products: React.FC = () => {
               <p className="text-[20px] text-center text-text-3 font-medium">¡Nos preocupamos por ti! por eso, diseñamos seguros que se ajustan a lo que realmente necesitas.</p>
             </div>
             <div className="grid grid-cols-3 auto-rows-[408px] gap-5">
-              <AlterProductCard image={getAssetPath("/images/products/1.png")} text={"Póliza de Carros y Motos"} />
 
-              {PRODUCTS.map((p, i) => (
+              {products.slice(0, 1).map((p, i) => (
+                <AlterProductCard key={i} href={hrefs.at(i) || ''} image={p.images} text={p.name} />
+              ))}
+
+              {products.slice(1).map((p, i) => (
                 <ProductCard
                   key={i}
-                  image={p.image}
-                  text={p.text}
+                  href={hrefs.at(i) || ''}
+                  image={p.images}
+                  text={p.name}
                 />
               ))}
 

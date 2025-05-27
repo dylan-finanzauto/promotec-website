@@ -8,13 +8,13 @@ type Link = {
 }
 
 const Hero: React.FC<{
-  product: string,
+  title: string,
   description: string,
   image: string,
   link?: Link,
   active: boolean
 }> = ({
-  product,
+  title,
   description,
   image,
   link,
@@ -42,7 +42,7 @@ const Hero: React.FC<{
 
         <div className="absolute left-0 top-0 w-[700px] ml-20 h-full flex justify-center items-center">
           <div className="w-3/5 space-y-4">
-            <h1 className="text-7xl text-white leading-none">Póliza de <b className="text-blue-terciary font-extrabold">{product}</b></h1>
+            <h1 className="text-7xl text-white leading-none">Póliza de <b className="text-blue-terciary font-extrabold">{title}</b></h1>
             <p className="text-4xl text-white leading-[1.1]">
               <RichText text={description} />
             </p>
