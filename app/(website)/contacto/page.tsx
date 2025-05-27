@@ -47,7 +47,7 @@ const ContactForm: React.FC = () => {
   const tdItems = useMemo(() => typeDocuments.map(t => ({
     key: t.name,
     value: t.id
-  })), [])
+  })), [typeDocuments])
 
   return (
 

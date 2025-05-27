@@ -7,9 +7,8 @@ import Image from "next/image";
 import { useState } from "react";
 
 const ButtonOption: React.FC<{
-  img: string,
   active: boolean
-}> = ({ img, active }) => {
+}> = ({ active }) => {
   return (
     <button
       className={`h-[82px] w-full rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? "bg-yellow-primary text-white" : "border border-blue-terciary bg-white text-gray-4"}`}
@@ -53,7 +52,6 @@ const TermsConditions: React.FC = () => {
               <ButtonOption
                 key={i}
                 active={index == i}
-                img={a.url}
               />
             ))}
           </div>
