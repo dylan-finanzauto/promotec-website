@@ -35,12 +35,12 @@ const Hero: React.FC<{
           className="h-full w-full object-cover"
         />
 
-        <div className="absolute top-0 left-0 ml-20">
+        <div className="hidden md:block absolute top-0 left-0 ml-20">
           <PIcon className="absolute top-0 left-0 h-auto w-[700px] mt-8" />
           <POutlinedIcon className="absolute top-0 left-0 h-auto w-[700px] mt-9 ml-5 -rotate-3" />
         </div>
 
-        <div className="absolute left-0 top-0 w-[700px] ml-20 h-full flex justify-center items-center">
+        <div className="hidden absolute left-0 top-0 w-[700px] ml-20 h-full md:flex justify-center items-center">
           <div className="w-3/5 space-y-4">
             <h1 className="text-7xl text-white leading-none">Póliza de <b className="text-blue-terciary font-extrabold">{title}</b></h1>
             <p className="text-4xl text-white leading-[1.1]">
@@ -49,8 +49,12 @@ const Hero: React.FC<{
           </div>
         </div>
 
+        <div className="md:hidden absolute top-1/2 translate-y-1/2 bg-blue-primary rounded-2xl p-3">
+          <h1 className="text-[50px] text-center font-bold text-white">{title}</h1>
+        </div>
+
         {link && (
-          <div className="absolute bottom-0 right-0 mb-24 mr-52">
+          <div className="absolute bottom-0 right-1/2 translate-x-1/2 md:right-0 mb-24 md:mr-52">
             <Link
               href={link.href}
             >

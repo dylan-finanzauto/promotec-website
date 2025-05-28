@@ -56,7 +56,7 @@ const ContactForm: React.FC = () => {
       e.stopPropagation()
       form.handleSubmit()
     }}>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
         <form.Field
           name="tipoDocumento"
         >
@@ -167,7 +167,7 @@ const ContactForm: React.FC = () => {
           name="mensaje"
         >
           {(field) => (
-            <div className="space-y-4 col-span-2">
+            <div className="space-y-4 md:col-span-2">
               <label htmlFor="" className="text-sm font-medium">Mensaje</label>
               <TextareaField
                 name={field.name}
@@ -211,56 +211,56 @@ const Contact: React.FC = () => {
         img={getAssetPath("/images/contact/banner.png")}
       />
 
-      <section className="py-28 bg-gray-3">
+      <section className="py-28 bg-gray-3 overflow-hidden">
         <Wrapper>
-          <div className="flex gap-10">
-            <div className="relative">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
               <div
-                className="fade-left size-[576px] bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
+                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{
                   backgroundImage: `url(${getAssetPath("/images/contact/p.jpg")})`,
                   maskImage: `url(${getAssetPath("/icons/p.svg")})`
                 }}
               />
-              <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
+              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
 
             <div className="">
               <div className="space-y-[30px]">
-                <h2 className="text-[40px] text-blue-primary font-bold">Nuestros canales de atención</h2>
-                <p className="text-[20px] text-text-3 font-medium">Si tienes preguntas, necesitas ayuda o deseas más información sobre nuestros productos y servicios, no dudes en comunicarte con nosotros.</p>
+                <h2 className="text-[40px] text-center text-blue-primary font-bold">Nuestros canales de atención</h2>
+                <p className="text-[20px] text-center text-text-3 font-medium">Si tienes preguntas, necesitas ayuda o deseas más información sobre nuestros productos y servicios, no dudes en comunicarte con nosotros.</p>
               </div>
-              <ul className="space-y-[30px] mt-[100px]">
+              <ul className="flex flex-col items-center md:items-start space-y-[30px] mt-[100px]">
                 <li className="">
-                  <div className="zoom-in inline-flex items-center gap-5">
+                  <div className="zoom-in inline-flex flex-col md:flex-row items-center gap-5">
                     <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
                       <PhoneIcon className="size-6 text-blue-primary" />
                     </div>
                     <div className="space-y-1">
-                      <h6 className="">Línea nacional:</h6>
-                      <h5 className="text-[20px] text-blue-primary font-bold">(601) 742 3700</h5>
+                      <h6 className="text-center md:text-start">Línea nacional:</h6>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">(601) 742 3700</h5>
                     </div>
                   </div>
                 </li>
                 <li className="">
-                  <div className="zoom-in inline-flex items-center gap-5">
+                  <div className="zoom-in inline-flex flex-col md:flex-row items-center gap-5">
                     <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
                       <WhatsappIcon className="size-6 text-blue-primary" />
                     </div>
                     <div className="space-y-1">
-                      <h6 className="">Chat en línea:</h6>
-                      <h5 className="text-[20px] text-blue-primary font-bold">+ 57 310 851 5340</h5>
+                      <h6 className="text-center md:text-start">Chat en línea:</h6>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">+ 57 310 851 5340</h5>
                     </div>
                   </div>
                 </li>
                 <li className="">
-                  <div className="zoom-in inline-flex items-center gap-5">
+                  <div className="zoom-in inline-flex flex-col md:flex-row items-center gap-5">
                     <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
                       <MailIcon className="size-6 text-blue-primary" />
                     </div>
                     <div className="space-y-1">
-                      <h6 className="">Correo electrónico:</h6>
-                      <h5 className="text-[20px] text-blue-primary font-bold">servicioalcliente@promotec.com.co</h5>
+                      <h6 className="text-center md:text-start">Correo electrónico:</h6>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">servicioalcliente@promotec.com.co</h5>
                     </div>
                   </div>
                 </li>
@@ -284,7 +284,7 @@ const Contact: React.FC = () => {
                 </Link>
               </div>
             </div>
-            <div className="py-16 px-28 rounded-[30px] bg-gray-1">
+            <div className="p-10 md:py-16 md:px-28 rounded-[30px] bg-gray-1">
               <div className="space-y-8 mb-10">
                 <h3 className="text-[30px] text-text-4 text-center font-bold">¿Quieres adquirir una póliza de seguros?</h3>
                 <p className="text-[20px] text-text-3 text-center font-medium">Déjanos tus datos y uno de nuestros asesores comerciales se pondrá en contacto contigo:</p>
@@ -303,8 +303,8 @@ const Contact: React.FC = () => {
               <h3 className="text-3xl text-center text-blue-primary font-bold">Tu opinión es muy importante para nosotros</h3>
               <p className="text-[20px] text-center text-text-3 font-medium">En caso de una emergencia, contacta directamente al equipo de asistencia inmediata de cada aseguradora, disponible las 24 horas del día, los 7 días de la semana.</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 h-[448px]">
-              <div className="zoom-in relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-blue-secondary">
+            <div className="grid md:grid-cols-2 gap-4 auto-rows-[432px]">
+              <div className="zoom-in relative flex flex-col justify-center gap-12 p-10 md:px-32 rounded-[30px] bg-blue-secondary">
                 <h4 className="text-[40px] text-blue-terciary leading-none font-semibold">
                   <div className="">Radica</div>
                   <div className="text-white">una PQRS</div>
@@ -313,7 +313,7 @@ const Contact: React.FC = () => {
                   <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white cursor-pointer">Crear</button>
                 </div>
               </div>
-              <div className="zoom-in relative flex flex-col justify-center gap-12 px-32 rounded-[30px] bg-blue-secondary">
+              <div className="zoom-in relative flex flex-col justify-center gap-12 p-10 md:px-32 rounded-[30px] bg-blue-secondary">
                 <h4 className="text-[40px] text-blue-terciary leading-none font-semibold">
                   <div className="">Consulta</div>
                   <div className="text-white">una PQRS</div>

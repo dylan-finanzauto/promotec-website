@@ -5,9 +5,9 @@ import Link from "next/link";
 const Footer = () => (
   <footer className="bg-blue-primary pt-[120px] pb-[100px]">
     <Wrapper>
-      <div className="flex justify-between py-8">
+      <div className="flex flex-wrap gap-4 justify-between py-8">
         <PromotecIcon className="text-white w-[196px] h-[55px] -mt-8" />
-        <div className="flex gap-[10px]">
+        <div className="flex flex-wrap gap-[10px]">
           <Link
             href={"/cliente"}
           >
@@ -27,9 +27,9 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="flex">
-        <div className="border-r border-white space-y-5 pr-10">
-          <div className="flex gap-[30px]">
+      <div className="flex flex-col lg:flex-row">
+        <div className="border-b lg:border-b-0 lg:border-r border-white space-y-5 pb-10 lg:pb-0 lg:pr-10">
+          <div className="md:flex gap-[30px]">
             <div className="space-y-1">
               <h4 className="text-blue-terciary font-bold text-[18px]">
                 Línea telefónica
@@ -59,8 +59,8 @@ const Footer = () => (
             </p>
           </div>
         </div>
-        <div className="pl-14 flex items-center">
-          <div className="grid grid-cols-3">
+        <div className="pt-14 lg:pt-0 lg:pl-14 flex items-center">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 space-y-4">
             <ul className="text-white space-y-1">
               <li className="text-[18px] text-blue-terciary font-bold">De tu interés</li>
               <li>

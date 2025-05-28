@@ -67,26 +67,26 @@ const Compensations: React.FC = () => {
 
       <section className="py-28 bg-gray-3">
         <Wrapper>
-          <div className="flex gap-10">
-            <div className="relative">
+          <div className="flex flex-col lg:flex-row items-center gap-10 overflow-hidden">
+            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden">
               <div
-                className="fade-left size-[576px] bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
+                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{
                   backgroundImage: `url(${getAssetPath("/images/compensations/p.jpg")})`,
                   maskImage: `url(${getAssetPath("/icons/p.svg")})`
                 }}
               />
-              <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
+              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
 
-            <div className="">
+            <div className="overflow-hidden">
               <div className="space-y-[30px]">
                 <h2 className="text-[40px] text-blue-primary font-bold">¡Estamos contigo!</h2>
                 <p className="text-[20px] text-text-3 font-medium">Nuestro compromiso es acompañarte de manera rápida, justa y sin complicaciones, en tu proceso de reclamación en caso de siniestro.</p>
               </div>
-              <ul className="space-y-[30px] mt-[100px]">
+              <ul className="flex flex-col items-center md:items-start space-y-[30px] mt-[100px]">
                 <li className="">
-                  <div className="zoom-in inline-flex items-center gap-5">
+                  <div className="zoom-in inline-flex flex-col md:flex-row items-center gap-5">
                     <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
                       <PhoneIcon className="size-6 text-blue-primary" />
                     </div>
@@ -97,7 +97,7 @@ const Compensations: React.FC = () => {
                   </div>
                 </li>
                 <li className="">
-                  <div className="zoom-in inline-flex items-center gap-5">
+                  <div className="zoom-in inline-flex flex-col md:flex-row items-center gap-5">
                     <div className="size-16 rounded-full bg-blue-terciary grid place-items-center">
                       <MailIcon className="size-6 text-blue-primary" />
                     </div>
@@ -115,7 +115,7 @@ const Compensations: React.FC = () => {
 
       <section className="py-[70px]">
         <Wrapper>
-          <div className="py-16 px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
+          <div className="p-10 md:py-16 md:px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
             <h3 className="text-3xl text-text-4 text-center font-bold">Documentación para reclamación de siniestros (carros, motos y bicicletas)</h3>
             <CoverageTable />
             <p className="text-center text-text-3 font-medium"><b>PPD:</b> Pérdida Parcial Daños / <b>PTD:</b> Pérdida Total Daños / <b>PPH:</b> Pérdida Parcial Hurto / <b>PTH:</b> Pérdida Total Hurto / <b>RCE:</b> Responsabilidad Civil Extracontractual</p>

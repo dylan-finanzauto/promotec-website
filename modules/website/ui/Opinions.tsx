@@ -52,7 +52,7 @@ function Opinions() {
             className={`space-y-8 flex flex-col items-center transition-opacity duration-300 ${isAnimating ? "opacity-0" : "opacity-100"}`}
           >
             <p className="text-2xl text-text-3 font-semibold text-center">{currentOpinion.comentario}</p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col md:flex-row items-center gap-3">
               <Image
                 className="rounded-full"
                 src={currentOpinion.avatar}

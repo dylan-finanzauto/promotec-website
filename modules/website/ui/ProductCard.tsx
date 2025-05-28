@@ -16,7 +16,7 @@ export const ProductCard: React.FC<CardProps> = ({ href, image, text }) => {
           height: "100%"
         }} />
       </div>
-      <div className="h-[178px] px-12 py-16 flex justify-between items-center shrink-0 gap-7 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
+      <div className="min-h-[178px] px-12 py-16 flex flex-wrap justify-between items-center shrink-0 gap-7 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
         <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold">
           {text}
         </h3>
@@ -28,8 +28,8 @@ export const ProductCard: React.FC<CardProps> = ({ href, image, text }) => {
 
 export const AlterProductCard: React.FC<CardProps> = ({ href, image, text }) => {
   return (
-    <Link href={href} className="fade-up group flex col-span-2 rounded-[30px] overflow-hidden">
-      <div className="w-2/5 px-24 flex flex-col justify-center gap-14 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
+    <Link href={href} className="fade-up group flex md:col-span-2 rounded-[30px] overflow-hidden">
+      <div className="w-1/2 md:w-2/5 px-8 xl:px-24 flex flex-col justify-center gap-14 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
         <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold">
           {text}
         </h3>

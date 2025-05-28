@@ -8,9 +8,9 @@ function Consulting() {
     <section className="bg-gray-1 py-[100px] relative overflow-hidden">
       <Wrapper>
         <div
-          className="fade-left w-4xl min-w-0 rounded-[30px] bg-blue-primary p-10 text-white flex flex-col gap-5 relative z-10"
+          className="fade-left max-w-4xl w-full min-w-0 rounded-[30px] bg-blue-primary p-10 text-white flex flex-col gap-5 relative z-10"
         >
-          <h3 className="text-[50px] mb-[10px] font-bold leading-none">
+          <h3 className="text-center text-4xl md:text-[50px] mb-[10px] font-bold leading-none">
             Te asesoramos en la búsqueda de tu <span className="text-blue-terciary">póliza de seguro ideal</span>
           </h3>
           <p className="font-medium text-xl">
@@ -30,7 +30,7 @@ function Consulting() {
         </div>
 
         <Image
-          className="fade-right absolute bottom-0 right-0 -mb-20"
+          className="fade-right pt-20 md:pt-0 md:absolute bottom-0 right-0 md:-mb-20"
           src={getAssetPath("/images/home/family.png")}
           alt=""
           width={793}

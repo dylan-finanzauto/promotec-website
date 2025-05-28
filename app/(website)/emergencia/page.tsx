@@ -52,17 +52,18 @@ const mapping: Record<string, { icon: React.ReactNode }> = {
 
 type CardProps = {
   name: string;
+  phone: string;
 }
 
-const AttendanceCard: React.FC<CardProps> = ({ name }) => {
+const AttendanceCard: React.FC<CardProps> = ({ name, phone }) => {
   return (
     <div className="fade-up rounded-[30px] overflow-hidden bg-gray-3 flex flex-col">
       <div className="flex justify-center items-center flex-1 text-gray-4">
         {mapping[name]?.icon}
       </div>
       <div className="flex items-center gap-8 px-10 py-6 bg-blue-terciary">
-        <h5 className="text-[40px] text-text-1 font-bold">#123</h5>
-        <button className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</button>
+        <h5 className="text-[40px] overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
+        <a href={`tel:${phone}`} className="sm:hidden px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>
       </div>
     </div>
   )
@@ -86,9 +87,9 @@ const Emergency: React.FC = () => {
                 <p>disponible las 24 horas del día, los 7 días de la semana.</p>
               </div>
             </div>
-            <div className="grid grid-cols-4 auto-rows-[262px] gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-[262px] gap-4">
               {insurers.map((a, i) => (
-                <AttendanceCard key={i} name={a.name} />
+                <AttendanceCard key={i} name={a.name} phone={a.lineHelp} />
               ))}
             </div>
             <div className="fade-up py-10 px-8 rounded-[30px] bg-blue-secondary space-y-8">

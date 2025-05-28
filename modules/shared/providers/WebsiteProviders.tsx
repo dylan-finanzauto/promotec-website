@@ -5,10 +5,11 @@ import { product } from "../services/product";
 import { useEffect } from "react";
 import { productStore } from "../store/product";
 import { insurersStore, tdStore } from "../store/master";
-import { insurer, typeDocument } from "../services/master";
+import { typeDocument } from "../services/master";
 import { aboutStore } from "../store/about";
 import { about, contact } from "../services/about";
 import { contactStore } from "../store/contact";
+import { insurer } from "../services/insurer";
 
 const queryClient = new QueryClient()
 

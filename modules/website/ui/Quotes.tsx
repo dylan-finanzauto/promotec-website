@@ -71,7 +71,7 @@ const PolicyBar: React.FC = () => {
       e.stopPropagation()
       form.handleSubmit()
     }}>
-      <div className="zoom-in p-6 flex items-center gap-6 rounded-3xl shadow-lg bg-white">
+      <div className="zoom-in p-6 hidden md:flex items-center gap-6 rounded-3xl shadow-lg bg-white">
         <span className="text-[20px] text-text-4 font-semibold">¿Qué seguro necesitas?</span>
         <form.Field
           name="product"
@@ -109,7 +109,7 @@ function Quotes() {
   const { products } = productStore();
 
   return (
-    <section className="relative pt-28 pb-14">
+    <section className="relative pt-10 lg:pt-28 pb-14">
 
       <div className="absolute z-20 top-0 left-1/2 -translate-x-1/2 -mt-[53px]">
         <PolicyBar />
@@ -121,7 +121,7 @@ function Quotes() {
             <h3 className="text-[60px] text-center text-blue-primary font-bold">Cotiza aquí el seguro ideal para ti</h3>
             <p className="text-[20px] text-center text-text-3 font-medium">Ofrecemos una amplia gama de seguros, diseñados para proteger lo que más valoras.</p>
           </div>
-          <div className="grid grid-cols-3 auto-rows-[408px] gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[408px] gap-5">
             {products.slice(0, 1).map((p, i) => (
               <AlterProductCard key={i} href={mapping[p.name]?.href || ''} image={p.images} text={`Póliza de ${p.name}`} />
             ))}

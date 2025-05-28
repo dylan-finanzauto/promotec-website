@@ -33,8 +33,8 @@ const About: React.FC = () => {
       <section className="py-24">
         <Wrapper>
           <div className="space-y-5">
-            <div className="fade-up grid grid-cols-3 gap-5">
-              <div className="col-span-2 py-20 px-28 rounded-[30px] bg-blue-secondary space-y-10">
+            <div className="fade-up grid md:grid-cols-3 auto-rows-fr gap-5">
+              <div className="md:col-span-2 p-10 md:py-20 md:px-28 rounded-[30px] bg-blue-secondary space-y-10">
                 <h3 className="text-3xl font-bold text-blue-terciary">Nuestra <b className="text-white">Misión</b></h3>
                 <p className="text-[20px] text-white">{about?.mision}</p>
               </div>
@@ -45,14 +45,14 @@ const About: React.FC = () => {
                 }}
               />
             </div>
-            <div className="fade-up grid grid-cols-3 gap-5">
+            <div className="fade-up grid md:grid-cols-3 auto-rows-fr gap-5">
               <div
                 className="rounded-[30px] bg-blue-terciary bg-center bg-cover"
                 style={{
                   backgroundImage: `url(${getAssetPath("/images/about/vision.jpg")})`
                 }}
               />
-              <div className="col-span-2 py-20 px-28 rounded-[30px] bg-blue-secondary space-y-10">
+              <div className="md:col-span-2 p-10 md:py-20 md:px-28 rounded-[30px] bg-blue-secondary space-y-10">
                 <h3 className="text-3xl font-bold text-blue-terciary">Nuestra <b className="text-white">Visión</b></h3>
                 <p className="text-[20px] text-white">{about?.vision}</p>
               </div>
@@ -63,11 +63,11 @@ const About: React.FC = () => {
 
       <section className="relative bg-blue-terciary">
         <Wrapper className="">
-          <div className="py-24 w-10/12 space-y-10">
+          <div className="py-24 md:w-10/12 space-y-10">
             <h4 className="text-[40px] text-blue-primary text-center font-bold">Nuestros valores</h4>
-            <div className="grid grid-cols-2 grid-rows-2 gap-5 h-[422px]">
+            <div className="grid md:grid-cols-2 auto-rows-[210px] gap-5">
               {about?.moral.map((value, index) => (
-                <div className="zoom-in px-14 rounded-[20px] flex items-center bg-white" key={index}>
+                <div className="zoom-in px-14 py-4 rounded-[20px] flex items-center bg-white" key={index}>
                   <h6 className="w-2/3 text-3xl text-text-1 font-bold">{value}</h6>
                 </div>
               ))}
@@ -76,7 +76,7 @@ const About: React.FC = () => {
         </Wrapper>
 
         <Image
-          className="fade-left absolute right-0 bottom-0 h-[90%] mr-20"
+          className="fade-left hidden xl:block absolute right-0 bottom-0 h-[90%] mr-20"
           src={getAssetPath("/images/about/values.png")}
           alt=""
           width={558}
@@ -84,18 +84,18 @@ const About: React.FC = () => {
         />
       </section>
 
-      <section className="py-12">
+      <section className="py-12 overflow-hidden">
         <Wrapper>
-          <div className="flex items-center gap-10">
-            <div className="relative">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
               <div
-                className="fade-left size-[576px] bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
+                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{
                   backgroundImage: `url(${getAssetPath("/images/about/p.jpg")})`,
                   maskImage: `url(${getAssetPath("/icons/p.svg")})`
                 }}
               />
-              <POutlinedIcon className="size-[576px] absolute top-0 left-0 -ml-6 rotate-12" />
+              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
             </div>
             <div className="space-y-[50px]">
               <h2 className="text-[50px] text-text-4 font-bold leading-tight">Nuestra experiencia, el respaldo que necesitas</h2>
