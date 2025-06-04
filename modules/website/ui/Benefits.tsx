@@ -2,7 +2,7 @@ import Wrapper from "@/modules/shared/ui/Wrapper";
 import { BENEFITS } from "../data/benefits";
 import Image from "next/image";
 
-const BenefitCard: React.FC<{ title: string, text: string, img: string }> = ({ title, text, img }) => {
+export const BenefitCard: React.FC<{ title: string, text: string, img: string }> = ({ title, text, img }) => {
   return (
     <div className="zoom-in py-8 px-14 space-y-4 rounded-[20px] flex flex-col lg:flex-row items-center gap-7 bg-white">
       <Image

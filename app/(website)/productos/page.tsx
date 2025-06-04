@@ -42,7 +42,7 @@ const Products: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[408px] gap-5">
 
               {products.slice(0, 1).map((p, i) => (
-                <AlterProductCard key={i} href={hrefs.at(i) || ''} image={p.images} text={p.name} />
+                <AlterProductCard key={i} href={hrefs.at(i) || ''} image={p.images} text={`Póliza de ${p.name}`} />
               ))}
 
               {products.slice(1).map((p, i) => (
@@ -50,7 +50,7 @@ const Products: React.FC = () => {
                   key={i}
                   href={hrefs.at(i) || ''}
                   image={p.images}
-                  text={p.name}
+                  text={`Póliza de ${p.name}`}
                 />
               ))}
 

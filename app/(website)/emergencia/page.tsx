@@ -1,5 +1,6 @@
 'use client';
 import { AxaIcon, BolivarIcon, ColmenaIcon, ContinentalIcon, EquidadIcon, HdiIcon, LibertyIcon, LlianzIcon, MapfreIcon, PrevisoraIcon, SbsIcon, SolidariaIcon, SuraIcon, ZurichIcon } from "@/modules/shared/components/SVGIcons";
+import { useIsMobile } from "@/modules/shared/hooks/useIsMobile";
 import { insurersStore } from "@/modules/shared/store/master";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import Banner from "@/modules/website/ui/Banner";
@@ -56,14 +57,17 @@ type CardProps = {
 }
 
 const AttendanceCard: React.FC<CardProps> = ({ name, phone }) => {
+
+  const isMobile = useIsMobile()
+
   return (
     <div className="fade-up rounded-[30px] overflow-hidden bg-gray-3 flex flex-col">
       <div className="flex justify-center items-center flex-1 text-gray-4">
         {mapping[name]?.icon}
       </div>
       <div className="flex items-center gap-8 px-10 py-6 bg-blue-terciary">
-        <h5 className="text-[40px] overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
-        <a href={`tel:${phone}`} className="sm:hidden px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>
+        <h5 className="text-[40px] grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
+        {isMobile && <a href={`tel:${phone}`} className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>}
       </div>
     </div>
   )

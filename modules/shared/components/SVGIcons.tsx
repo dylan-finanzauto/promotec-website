@@ -112,15 +112,19 @@ export const CarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
 )
 
 export const CheckCircleIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M15 1.34627e-09C23.25 2.04043e-09 30 6.75 30 15C30 23.3125 23.25 30 15 30C6.6875 30 -2.04569e-09 23.3125 -1.34627e-09 15C-6.52097e-10 6.75 6.6875 6.46839e-10 15 1.34627e-09ZM22.1875 12.25C22.875 11.5625 22.875 10.5 22.1875 9.8125C21.5 9.125 20.4375 9.125 19.75 9.8125L13 16.5625L10.1875 13.8125C9.5 13.125 8.4375 13.125 7.75 13.8125C7.0625 14.5 7.0625 15.5625 7.75 16.25L11.75 20.25C12.0625 20.625 12.5 20.75 13 20.75C13.4375 20.75 13.875 20.625 14.1875 20.25L22.1875 12.25Z" fill="currentColor" />
-  </svg>
+<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+<path d="M10 2.375C8.51562 2.375 7.16146 2.73958 5.9375 3.46875C4.71354 4.17188 3.72396 5.16146 2.96875 6.4375C2.23958 7.71354 1.875 9.06771 1.875 10.5C1.875 11.9323 2.23958 13.2865 2.96875 14.5625C3.72396 15.8385 4.71354 16.8281 5.9375 17.5312C7.16146 18.2604 8.51562 18.625 10 18.625C11.4844 18.625 12.8385 18.2604 14.0625 17.5312C15.2865 16.8281 16.276 15.8385 17.0312 14.5625C17.7604 13.2865 18.125 11.9323 18.125 10.5C18.125 9.06771 17.7604 7.71354 17.0312 6.4375C16.276 5.16146 15.2865 4.17188 14.0625 3.46875C12.8385 2.73958 11.4844 2.375 10 2.375ZM10 20.5C8.17708 20.474 6.51042 20.0312 5 19.1719C3.48958 18.2865 2.26562 17.0625 1.32812 15.5C0.442708 13.9115 0 12.2448 0 10.5C0 8.75521 0.442708 7.08854 1.32812 5.5C2.26562 3.9375 3.48958 2.71354 5 1.82812C6.51042 0.96875 8.17708 0.526042 10 0.5C11.8229 0.526042 13.4896 0.96875 15 1.82812C16.5104 2.71354 17.7344 3.9375 18.6719 5.5C19.5573 7.08854 20 8.75521 20 10.5C20 12.2448 19.5573 13.9115 18.6719 15.5C17.7344 17.0625 16.5104 18.2865 15 19.1719C13.4896 20.0312 11.8229 20.474 10 20.5ZM14.4141 8.66406L9.41406 13.6641C8.97135 14.0286 8.52865 14.0286 8.08594 13.6641L5.58594 11.1641C5.22135 10.7214 5.22135 10.2786 5.58594 9.83594C6.02865 9.47135 6.47135 9.47135 6.91406 9.83594L8.75 11.6719L13.0859 7.33594C13.5286 6.97135 13.9714 6.97135 14.4141 7.33594C14.7786 7.77865 14.7786 8.22135 14.4141 8.66406Z" fill="currentColor"/>
+</svg>
 )
 
 export const CheckIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M4.99997 9.08597L1.70697 5.79297L0.292969 7.20697L4.99997 11.914L14.707 2.20697L13.293 0.792969L4.99997 9.08597Z" fill="currentColor" />
   </svg>
+)
+
+export const ChevronUpIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth={2}  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-up" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 15l6 -6l6 6" /></svg>
 )
 
 export const ChevronDownIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
@@ -908,3 +912,7 @@ export const PrevisoraIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
     <path d="M122.043 56.5566C123.477 56.5566 124.425 57.4649 124.425 58.8213C124.425 60.1655 123.439 61.0618 121.954 61.0498C120.533 61.0498 119.534 60.1173 119.547 58.7852C119.547 57.441 120.545 56.5441 122.043 56.5439V56.5566ZM122.031 57.0166C120.943 57.0045 120.188 57.719 120.188 58.7725C120.175 59.8382 120.892 60.5649 121.941 60.5771C123.068 60.5893 123.772 59.8988 123.785 58.7725H123.798C123.81 57.7311 123.106 57.0287 122.031 57.0166Z" fill="currentColor" />
   </svg>
 )
+
+export const PlayerPlayFilledIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="currentColor" className="icon icon-tabler icons-tabler-filled icon-tabler-player-play" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" /></svg>
+);
