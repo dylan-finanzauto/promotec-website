@@ -25,12 +25,12 @@ const options: OptionProps[] = [
   {
     text: 'Carros',
     icon: <CarIcon />,
-    href: '/productos/vehiculos',
+    href: '/productos/vehiculo',
   },
   {
     text: 'Bicis',
     icon: <BikeIcon />,
-    href: '/productos/bicis',
+    href: '/productos/bici',
   },
   {
     text: 'Vida',

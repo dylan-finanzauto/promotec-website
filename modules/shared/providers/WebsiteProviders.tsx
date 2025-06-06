@@ -10,6 +10,8 @@ import { aboutStore } from "../store/about";
 import { about, contact } from "../services/about";
 import { contactStore } from "../store/contact";
 import { insurer } from "../services/insurer";
+import { AlertProvider } from "./AlertProvider";
+import AlertContainer from "../ui/AlertContainer";
 
 const queryClient = new QueryClient()
 
@@ -24,7 +26,10 @@ const WebsiteProviders: React.FC<Props> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <InitMutations>
-        {children}
+        <AlertProvider>
+          {children}
+          <AlertContainer />
+        </AlertProvider>
       </InitMutations>
     </QueryClientProvider>
   )

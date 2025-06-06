@@ -70,14 +70,14 @@ const Slider: React.FC = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [active, heros]);
 
+  if (isLoading) return (
+    <div className="flex items-center bg-gray-700 justify-center h-[700px]">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-primary"></div>
+    </div>
+  )
+
   return (
     <>
-      {isLoading && (
-        <div className="flex items-center bg-gray-700 justify-center h-[700px]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-primary"></div>
-        </div>
-      )}
-
       <header className="relative z-10 h-[700px] bg-white overflow-hidden">
 
         {heros.map((h, idx) => (

@@ -2,8 +2,9 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import React from "react";
 import Banner from "@/modules/website/ui/Banner";
-import { CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
+import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
+import { contactStore } from "@/modules/shared/store/contact";
 
 const coverages = [
   { "name": "Croquis", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
@@ -20,43 +21,48 @@ const columns = ["PPD", "PTD", "PPH", "PTH", "RCE"];
 
 function CoverageTable() {
   return (
-    <div className="overflow-x-auto rounded-lg">
-      <table className="min-w-full text-left">
-        <thead>
-          <tr className="bg-blue-secondary text-blue-terciary text-[20px]">
-            <th className="py-5 px-10">Amparos</th>
+    <div className="overflow-x-auto">
+      <div className="grid grid-cols-[2fr_repeat(5,1fr)] bg-blue-secondary text-blue-terciary font-bold text-[20px] rounded-2xl">
+        <div className="py-5 px-10">Amparos</div>
+        {columns.map((col) => (
+          <div key={col} className="py-5 px-10 text-center">
+            {col}
+          </div>
+        ))}
+      </div>
+      <div className="">
+        {coverages.map((item: Record<string, string | boolean>, idx) => (
+          <div
+            key={idx}
+            className={`grid grid-cols-[2fr_repeat(5,1fr)] ${
+              idx % 2 === 0 ? "bg-transparent" : "bg-gray-2 rounded-2xl"
+            }`}
+          >
+            <div className="py-5 px-10 col-span-2 md:col-span-1 font-medium flex items-center">
+              {item.name}
+            </div>
             {columns.map((col) => (
-              <th key={col} className="py-5 px-10 text-center">
-                {col}
-              </th>
+              <div
+                key={col}
+                className="py-5 px-10 text-center flex items-center justify-center"
+              >
+                {item[col.toLowerCase()] ? (
+                  <CheckCircleFilledIcon className="text-blue-primary inline w-5 h-5" />
+                ) : (
+                  <CheckCircleIcon className="text-gray-400 inline w-5 h-5" />
+                )}
+              </div>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {coverages.map((item: Record<string, string | boolean>, idx) => (
-            <tr
-              key={idx}
-              className={idx % 2 === 0 ? "bg-transparent" : "bg-gray-2"}
-            >
-              <td className="py-5 px-10">{item.name}</td>
-              {columns.map((col) => (
-                <td key={col} className="py-5 px-10 text-center">
-                  {item[col.toLowerCase()] ? (
-                    <CheckCircleIcon className="text-blue-primary inline w-5 h-5" />
-                  ) : (
-                    <CheckCircleIcon className="text-gray-400 inline w-5 h-5" />
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 const Compensations: React.FC = () => {
+
+  const { contact } = contactStore()
 
   return (
     <>
@@ -67,8 +73,8 @@ const Compensations: React.FC = () => {
 
       <section className="py-28 bg-gray-3">
         <Wrapper>
-          <div className="flex flex-col lg:flex-row items-center gap-10 overflow-hidden">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden">
+          <div className="flex flex-col lg:flex-row items-center gap-10">
+            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
               <div
                 className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{
@@ -92,7 +98,7 @@ const Compensations: React.FC = () => {
                     </div>
                     <div className="space-y-1">
                       <h6 className="">Línea nacional:</h6>
-                      <h5 className="text-[20px] text-blue-primary font-bold">(601) 742 3700 Opción. 4</h5>
+                      <h5 className="text-[20px] text-blue-primary font-bold">{contact?.localLine} Opción. 4</h5>
                     </div>
                   </div>
                 </li>
@@ -103,7 +109,7 @@ const Compensations: React.FC = () => {
                     </div>
                     <div className="space-y-1">
                       <h6 className="">Correo electrónico:</h6>
-                      <h5 className="text-[20px] text-blue-primary font-bold">servicioalcliente@promotec.com.co</h5>
+                      <h5 className="text-[20px] text-blue-primary font-bold">{contact?.email}</h5>
                     </div>
                   </div>
                 </li>

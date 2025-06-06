@@ -6,26 +6,31 @@ import { InputField } from "@/modules/shared/components/InputField";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import Banner from "@/modules/website/ui/Banner";
-import { tdStore } from "@/modules/shared/store/master";
-import { useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { MailIcon, PhoneIcon, POutlinedIcon, WhatsappIcon } from "@/modules/shared/components/SVGIcons";
+import { MailIcon, PhoneIcon, POutlinedIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import CheckboxField from "@/modules/shared/components/CheckboxField";
+import CardDialog, { CardBodyDialog, CardFooterDialog, CardHeaderDialog } from "@/modules/shared/ui/CardDialog";
+import Image from "next/image";
+import { useAlert } from "@/modules/shared/hooks/useAlert";
+import { contactStore } from "@/modules/shared/store/contact";
 
 const formSchema = z.object({
   tipoDocumento: z.number().min(0),
   documento: z.string().nonempty(),
   nombre: z.string().nonempty(),
-  email: z.string().nonempty(),
+  email: z.string().email().nonempty(),
   telefono: z.string().nonempty(),
   tipoProducto: z.number().min(0),
   mensaje: z.string().nonempty(),
+  terms: z.literal(true)
 })
 
 const ContactForm: React.FC = () => {
 
-  const { typeDocuments } = tdStore()
+  const { addAlert } = useAlert()
+  // const { typeDocuments } = tdStore()
 
   const form = useForm({
     defaultValues: {
@@ -35,19 +40,80 @@ const ContactForm: React.FC = () => {
       email: '',
       telefono: '',
       tipoProducto: -1,
-      mensaje: ''
+      mensaje: '',
+      terms: false
     },
     validators: {
       onChange: formSchema
     },
-    onSubmit: ({ }) => {
+    onSubmit: ({ formApi }) => {
+      addAlert("success", "¡Nos contactaremos contigo!", "El mensaje fue enviado exitosamente, uno de nuestros asesores se comunicará contigo lo más pronto posible. Recuerda que nuestro horario de atención comercial es de Lunes a Viernes de 8:00 a.m. - 5:30 p.m. y Sábados de 8:00 a.m. - 12:00 p. m.");
+      formApi.reset()
     }
   })
 
-  const tdItems = useMemo(() => typeDocuments.map(t => ({
-    key: t.name,
-    value: t.id
-  })), [typeDocuments])
+  // const tdItems = useMemo(() => typeDocuments.map(t => ({
+  //   key: t.name,
+  //   value: t.id
+  // })), [typeDocuments])
+
+  const tdItems = [
+    {
+      key: "cédula de ciudadanía",
+      value: 1
+    },
+    {
+      key: "cédula de extranjería",
+      value: 2
+    },
+    {
+      key: "NIT",
+      value: 3
+    },
+    {
+      key: "pasaporte",
+      value: 4
+    },
+  ]
+
+  const tpItems = [
+    {
+      key: "Seguro de automóviles",
+      value: 1
+    },
+    {
+      key: "Seguro de bicicletas",
+      value: 2
+    },
+    {
+      key: "Seguro corporativo",
+      value: 3
+    },
+    {
+      key: "Seguro de hogar",
+      value: 4
+    },
+    {
+      key: "Seguro de mascotas",
+      value: 5
+    },
+    {
+      key: "Seguro de salud",
+      value: 6
+    },
+    {
+      key: "Seguro de viajes",
+      value: 7
+    },
+    {
+      key: "Seguro de vida",
+      value: 8
+    },
+    {
+      key: "otro",
+      value: 9
+    },
+  ]
 
   return (
 
@@ -81,12 +147,13 @@ const ContactForm: React.FC = () => {
             <div className="space-y-4">
               <label htmlFor="" className="text-sm font-medium">Número de identificación</label>
               <InputField
-                type="text"
+                type="number"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
                 onBlur={field.handleBlur}
+                maxLength={20}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -104,6 +171,7 @@ const ContactForm: React.FC = () => {
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
+                maxLength={100}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
@@ -123,6 +191,7 @@ const ContactForm: React.FC = () => {
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
                 onBlur={field.handleBlur}
+                maxLength={200}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -135,11 +204,12 @@ const ContactForm: React.FC = () => {
             <div className="space-y-4">
               <label htmlFor="" className="text-sm font-medium">Teléfono celular</label>
               <InputField
-                type="text"
+                type="number"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
+                maxLength={10}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
@@ -153,7 +223,7 @@ const ContactForm: React.FC = () => {
             <div className="space-y-4">
               <label htmlFor="" className="text-sm font-medium">Tipo de produco</label>
               <Select
-                items={tdItems}
+                items={tpItems}
                 name={field.name}
                 value={field.state.value}
                 error={field.state.meta.errors.length > 0}
@@ -182,10 +252,20 @@ const ContactForm: React.FC = () => {
         </form.Field>
       </div>
 
-      <div className="pt-4 pb-5 flex items-center">
-        <CheckboxField label="" />
-        <p className="text-sm">He leído y acepto las finalidades descritas en la política de protección de datos de Promotec conforme a la ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
-      </div>
+      <form.Field name="terms">
+        {(field) => (
+          <div className="pt-4 pb-5 flex items-center gap-2">
+            <CheckboxField
+              id={field.name}
+              name={field.name}
+              checked={field.state.value}
+              onChange={(e) => field.handleChange(e.target.checked)}
+              error={field.state.meta.errors.length > 0}
+            />
+            <p className="text-sm">He leído y acepto las finalidades descritas en la política de protección de datos de Promotec conforme a la ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
+          </div>
+        )}
+      </form.Field>
 
       <div className="flex justify-center">
         <form.Subscribe
@@ -201,7 +281,248 @@ const ContactForm: React.FC = () => {
   )
 }
 
+const RadicarPQRS: React.FC<{
+  onClose?: () => void
+}> = ({ onClose }) => {
+
+  const form = useForm({
+    defaultValues: {
+      fullname: '',
+      document: '',
+      email: '',
+      category: -1,
+      type: -1,
+      terms: false
+    },
+  })
+
+  return (
+    <CardDialog state="success">
+      <CardHeaderDialog>
+        <div className="relative space-y-4 w-full">
+          <h2 className="text-3xl text-blue-primary font-bold">Realiza un PQR</h2>
+          <div className="text-text-4">Ingresa los datos solicitados:</div>
+          <div className="absolute right-0 top-0">
+            <XIcon className="size-4 text-gray-5 cursor-pointer" onClick={() => onClose && onClose()} />
+          </div>
+        </div>
+      </CardHeaderDialog>
+      <CardBodyDialog>
+        <form>
+          <div className="space-y-5 py-[30px] px-8">
+            <form.Field name="fullname">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Nombre completo</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="document">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Número de documento</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="email">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Correo electrónico</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="category">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Categoría</label>
+                  <Select
+                    name={field.name}
+                    value={field.state.value}
+                    items={[]}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={field.handleChange}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="category">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Tipo</label>
+                  <Select
+                    name={field.name}
+                    value={field.state.value}
+                    items={[]}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={field.handleChange}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="terms">
+              {(field) => (
+                <div className="p-2 flex items-center gap-2">
+                  <CheckboxField
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onChange={(e) => field.handleChange(e.target.checked)}
+                    error={field.state.meta.errors.length > 0}
+                  />
+                  <p className="text-sm">He leído y acepto las finalidades descritas en la política de protección de datos de Promotec conforme a la ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
+                </div>
+              )}
+            </form.Field>
+          </div>
+        </form>
+      </CardBodyDialog>
+      <CardFooterDialog>
+        <form.Subscribe
+          selector={(state) => [state.canSubmit, state.isSubmitting]}
+        >
+          {([canSubmit, isSubmitting]) => (
+            <button className="h-10 w-[250px] rounded-[10px] bg-yellow-primary text-white cursor-pointer" disabled={isSubmitting || !canSubmit} onClick={() => form.handleSubmit()}>Crear</button>
+          )}
+        </form.Subscribe>
+      </CardFooterDialog>
+    </CardDialog>
+  )
+}
+
+const ConsultarPQRS: React.FC<{
+  onClose?: () => void
+}> = ({ onClose }) => {
+
+  const form = useForm({
+    defaultValues: {
+      document: '',
+      number: '',
+      email: '',
+      terms: false
+    },
+  })
+
+  return (
+    <CardDialog state="success">
+      <CardHeaderDialog>
+        <div className="relative space-y-4 w-full">
+          <h2 className="text-3xl text-blue-primary font-bold">Consulta tu PQRS</h2>
+          <div className="text-text-4">Ingresa los datos para consultar el estado de tu PQRS.</div>
+          <div className="absolute right-0 top-0">
+            <XIcon className="size-4 text-gray-5 cursor-pointer" onClick={() => onClose && onClose()} />
+          </div>
+        </div>
+      </CardHeaderDialog>
+      <CardBodyDialog>
+        <form>
+          <div className="space-y-5 py-[30px] px-8">
+            <form.Field name="document">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Número de documento</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="number">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Número de radicado</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="email">
+              {(field) => (
+                <div className="space-y-1">
+                  <label className="text-sm" htmlFor={field.name}>Correo electrónico</label>
+                  <InputField
+                    id={field.name}
+                    name={field.name}
+                    value={field.state.value}
+                    error={field.state.meta.errors.length > 0}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    onBlur={field.handleBlur}
+                  />
+                </div>
+              )}
+            </form.Field>
+            <form.Field name="terms">
+              {(field) => (
+                <div className="p-2 flex items-center gap-2">
+                  <CheckboxField
+                    id={field.name}
+                    name={field.name}
+                    checked={field.state.value}
+                    onChange={(e) => field.handleChange(e.target.checked)}
+                    error={field.state.meta.errors.length > 0}
+                  />
+                  <p className="text-sm">He leído y acepto las finalidades descritas en la política de protección de datos de Promotec conforme a la ley 1581 de 2012 y el Decreto 1074 de 2015.</p>
+                </div>
+              )}
+            </form.Field>
+          </div>
+        </form>
+      </CardBodyDialog>
+      <CardFooterDialog>
+        <form.Subscribe
+          selector={(state) => [state.canSubmit, state.isSubmitting]}
+        >
+          {([canSubmit, isSubmitting]) => (
+            <button className="h-10 w-[250px] rounded-[10px] bg-yellow-primary text-white cursor-pointer" disabled={isSubmitting || !canSubmit} onClick={() => form.handleSubmit()}>Consultar</button>
+          )}
+        </form.Subscribe>
+      </CardFooterDialog>
+    </CardDialog>
+  )
+}
+
 const Contact: React.FC = () => {
+
+  const { contact } = contactStore();
+  
+  const [showCreateDialog, setShowCreateDialog] = useState(false);
+  const [showQueryDialog, setShowQueryDialog] = useState(false);
 
   return (
     <>
@@ -227,8 +548,8 @@ const Contact: React.FC = () => {
 
             <div className="">
               <div className="space-y-[30px]">
-                <h2 className="text-[40px] text-center text-blue-primary font-bold">Nuestros canales de atención</h2>
-                <p className="text-[20px] text-center text-text-3 font-medium">Si tienes preguntas, necesitas ayuda o deseas más información sobre nuestros productos y servicios, no dudes en comunicarte con nosotros.</p>
+                <h2 className="text-[40px] text-center lg:text-left text-blue-primary font-bold">Nuestros canales de atención</h2>
+                <p className="text-[20px] text-center lg:text-left text-text-3 font-medium">Si tienes preguntas, necesitas ayuda o deseas más información sobre nuestros productos y servicios, no dudes en comunicarte con nosotros.</p>
               </div>
               <ul className="flex flex-col items-center md:items-start space-y-[30px] mt-[100px]">
                 <li className="">
@@ -238,7 +559,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="space-y-1">
                       <h6 className="text-center md:text-start">Línea nacional:</h6>
-                      <h5 className="text-[20px] text-center text-blue-primary font-bold">(601) 742 3700</h5>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">{contact?.localLine}</h5>
                     </div>
                   </div>
                 </li>
@@ -249,7 +570,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="space-y-1">
                       <h6 className="text-center md:text-start">Chat en línea:</h6>
-                      <h5 className="text-[20px] text-center text-blue-primary font-bold">+ 57 310 851 5340</h5>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">{contact?.chatLine}</h5>
                     </div>
                   </div>
                 </li>
@@ -260,7 +581,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="space-y-1">
                       <h6 className="text-center md:text-start">Correo electrónico:</h6>
-                      <h5 className="text-[20px] text-center text-blue-primary font-bold">servicioalcliente@promotec.com.co</h5>
+                      <h5 className="text-[20px] text-center text-blue-primary font-bold">{contact?.email}</h5>
                     </div>
                   </div>
                 </li>
@@ -304,28 +625,40 @@ const Contact: React.FC = () => {
               <p className="text-[20px] text-center text-text-3 font-medium">En caso de una emergencia, contacta directamente al equipo de asistencia inmediata de cada aseguradora, disponible las 24 horas del día, los 7 días de la semana.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-4 auto-rows-[432px]">
-              <div className="zoom-in relative flex flex-col justify-center gap-12 p-10 md:px-32 rounded-[30px] bg-blue-secondary">
-                <h4 className="text-[40px] text-blue-terciary leading-none font-semibold">
-                  <div className="">Radica</div>
-                  <div className="text-white">una PQRS</div>
-                </h4>
-                <div className="flex justify-center">
-                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white cursor-pointer">Crear</button>
+              <div className="zoom-in relative group rounded-[30px] overflow-hidden">
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src={getAssetPath("/images/contact/b1.jpg")} alt="" width={200} height={200} />
+                <div className="absolute w-full h-full top-0 left-0 bg-blue-secondary/80 flex flex-col justify-center gap-12 p-10 md:px-32">
+                  <h4 className="text-[40px] text-blue-terciary leading-none font-semibold ">
+                    <div className="">Radica</div>
+                    <div className="text-white">una PQRS</div>
+                  </h4>
+                  <div className="flex justify-center">
+                    <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white cursor-pointer" onClick={() => setShowCreateDialog(true)}>Crear</button>
+                  </div>
                 </div>
               </div>
-              <div className="zoom-in relative flex flex-col justify-center gap-12 p-10 md:px-32 rounded-[30px] bg-blue-secondary">
-                <h4 className="text-[40px] text-blue-terciary leading-none font-semibold">
-                  <div className="">Consulta</div>
-                  <div className="text-white">una PQRS</div>
-                </h4>
-                <div className="flex justify-center">
-                  <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white cursor-pointer">Consultar</button>
+
+              <div className="zoom-in relative group rounded-[30px] overflow-hidden">
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src={getAssetPath("/images/contact/b2.jpg")} alt="" width={200} height={200} />
+                <div className="absolute w-full h-full top-0 left-0 bg-blue-secondary/80 flex flex-col justify-center gap-12 p-10 md:px-32">
+                  <h4 className="text-[40px] text-blue-terciary leading-none font-semibold ">
+                    <div className="">Consulta</div>
+                    <div className="text-white">una PQRS</div>
+                  </h4>
+                  <div className="flex justify-center">
+                    <button className="py-3 w-[260px] flex justify-center rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white cursor-pointer" onClick={() => setShowQueryDialog(true)}>Crear</button>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </Wrapper>
       </section>
+
+      {showCreateDialog && <RadicarPQRS onClose={() => setShowCreateDialog(false)} />}
+
+      {showQueryDialog && <ConsultarPQRS onClose={() => setShowQueryDialog(false)} />}
 
     </>
   )

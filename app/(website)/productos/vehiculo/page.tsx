@@ -1,9 +1,13 @@
-import { CheckCircleIcon, PlayerPlayFilledIcon } from "@/modules/shared/components/SVGIcons";
+import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import { PlayerPlayFilledIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
+import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
+import PlanCard from "@/modules/website/ui/PlanCard";
+import Image from "next/image";
 import Link from "next/link";
 
 const faqs = [
@@ -119,57 +123,16 @@ const plans = [
     },
 ]
 
-const CoverageCard: React.FC<{
-    title: string,
-    description?: string,
-    img: string
-}> = ({ title, description, img }) => {
-    return (
-        <div className="flex flex-col rounded-[30px] overflow-hidden">
-            <div className="grow">
-                <img className="h-full object-cover object-center" src={img} alt="" />
-            </div>
-            <div className="flex flex-col justify-center gap-2 px-[30px] h-[146px] bg-blue-terciary">
-                <h4 className="text-xl text-blue-primary font-bold">{title}</h4>
-                {description && <p className="text-xs text-blue-primary font-bold">{description}</p>}
-            </div>
-        </div>
-    )
-}
-
-const PlanCard: React.FC<{
-    title: string,
-    subtitle: string,
-    coverages: string[],
-}> = ({ title, subtitle, coverages }) => {
-    return (
-        <div className="flex flex-col rounded-[30px] overflow-hidden bg-white">
-            <div className="px-12 py-10 bg-blue-terciary">
-                <h3 className="text-3xl text-blue-primary font-bold">{title}</h3>
-                <h2 className="text-[56px] text-blue-primary font-bold">{subtitle}</h2>
-            </div>
-            <div className="p-12 grow">
-                {coverages.map((c, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                        <CheckCircleIcon className="text-blue-primary size-5" />
-                        <span className="text-[20px] text-text-4">{c}</span>
-                    </div>
-                ))}
-            </div>
-            <div className="p-12">
-                <span className="text-sm text-text-4 font-medium">*Aplican Términos y Condiciones.</span>
-            </div>
-        </div>
-    )
-}
-
 const Vehicle: React.FC = () => {
     return (
         <>
             <div className="h-[448px] relative bg-blue-terciary">
-                <img className="fade-left hidden md:block absolute right-0 top-0 h-full object-cover object-center" src={getAssetPath("/images/products/vehicle/banner.png")} alt="" />
-                <div className="h-56 min-w-0 w-3xl absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
+                <Image className="fade-left hidden md:block absolute right-0 top-0 h-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
+                <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
                 <Wrapper>
+                    <div className="absolute top-0 mt-10">
+                        <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Vehículos' }]} />
+                    </div>
                     <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
                         <span className="text-4xl md:text-[50px] text-blue-terciary font-semibold">Conduce seguro con la</span>
                         <span className="text-4xl md:text-[50px] text-white font-extrabold">póliza de tu vehículo</span>

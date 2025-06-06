@@ -6,15 +6,15 @@ import Banner from "@/modules/website/ui/Banner";
 import { AlterProductCard, ProductCard } from "@/modules/website/ui/ProductCard";
 
 const hrefs = [
-  "/productos/vehiculos",
-  "/productos/bicis",
-  "/productos/mascotas",
+  "/productos/vehiculo",
+  "/productos/bici",
+  "/productos/mascota",
   "/productos/hogar",
   "/productos/vida",
-  "/productos/exequias",
+  "/productos/exequia",
   "/productos/arrendamiento",
-  "/productos/accidentes",
-  "/productos/viajes",
+  "/productos/accidente",
+  "/productos/viaje",
 ]
 
 const Products: React.FC = () => {
@@ -47,8 +47,8 @@ const Products: React.FC = () => {
 
               {products.slice(1).map((p, i) => (
                 <ProductCard
-                  key={i}
-                  href={hrefs.at(i) || ''}
+                  key={i + 1}
+                  href={hrefs.at(i + 1) || ''}
                   image={p.images}
                   text={`Póliza de ${p.name}`}
                 />

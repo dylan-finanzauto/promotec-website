@@ -87,7 +87,7 @@ const About: React.FC = () => {
       <section className="py-12 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
+            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full shrink-0">
               <div
                 className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{

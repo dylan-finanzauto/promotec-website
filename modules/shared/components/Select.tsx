@@ -130,7 +130,7 @@ export default function Select({ items, className, value, placeholder, error, di
           {selectedItem ? (
             <span className="text-[#1F2024]">{selectedItem.key}</span>
           ) : (
-            <span className="text-blue-secondary">{placeholder || "Seleccione..."}</span>
+            <span className="text-blue-secondary">{placeholder}</span>
           )}
         </div>
         <ChevronDownIcon className={selectedItem ? "text-[#1F2024]" : "text-blue-secondary"} />

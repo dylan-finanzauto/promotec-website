@@ -11,15 +11,15 @@ import { redirect } from "next/navigation";
 const mapping: Record<string, any> = {
   "Carros y Motos": {
     icon: <CarIcon className="size-6 text-blue-primary" />,
-    href: "/productos/vehiculos",
+    href: "/productos/vehiculo",
   },
   "Bicis": {
     icon: <BikeIcon className="size-6 text-blue-primary" />,
-    href: "/productos/bicis",
+    href: "/productos/bici",
   },
   "Mascotas": {
     icon: <PawFilledIcon className="size-6 text-blue-primary" />,
-    href: "/productos/mascotas",
+    href: "/productos/mascota",
   },
   "Hogar": {
     icon: <HomeIcon className="size-6 text-blue-primary" />,
@@ -31,7 +31,7 @@ const mapping: Record<string, any> = {
   },
   "Exequias": {
     icon: <SeedlingIcon className="size-6 text-blue-primary" />,
-    href: "/productos/exequias",
+    href: "/productos/exequia",
   },
   "Arrendamiento": {
     icon: <KeyFilledIcon className="size-6 text-blue-primary" />,
@@ -39,11 +39,11 @@ const mapping: Record<string, any> = {
   },
   "Accidentes Personales": {
     icon: <ShieldIcon className="size-6 text-blue-primary" />,
-    href: "/productos/accidentes",
+    href: "/productos/accidente",
   },
   "Asistencia en viajes": {
     icon: <MapPinIcon className="size-6 text-blue-primary" />,
-    href: "/productos/viajes",
+    href: "/productos/viaje",
   }
 }
 

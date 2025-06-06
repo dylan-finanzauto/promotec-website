@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckIcon } from './SVGIcons';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   error?: boolean;
 }
 
@@ -13,12 +13,12 @@ const CheckboxField: React.FC<Props> = ({ label, error = false, checked, ...prop
         <input
           type="checkbox"
           checked={checked}
-          className={`peer appearance-none w-4 h-4 rounded border-2 border-[#D4D4D8] not-checked:hover:bg-gray-1 checked:bg-blue-600 checked:border-blue-600 cursor-pointer outline-none transition-all ${error ? 'ring-2 ring-red-500 border-red-500' : ''}`}
+          className={`peer appearance-none w-4 h-4 rounded border-2 border-[#D4D4D8] not-checked:hover:bg-gray-1 checked:bg-blue-600 checked:border-blue-600 cursor-pointer outline-none transition-all ${error ? 'border-red-500' : ''}`}
           {...props}
         />
         <CheckIcon className="absolute size-2 hidden peer-checked:block left-1/2 top-1/2 -translate-1/2 text-white pointer-events-none" />
       </span>
-      <span className={error ? 'text-red-600' : ''}>{label}</span>
+      {label && <span className={error ? 'text-red-600' : ''}>{label}</span>}
     </label>
   );
 };
