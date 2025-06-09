@@ -220,6 +220,13 @@ const Vehicle: React.FC = () => {
                                 />
                             ))}
                         </div>
+                        <div className="flex justify-center">
+                            <Link
+                                href={"/productos/vehiculo/cotizar"}
+                            >
+                                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
+                            </Link>
+                        </div>
                     </div>
                 </Wrapper>
             </section>

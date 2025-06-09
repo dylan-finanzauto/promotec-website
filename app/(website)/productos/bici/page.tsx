@@ -1,5 +1,6 @@
 import Breadcrumb from "@/modules/shared/components/Breadcrumb";
-import { InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
+import RichText from "@/modules/shared/components/RichText";
+import { InfoCircleIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
@@ -12,34 +13,34 @@ import Link from "next/link";
 
 const coverages = [
     {
-        title: "Bicicletas tradicionales de pedal (ruta, montaña y urbana)",
+        title: "**Bicicletas tradicionales de pedal (ruta, montaña y urbana)**",
         img: getAssetPath("/images/products/bike/coverages/1.jpg")
     },
     {
-        title: "Bicicletas tradicionales plegables",
+        title: "**Bicicletas tradicionales plegables**",
         img: getAssetPath("/images/products/bike/coverages/2.jpg")
     },
     {
-        title: "Bicicletas o patinetas eléctricas",
+        title: "**Bicicletas o patinetas eléctricas**",
         img: getAssetPath("/images/products/bike/coverages/3.jpg")
     },
 ]
 
 const plans = [
     {
-        title: "Póliza",
-        subtitle: "Básica",
-        coverages: ["Responsabilidad civil - RCE.", "Pérdidas totales (daños - hurto).", "Eventos de la naturaleza. ", "Amparo patrimonial.", "Asistencia jurídica.", "Gastos de transporte PT."]
+        title: "Coberturas",
+        subtitle: "Obligatorias",
+        coverages: ["Daños a terceros.", "Pérdida total por daños.", "Pérdida total por hurto."]
     },
     {
-        title: "Póliza",
-        subtitle: "Intermedia",
-        coverages: ["Todas las coberturas básicas.", "Pérdida parcial (daños - hurto).", "Patios por inmovilización.", "Gastos casa cárcel.", "Grúa.", "Revisión en viaje.", "Emergencia en carretera.", "Asistencia plus.", "Marcación de seguridad."]
+        title: "Algunas",
+        subtitle: "Asistencias",
+        coverages: ["Transporte en caso de varada o accidente.", "Asistencia en caso de llantas estalladas.", "Asistencia jurídica.", "Rotura de accesorios.", "Traslado en caso de lesión."]
     },
     {
-        title: "Póliza",
-        subtitle: "Full",
-        coverages: ["Todas las coberturas básicas.", "Todas las coberturas adicionales.", "Médico domiciliario."]
+        title: "Otros",
+        subtitle: "Amparos",
+        coverages: ["Accidentes personales.", "Renta diaria por hospitalización.", "Coberturas obligatorias.", "Todas las asistencias."]
     },
 ]
 
@@ -47,50 +48,48 @@ const benefits = [
     {
         title: 'Seguro personalizado',
         text: 'Nuestro equipo de asesores especializados está a tu disposición para ayudarte a encontrar tu póliza de seguro ideal.',
-        img: getAssetPath('/icons/benefit-001.svg')
+        img: getAssetPath('/images/products/bike/benefits/1.png')
     },
     {
         title: 'Proceso 100% multicanal',
-        text: '¡Simplificamos nuestro proceso!  Cotiza y adquiere tu póliza de seguro online, sin salir de tu casa.',
-        img: getAssetPath('/icons/benefit-002.svg')
+        text: '¡Simplificamos nuestro proceso!\n Todos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
+        img: getAssetPath('/images/products/bike/benefits/2.png')
     },
     {
         title: 'Atención personalizada',
-        text: 'Nuestro equipo de asesores especializados te brindará asesoramiento personalizado.',
-        img: getAssetPath('/icons/benefit-003.svg')
+        text: 'Nuestro equipo de asesores especializados te brindará el acompañamiento que mereces.',
+        img: getAssetPath('/images/products/bike/benefits/3.png')
     },
     {
         title: 'Renovación digital',
-        text: 'Facilitamos la renovación de tus pólizas de seguros; renuévala sin salir de casa.',
-        img: getAssetPath('/icons/benefit-004.svg')
+        text: 'Facilitamos la renovación de tu Póliza de Bicicleta, renuévala sin salir de tu casa.',
+        img: getAssetPath('/images/products/bike/benefits/4.png')
     },
 ]
 
 const faqs = [
   {
-    question: "¿Por qué cambia el valor asegurado?",
-    answer: "Este valor se actualiza mensualmente según la entidad Fasecolda, compañía que rige a todas las Aseguradoras, estableciendo el valor asignado para cada línea y marca de vehículo. Esta suma puede variar debido a los accesorios del vehículo."
+    question: "¿Por qué tener una póliza de bicicletas?",
+    answer: "La Bicicleta es uno de los medios de transporte principales en términos de movilidad, lo que genera que las personas acudan a bicicletas o patinetas eléctricas (scooters) para mayor comodidad y agilidad.  Ello ha generado la necesidad de cubrir sus bicis frente a riesgos de nuestras ciudades, tales como daños accidentales, daños causados a terceros, accidentes sufridos, hurtos, entre otros." },
+  {
+    question: "¿Cómo comprar el seguro?",
+    answer: "Si estás interesado en comprar el seguro para tu bicicleta o patineta eléctrica; puedes cotizar directamente en el sitio web, chatear con un asesor vía WhatsApp, o solicitar que nos comuniquemos contigo vía telefónica y te asesoramos durante todo el proceso."
   },
   {
-    question: "¿El valor de mi renovación disminuye si NO presento reclamación?",
-    answer: "No solo depende de la reclamación, las Aseguradoras tienen en cuenta otras variables como: valor del dólar, precio de repuestos, el valor de la mano de obra del mercado, siniestralidad y comportamiento del cliente."
+    question: "¿Qué coberturas tiene el seguro de bicicletas o patinetas?",
+    answer: "La póliza de bicicleta cuenta con cobertura de daños a terceros, pérdida total por accidente y pérdida total por hurto. Sin embargo, hay coberturas adicionales modulares muy útiles para los usuarios, tales como asistencia jurídica en caso de ocasionar daños a otras personas con la bicicleta, asistencias en ruta, reposición de accesorios, reembolso por gastos médicos, entre otros según la opción contratada."
   },
   {
-    question: "¿Qué pasa con mi póliza si vendo el vehículo?",
-    answer: "Debes notificarnos al correo cartera2@promotec.com.co, para realizar el proceso de cancelación de la póliza e iniciar con el proceso de devolución de dinero de prima no causada, si corresponde."
-  },
-  {
-    question: "Si tengo crédito para mi vehículo ¿debo tener póliza activa?",
-    answer: "Sí, ya que la entidad bancaria como requisito y garantía exige tener un seguro que proteja la obligación, es decir, el vehículo en caso que se presente una pérdida total."
+    question: "¿Qué valor tiene el seguro de bicicletas?",
+    answer: "Esto depende de varios factores tales como valor de compra de la bicicleta, fecha de compra, coberturas contratadas, entre otros factores."
   },
 ];
-
 
 const Bici: React.FC = () => {
     return (
         <>
             <div className="h-[448px] relative bg-blue-terciary">
-                <Image className="fade-left hidden md:block absolute right-0 top-0 h-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
+                <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
                 <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
                 <Wrapper>
                     <div className="absolute top-0 mt-10">
@@ -98,7 +97,7 @@ const Bici: React.FC = () => {
                     </div>
                     <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
                         <span className="text-4xl md:text-[50px] text-blue-terciary font-semibold">Rueda seguro</span>
-                        <span className="text-4xl md:text-[50px] text-white font-extrabold">cont tu póliza de Bici</span>
+                        <span className="text-4xl md:text-[50px] text-white font-extrabold">con tu Póliza de Bici</span>
                     </h1>
                 </Wrapper>
             </div>
@@ -110,6 +109,32 @@ const Bici: React.FC = () => {
                 >
                     <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotiza aquí</button>
                 </Link>
+            </section>
+            
+            <section className="py-10 bg-blue-terciary">
+                <Wrapper>
+                    <div className="flex flex-col lg:flex-row items-center gap-10">
+                        <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
+                            <div
+                                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
+                                style={{
+                                    backgroundImage: `url(${getAssetPath("/images/products/bike/p.png")})`,
+                                    maskImage: `url(${getAssetPath("/icons/p.svg")})`
+                                }}
+                            />
+                            <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
+                        </div>
+
+                        <div className="overflow-hidden">
+                            <div className="space-y-[50px]">
+                                <h2 className="text-[50px] text-text-4 font-bold">Conoce el Seguro de Bici</h2>
+                                <p className="text-[20px] text-text-4 font-medium">
+                                    <RichText text="Con el seguro de bicicletas, tú tienes el control.\n¡Arma tu póliza a la medida de tus necesidades y pedalea con total tranquilidad!" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </Wrapper>
             </section>
 
             <section className="py-[70px]">
@@ -141,7 +166,7 @@ const Bici: React.FC = () => {
                 <Wrapper>
                     <div className="space-y-10">
                         <h4 className="text-[40px] text-center font-bold">Arma tu plan</h4>
-                        <div className="grid grid-cols-3 gap-6">
+                        <div className="grid grid-cols-[repeat(3,464px)] gap-6">
                             {plans.map((p, i) => (
                                 <PlanCard
                                     key={i}
@@ -155,11 +180,13 @@ const Bici: React.FC = () => {
                 </Wrapper>
             </section>
 
-            <section className="py-[100px] bg-gray-3">
+            <Insurers />
+
+            <section className="py-[100px] bg-blue-terciary">
                 <Wrapper>
                     <div className="space-y-[30px] w-10/12 mx-auto">
-                        <h4 className="text-[40px] text-blue-primary text-center font-bold">Conoce los beneficios de tener una póliza con Promotec</h4>
-                        <p className="text-[20px] text-center text-text-3 font-medium">Encuentra en Promotec una amplia gama de seguros para todas las necesidades y presupuestos.</p>
+                        <h4 className="text-[40px] text-text-4 text-center font-bold">Conoce los beneficios de Asegurar tu Bicicleta con Promotec</h4>
+                        <p className="text-[20px] text-center text-text-3 font-medium">Encuentra el mejor Seguro para Bici, protege tu bicicleta contra robo, daño y mucho más.</p>
                         <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
                             {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
                         </div>
@@ -173,8 +200,6 @@ const Bici: React.FC = () => {
                     </div>
                 </Wrapper>
             </section>
-
-            <Insurers />
 
             <section className="py-[100px] bg-white">
                 <Wrapper>

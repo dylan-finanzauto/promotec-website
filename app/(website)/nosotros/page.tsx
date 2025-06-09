@@ -1,4 +1,5 @@
 'use client';
+import RichText from "@/modules/shared/components/RichText";
 import { POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import { aboutStore } from "@/modules/shared/store/about";
 import Wrapper from "@/modules/shared/ui/Wrapper";
@@ -24,7 +25,7 @@ const About: React.FC = () => {
           <div className="space-y-14">
             <h2 className="text-[44px] text-blue-primary font-bold text-center">Promotec, más de 40 años protegiendo lo que más valoras.</h2>
             <div className="text-[20px] space-y-8 text-text-3 font-medium text-center">
-              {about?.description}
+              <RichText text={about?.description || ""} />
             </div>
           </div>
         </Wrapper>

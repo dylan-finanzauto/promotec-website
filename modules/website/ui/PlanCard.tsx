@@ -14,7 +14,7 @@ const PlanCard: React.FC<{
             <div className="p-12 grow space-y-5">
                 {coverages.map((c, i) => (
                     <div key={i} className="flex items-center gap-3">
-                        <CheckCircleIcon className="text-blue-primary size-5" />
+                        <CheckCircleIcon className="text-blue-primary size-5 shrink-0" />
                         <span className="text-[20px] leading-none text-text-4">{c}</span>
                     </div>
                 ))}

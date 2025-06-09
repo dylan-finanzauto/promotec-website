@@ -1,6 +1,7 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { BENEFITS } from "../data/benefits";
 import Image from "next/image";
+import RichText from "@/modules/shared/components/RichText";
 
 export const BenefitCard: React.FC<{ title: string, text: string, img: string }> = ({ title, text, img }) => {
   return (
@@ -13,7 +14,9 @@ export const BenefitCard: React.FC<{ title: string, text: string, img: string }>
       />
       <div className="space-y-3">
         <h6 className="w-2/3 text-3xl text-text-1 font-bold">{title}</h6>
-        <p className="text-text-4 font-medium">{text}</p>
+        <p className="text-text-4 font-medium">
+          <RichText text={text} />
+        </p>
       </div>
     </div>
   )

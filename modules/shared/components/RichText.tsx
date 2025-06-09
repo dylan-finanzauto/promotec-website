@@ -3,21 +3,23 @@ type RichTextProps = {
 };
 
 const RichText = ({ text }: RichTextProps) => {
-  const parts = text.split(/(\*\*[^*]+\*\*|\n)/g); // Incluye '\n' como separador
+  const lines = text.split('\\n');
   return (
     <>
-      {parts.map((part, index) => {
-        if (part === '\n') {
-          return <br key={index} />; // Renderiza un salto de línea
-        }
-        if (part.startsWith('**') && part.endsWith('**')) {
-          return (
-            <strong key={index}>
-              {part.slice(2, -2)}
-            </strong>
-          );
-        }
-        return <span key={index}>{part}</span>;
+      {lines.map((line, lineIdx) => {
+        const parts = line.split(/(\*\*[^*]+\*\*)/g);
+        return (
+          <span key={lineIdx}>
+            {parts.map((part, idx) =>
+              part.startsWith('**') && part.endsWith('**') ? (
+                <strong key={idx}>{part.slice(2, -2)}</strong>
+              ) : (
+                <span key={idx}>{part}</span>
+              )
+            )}
+            {lineIdx < lines.length - 1 && <br />}
+          </span>
+        );
       })}
     </>
   );
