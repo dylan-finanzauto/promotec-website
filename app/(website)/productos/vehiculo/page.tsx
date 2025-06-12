@@ -10,74 +10,31 @@ import PlanCard from "@/modules/website/ui/PlanCard";
 import Image from "next/image";
 import Link from "next/link";
 
-const faqs = [
-  {
-    question: "¿Por qué cambia el valor asegurado?",
-    answer: "Este valor se actualiza mensualmente según la entidad Fasecolda, compañía que rige a todas las Aseguradoras, estableciendo el valor asignado para cada línea y marca de vehículo. Esta suma puede variar debido a los accesorios del vehículo."
-  },
-  {
-    question: "¿El valor de mi renovación disminuye si NO presento reclamación?",
-    answer: "No solo depende de la reclamación, las Aseguradoras tienen en cuenta otras variables como: valor del dólar, precio de repuestos, el valor de la mano de obra del mercado, siniestralidad y comportamiento del cliente."
-  },
-  {
-    question: "¿Qué pasa con mi póliza si vendo el vehículo?",
-    answer: "Debes notificarnos al correo cartera2@promotec.com.co, para realizar el proceso de cancelación de la póliza e iniciar con el proceso de devolución de dinero de prima no causada, si corresponde."
-  },
-  {
-    question: "Si tengo crédito para mi vehículo ¿debo tener póliza activa?",
-    answer: "Sí, ya que la entidad bancaria como requisito y garantía exige tener un seguro que proteja la obligación, es decir, el vehículo en caso que se presente una pérdida total."
-  },
-  {
-    question: "Si termino el crédito de mi vehículo ¿qué debo hacer?",
-    answer: "Realizar levantamiento de prenda ante el SIM. Cuando tengas la nueva tarjeta de propiedad, debes enviar una solicitud al correo ptrenovacion@promotec.com.co solicitando la modificación del beneficiario en la póliza."
-  },
-  {
-    question: "¿Qué hacer si tengo un siniestro o necesito una asistencia?",
-    answer: "Comunícate al numeral de tu Aseguradora. Para resolver cualquier duda, solicitud o inquietud, comunícate con nosotros a nuestra área de siniestros al (1) 7423700 opción 1-6-1 o al correo electrónico: analista.indemnizaciones@promotec.com.co"
-  },
-  {
-    question: "¿Qué es el SARLAFT y en qué momento lo debo diligenciar?",
-    answer: "El SARLAFT es un documento de control que nos exige la Superintendencia Financiera para prevenir el lavado de activos y financiación del terrorismo. Lo debes diligenciar cuando vas a contratar la póliza por primera vez o cuando la compañía aseguradora lo solicite."
-  },
-  {
-    question: "¿Qué valor agregado me ofrece Promotec?",
-    answer: "Te permite comparar entre diversas aseguradoras y encontrar la póliza ideal para ti. Te brindamos asesoría personalizada en todo el proceso de compra y post venta."
-  },
-  {
-    question: "¿Quién es Promotec y con qué aseguradoras puedo cotizar?",
-    answer: "Somos una agencia de seguros que te ofrece diferentes opciones, ya que contamos con diferentes compañías aseguradoras aliadas entre ellas: Liberty, Axa, Allianz, Mapfre, Bolívar, Suramericana, Estado, HDI, Solidaria, entre otras."
-  },
-  {
-    question: "¿Qué pasa si mi vehículo es conducido por diferentes personas?",
-    answer: "Si otra persona está conduciendo tu vehículo y se presenta un siniestro, dicho conductor debe tener tu autorización previa (no escrita) para que este hecho pueda ser cubierto. Recuerda que debe ser el asegurado quien reporte el siniestro."
-  }
-];
-
 const coverages = [
     {
-        title: "Responsabilidad civil extracontractual",
+        title: "**Responsabilidad civil extracontractual**",
         img: getAssetPath("/images/products/vehicle/coverages/1.jpg")
     },
     {
-        title: "Asistencia al vehículo",
+        title: "**Asistencia al vehículo**",
         img: getAssetPath("/images/products/vehicle/coverages/2.jpg")
     },
     {
-        title: "Conductor elegido",
-        description: "*Asistencia Plus",
+        title: "**Conductor elegido**",
+        description: "***Asistencia Plus**",
         img: getAssetPath("/images/products/vehicle/coverages/3.jpg")
     },
     {
-        title: "Pérdida total, daño y/o hurto",
+        title: "**Pérdida total, daño y/o hurto**",
         img: getAssetPath("/images/products/vehicle/coverages/4.jpg")
     },
     {
-        title: "Pérdida Parcial, daño y/o hurto",
+        title: "**Pérdida Parcial, daño y/o hurto**",
         img: getAssetPath("/images/products/vehicle/coverages/5.jpg")
     },
     {
-        title: "Vehículo de reemplazo",
-        description: "*Asistencia Plus",
+        title: "**Vehículo de reemplazo**",
+        description: "***Asistencia Plus**",
         img: getAssetPath("/images/products/vehicle/coverages/6.jpg")
     },
 ]
@@ -123,11 +80,54 @@ const plans = [
     },
 ]
 
+const faqs = [
+  {
+    question: "¿Por qué cambia el valor asegurado?",
+    answer: "Este valor se actualiza mensualmente según la entidad Fasecolda, compañía que rige a todas las Aseguradoras, estableciendo el valor asignado para cada línea y marca de vehículo. Esta suma puede variar debido a los accesorios del vehículo."
+  },
+  {
+    question: "¿El valor de mi renovación disminuye si NO presento reclamación?",
+    answer: "No solo depende de la reclamación, las Aseguradoras tienen en cuenta otras variables como: valor del dólar, precio de repuestos, el valor de la mano de obra del mercado, siniestralidad y comportamiento del cliente."
+  },
+  {
+    question: "¿Qué pasa con mi póliza si vendo el vehículo?",
+    answer: "Debes notificarnos al correo cartera2@promotec.com.co, para realizar el proceso de cancelación de la póliza e iniciar con el proceso de devolución de dinero de prima no causada, si corresponde."
+  },
+  {
+    question: "Si tengo crédito para mi vehículo ¿debo tener póliza activa?",
+    answer: "Sí, ya que la entidad bancaria como requisito y garantía exige tener un seguro que proteja la obligación, es decir, el vehículo en caso que se presente una pérdida total."
+  },
+  {
+    question: "Si termino el crédito de mi vehículo ¿qué debo hacer?",
+    answer: "Realizar levantamiento de prenda ante el SIM. Cuando tengas la nueva tarjeta de propiedad, debes enviar una solicitud al correo ptrenovacion@promotec.com.co solicitando la modificación del beneficiario en la póliza."
+  },
+  {
+    question: "¿Qué hacer si tengo un siniestro o necesito una asistencia?",
+    answer: "Comunícate al numeral de tu Aseguradora. Para resolver cualquier duda, solicitud o inquietud, comunícate con nosotros a nuestra área de siniestros al (1) 7423700 opción 1-6-1 o al correo electrónico: analista.indemnizaciones@promotec.com.co"
+  },
+  {
+    question: "¿Qué es el SARLAFT y en qué momento lo debo diligenciar?",
+    answer: "El SARLAFT es un documento de control que nos exige la Superintendencia Financiera para prevenir el lavado de activos y financiación del terrorismo. Lo debes diligenciar cuando vas a contratar la póliza por primera vez o cuando la compañía aseguradora lo solicite."
+  },
+  {
+    question: "¿Qué valor agregado me ofrece Promotec?",
+    answer: "Te permite comparar entre diversas aseguradoras y encontrar la póliza ideal para ti. Te brindamos asesoría personalizada en todo el proceso de compra y post venta."
+  },
+  {
+    question: "¿Quién es Promotec y con qué aseguradoras puedo cotizar?",
+    answer: "Somos una agencia de seguros que te ofrece diferentes opciones, ya que contamos con diferentes compañías aseguradoras aliadas entre ellas: Liberty, Axa, Allianz, Mapfre, Bolívar, Suramericana, Estado, HDI, Solidaria, entre otras."
+  },
+  {
+    question: "¿Qué pasa si mi vehículo es conducido por diferentes personas?",
+    answer: "Si otra persona está conduciendo tu vehículo y se presenta un siniestro, dicho conductor debe tener tu autorización previa (no escrita) para que este hecho pueda ser cubierto. Recuerda que debe ser el asegurado quien reporte el siniestro."
+  }
+];
+
 const Vehicle: React.FC = () => {
     return (
         <>
             <div className="h-[448px] relative bg-blue-terciary">
-                <Image className="fade-left hidden md:block absolute right-0 top-0 h-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
+                <Image className="fade-left hidden md:block absolute left-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
                 <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
                 <Wrapper>
                     <div className="absolute top-0 mt-10">

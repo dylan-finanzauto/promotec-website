@@ -126,7 +126,7 @@ const Life: React.FC = () => {
                         <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Vida' }]} />
                     </div>
                     <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-                        <RichText text="Tu futuro, **seguro y\n protegido**" />
+                        <RichText text="Tu futuro, **seguro y**\n **protegido**" />
                     </h1>
                 </Wrapper>
             </div>

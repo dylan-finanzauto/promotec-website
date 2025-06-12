@@ -39,7 +39,7 @@ const Products: React.FC = () => {
               </h3>
               <p className="text-[20px] text-center text-text-3 font-medium">¡Nos preocupamos por ti! por eso, diseñamos seguros que se ajustan a lo que realmente necesitas.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[408px] gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 auto-rows-[408px] gap-5">
 
               {products.slice(0, 1).map((p, i) => (
                 <AlterProductCard key={i} href={hrefs.at(i) || ''} image={p.images} text={`Póliza de ${p.name}`} />

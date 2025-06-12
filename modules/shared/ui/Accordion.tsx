@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "../components/SVGIcons";
+import RichText from "../components/RichText";
 
 const Accordion: React.FC<{
   title: string;
@@ -23,7 +24,7 @@ const Accordion: React.FC<{
           </button>
           {open && (
             <div className="px-6 pb-4 text-text-3 text-base">
-              {content}
+              <RichText text={content} />
             </div>
           )}
         </div>
