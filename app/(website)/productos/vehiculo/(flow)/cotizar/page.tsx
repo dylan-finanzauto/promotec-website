@@ -198,7 +198,6 @@ const Quot: React.FC = () => {
                                         </div>
                                     )}
                                 </form.Field>
-
                                 <form.Field
                                     name="lastName"
                                 >
@@ -218,7 +217,6 @@ const Quot: React.FC = () => {
                                         </div>
                                     )}
                                 </form.Field>
-
                                 <form.Field
                                     name="phone"
                                 >
