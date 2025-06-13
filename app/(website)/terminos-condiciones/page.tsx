@@ -1,12 +1,13 @@
 'use client';
-import { AxaIcon, BolivarIcon, HdiIcon, LibertyIcon, LlianzIcon, MapfreIcon, SbsIcon, SolidariaIcon, SuraIcon } from "@/modules/shared/components/SVGIcons";
 import { AttendanceItem, DocumentItem } from "@/modules/shared/types/termConditions";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import React, { JSX, useState } from "react";
+import React, { useState } from "react";
+import { } from "../../../public/images/policies/ALLIANZ.png"
+
 export const ATTENDANCES: AttendanceItem[] = [
   {
     id: 0,
-    icon: <LlianzIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/ALLIANZ.png" alt="Allianz_Icon" />,
     document: [
       {
         idDocument: 1,
@@ -42,7 +43,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 1,
-    icon: <AxaIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/AXA_COLPATRIA.png" alt="Axa_Icon" />,
     document: [
       {
         idDocument: 1,
@@ -68,7 +69,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 2,
-    icon: <HdiIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/HDI.png" alt="HDI_icon" />,
     document: [
       {
         idDocument: 1,
@@ -104,7 +105,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 3,
-    icon: <LibertyIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/Equidad.png" alt="Equidad_icon" />,
     document: [
       {
         idDocument: 1,
@@ -130,7 +131,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 4,
-    icon: <MapfreIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/Mapfre.png" alt="Mapfre_icon" />,
     document: [
       {
         idDocument: 1,
@@ -156,7 +157,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 5,
-    icon: <SbsIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/SBScolombia.png" alt="SBScolombia_icon" />,
     document: [
       {
         idDocument: 1,
@@ -182,7 +183,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 6,
-    icon: <BolivarIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/BOLIVAR.png" alt="BOLIVAR_icon" />,
     document: [
       {
         idDocument: 1,
@@ -208,7 +209,7 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 7,
-    icon: <SolidariaIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/ContinentalAssist.png" alt="ContinentalAssist_icon" />,
     document: [
       {
         idDocument: 1,
@@ -244,7 +245,33 @@ export const ATTENDANCES: AttendanceItem[] = [
   },
   {
     id: 8,
-    icon: <SuraIcon />,
+    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/PREVISORA.png" alt="PREVISORA_icon" />,
+    document: [
+      {
+        idDocument: 1,
+        title: "Taxis",
+        url: "/"
+      },
+      {
+        idDocument: 2,
+        title: "Pesados/Públicos",
+        url: "/"
+      },
+      {
+        idDocument: 3,
+        title: "Motos",
+        url: "/"
+      },
+      {
+        idDocument: 4,
+        title: "Particular",
+        url: "/"
+      }
+    ]
+  },
+    {
+    id: 9,
+    icon: <img  src="/images/policies/colmena.png" alt="colmena-logo_icon" />,
     document: [
       {
         idDocument: 1,
@@ -269,6 +296,7 @@ export const ATTENDANCES: AttendanceItem[] = [
     ]
   },
 ]
+
 const ButtonOption: React.FC<{
   active: boolean,
   icon: React.ReactNode
@@ -277,7 +305,7 @@ const ButtonOption: React.FC<{
   return (
     <button
       onClick={onClick}
-      className={`h-[82px] w-full rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? "bg-yellow-primary text-white" : "border border-blue-terciary bg-white text-gray-4"}`}
+      className={`h-[128px] w-[220px] rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? " bg-white border-[8px] border-yellow-primary text-white" : "border border-blue-terciary bg-white text-gray-4"}`}
     >
       {icon}
     </button>
@@ -285,13 +313,13 @@ const ButtonOption: React.FC<{
 }
 type TermCardProps = {
   document: DocumentItem
-  icons: JSX.Element
+  icons: React.ReactNode
 }
 const TermCard: React.FC<TermCardProps> = ({ document, icons }) => {
   return (
     <div className="w-[348px] h-[368px] rounded-[30px] overflow-hidden flex flex-col bg-[#F1F4FB] shadow-sm cursor-pointer">
       <div className="bg-[#F1F4FB] flex flex-col justify-center items-center flex-1 px-4 py-10justify-center">
-        <div className="w-[150px] h-[38px] flex justify-center items-center text-[#A1A2A1]">
+        <div className=" h-[160px] w-[160px] flex justify-center items-center text-[#A1A2A1]">
           {icons}
         </div>
       </div>
@@ -311,7 +339,7 @@ const TermsConditions: React.FC = () => {
     <div className="relative">
       <div className="h-[281px] w-full bg-blue-terciary absolute top-0 left-0"></div>
       <Wrapper>
-        <div className="relative grid grid-cols-[221px_1fr] gap-14 py-10 pb-[70px]">
+        <div className="relative  grid grid-cols-[221px_1fr] gap-14 py-10 pb-[70px]">
           <div className="space-y-4">
             {ATTENDANCES.map((a, i) => (
               <ButtonOption
