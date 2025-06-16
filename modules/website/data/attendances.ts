@@ -3,58 +3,42 @@ import { getAssetPath } from "@/modules/shared/utils/paths";
 export const ATTENDANCES = [
   {
     id: 0,
-    url: getAssetPath("/icons/allianz.svg")
+    url: getAssetPath("/images/policies/ALLIANZ.png")
   },
   {
     id: 1,
-    url: getAssetPath("/icons/suramericana.svg")
+    url: getAssetPath("/images/policies/AXA_COLPATRIA.png")
   },
   {
     id: 2,
-    url: getAssetPath("/icons/continental-assist.svg")
+    url: getAssetPath("/images/policies/HDI.png")
   },
   {
     id: 3,
-    url: getAssetPath("/icons/aseguradora-solidaria.svg")
+    url: getAssetPath("/images/policies/Equidad.png")
   },
   {
     id: 4,
-    url: getAssetPath("/icons/colmena-seguros.svg")
+    url: getAssetPath("/images/policies/Mapfre.png")
   },
   {
     id: 5,
-    url: getAssetPath("/icons/axa-colpatria.svg")
+    url: getAssetPath("/images/policies/SBScolombia.png")
   },
   {
     id: 6,
-    url: getAssetPath("/icons/hdi-seguros.svg")
+    url: getAssetPath("/images/policies/BOLIVAR.png")
   },
   {
     id: 7,
-    url: getAssetPath("/icons/sbs.svg")
+    url: getAssetPath("/images/policies/ContinentalAssist.png")
   },
   {
     id: 8,
-    url: getAssetPath("/icons/liberty-seguros.svg")
+    url: getAssetPath("/images/policies/colmena.png")
   },
   {
     id: 9,
-    url: getAssetPath("/icons/equidad-seguros.svg")
-  },
-  {
-    id: 10,
-    url: getAssetPath("/icons/zurich.svg")
-  },
-  {
-    id: 11,
-    url: getAssetPath("/icons/seguros-bolivar.svg")
-  },
-  {
-    id: 12,
-    url: getAssetPath("/icons/mapfre.svg")
-  },
-  {
-    id: 13,
-    url: getAssetPath("/icons/previsora-seguros.svg")
-  },
+    url: getAssetPath("/images/policies/PREVISORA.png")
+  }
 ]
