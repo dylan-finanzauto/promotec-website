@@ -8,7 +8,7 @@ export const BENEFITS = [
   },
   {
     title: 'Proceso 100% multicanal',
-    text: '¡Simplificamos nuestro proceso!  Todos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
+    text: '¡Simplificamos nuestro proceso!\\nTodos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
     img: getAssetPath('/icons/benefit-002.svg')
   },
   {

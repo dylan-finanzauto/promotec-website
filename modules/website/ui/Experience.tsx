@@ -1,24 +1,21 @@
 import { LikeIcon, POutlinedIcon, UsersIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
+import Image from "next/image";
 import Link from "next/link";
 
 function Experience() {
   return (
-    <section className="py-10 lg:py-28 bg-blue-terciary overflow-hidden">
+    <section className="py-10 bg-blue-terciary overflow-hidden">
       <Wrapper>
         <div className="flex flex-col lg:flex-row items-center gap-10">
-          <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
-            <div
-              className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-              style={{
-                backgroundImage: `url(${getAssetPath("/images/contact/p.jpg")})`,
-                maskImage: `url(${getAssetPath("/icons/p.svg")})`
-              }}
-            >
-            </div>
-            <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-          </div>
+          <Image
+            src={getAssetPath("/images/contact/p.png")}
+            alt=""
+            width={822}
+            height={874}
+            className="fade-left -m-14"
+          />
 
           <div className="space-y-16 lg:pt-14 min-w-0 max-w-3xl w-full">
             <h2 className="text-[50px] leading-none text-text-4 font-bold">+ de 40 años protegiendo lo que más valoras.</h2>

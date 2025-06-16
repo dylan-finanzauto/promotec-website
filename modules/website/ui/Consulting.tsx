@@ -8,11 +8,12 @@ function Consulting() {
     <section className="bg-gray-1 py-[100px] relative overflow-hidden">
       <Wrapper>
         <div
-          className="fade-left max-w-4xl w-full min-w-0 rounded-[30px] bg-blue-primary p-10 text-white flex flex-col gap-5 relative z-10"
+          className="fade-left max-w-[870px] w-full min-w-0 rounded-[30px] bg-blue-primary p-[52px] px-[60px] text-white flex flex-col gap-[30px] relative z-10"
         >
-          <h3 className="text-center text-4xl md:text-[50px] mb-[10px] font-bold leading-none">
+          <h3 className="text-center lg:text-left text-4xl md:text-[50px] mb-[10px] font-bold leading-none">
             Te asesoramos en la búsqueda de tu <span className="text-blue-terciary">póliza de seguro ideal</span>
           </h3>
+          <div className="space-y-5">
           <p className="font-medium text-xl">
             Entendemos tus necesidades; por eso te acompañamos con nuestro
             equipo especializado para ayudarte a encontrar la póliza de
@@ -27,10 +28,11 @@ function Consulting() {
               >Ver productos</button>
             </Link>
           </div>
+          </div>
         </div>
 
         <Image
-          className="fade-right pt-20 md:pt-0 md:absolute bottom-0 right-0 md:-mb-20"
+          className="fade-right pt-20 md:pt-0 md:absolute top-0 right-0 md:-mb-20 md:-mr-14 w-[1028px]"
           src={getAssetPath("/images/home/family.png")}
           alt=""
           width={793}

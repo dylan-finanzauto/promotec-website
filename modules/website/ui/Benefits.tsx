@@ -26,7 +26,7 @@ function Benefits() {
   return (
     <section className="py-[100px] bg-gray-3">
       <Wrapper>
-        <div className="space-y-[30px] w-10/12 mx-auto">
+        <div className="space-y-[30px] max-w-[1200px] min-w-0 w-full mx-auto">
           <h4 className="text-[40px] text-blue-primary text-center font-bold">Conoce los beneficios de tener una póliza con Promotec</h4>
           <p className="text-[20px] text-center text-text-3 font-medium">Encuentra en Promotec una amplia gama de seguros para todas las necesidades y presupuestos.</p>
           <div className="grid md:grid-cols-2 auto-rows-auto gap-5">

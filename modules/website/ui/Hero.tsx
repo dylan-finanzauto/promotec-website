@@ -1,5 +1,6 @@
 import RichText from "@/modules/shared/components/RichText";
 import { PIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
+import Wrapper from "@/modules/shared/ui/Wrapper";
 import Link from "next/link";
 
 type Link = {
@@ -54,12 +55,16 @@ const Hero: React.FC<{
         </div>
 
         {link && (
-          <div className="absolute bottom-0 right-1/2 translate-x-1/2 md:right-0 mb-24 md:mr-52">
-            <Link
-              href={link.href}
-            >
-              <button className="text-[22px] font-medium text-white px-8 py-[14px] rounded-lg bg-yellow-primary hover:bg-yellow-primary-hover cursor-pointer">{link.label}</button>
-            </Link>
+          <div className="absolute bottom-0 w-full mb-[100px]">
+            <Wrapper>
+              <div className="flex justify-end">
+                <Link
+                  href={link.href}
+                >
+                  <button className="text-[22px] font-medium text-white px-8 py-[14px] rounded-lg bg-yellow-primary hover:bg-yellow-primary-hover cursor-pointer">{link.label}</button>
+                </Link>
+              </div>
+            </Wrapper>
           </div>
         )}
 

@@ -59,8 +59,8 @@ const Footer = () => (
             </p>
           </div>
         </div>
-        <div className="pt-14 lg:pt-0 lg:pl-14 flex items-center">
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 space-y-4">
+        <div className="pt-14 lg:pt-0 lg:pl-14 flex items-center grow">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 w-full space-y-4">
             <ul className="text-white space-y-1">
               <li className="text-[18px] text-blue-terciary font-bold">De tu interés</li>
               <li>

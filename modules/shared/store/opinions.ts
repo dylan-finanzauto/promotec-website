@@ -18,14 +18,14 @@ export const opinionStore = create<IOpinionStore>((set) => ({
         },
         {
             nombre: "Héctor Eduardo Hernández Ortiz",
-            comentario: "Recomendación por el momento ninguna todo ha sido excelente, lady tú estás siempre  dispuesta a atender y a colaborar. Sugerencia que nunca cambien tan excelente servicio. Buena tardes",
+            comentario: "Recomendación por el momento ninguna todo ha sido excelente, lady tú estás siempre  dispuesta a atender y a colaborar. Sugerencia que nunca cambien tan excelente servicio. Buenas tardes",
             ramo: "Cliente Seguro",
             fecha: "1/03/2025",
             avatar: getAssetPath("/images/home/avatar.png")
         },
         {
             nombre: "Edward Dunkan",
-            comentario: "Buena tarde, Primero que todo es para agradecer a Lady Moreno por la gran colaboración, empeño, paciencia y buen trato que a tenido para cualquier inquietud que ha tenido con respecto a laspólizas que tengo con Promotec. Pocas personas enaltecen su labor como ella. Muchas gracias por todo",
+            comentario: "Buena tarde, primero que todo es para agradecer a Lady Moreno por la gran colaboración, empeño, paciencia y buen trato que ha tenido para cualquier inquietud que ha tenido con respecto a las pólizas que tengo con Promotec. Pocas personas enaltecen su labor como ella. Muchas gracias por todo",
             ramo: "Cliente Seguro",
             fecha: "4/03/2025",
             avatar: getAssetPath("/images/home/avatar.png")
@@ -53,7 +53,7 @@ export const opinionStore = create<IOpinionStore>((set) => ({
         },
         {
             nombre: "Llerar Fernely Panche Cardenas",
-            comentario: "En las consultas y solicitudes realizadas por whastapp a Promotec han sido ágiles y oportunos, tienen muy buena atención!",
+            comentario: "En las consultas y solicitudes realizadas por whatsapp a Promotec han sido ágiles y oportunos, tienen muy buena atención!",
             ramo: "Cliente Seguro",
             fecha: "10/03/2025",
             avatar: getAssetPath("/images/home/avatar.png")
@@ -67,7 +67,7 @@ export const opinionStore = create<IOpinionStore>((set) => ({
         },
         {
             nombre: "Omar Yesid Sanchez Torres",
-            comentario: "Los recomendaria a cualquiera porq son muy eficientes en el servicio estoy  muy agradecido con ustedes",
+            comentario: "Los recomendaria a cualquiera porque son muy eficientes en el servicio estoy  muy agradecido con ustedes",
             ramo: "Cliente Seguro",
             fecha: "12/03/2025",
             avatar: getAssetPath("/images/home/avatar.png")
