@@ -15,11 +15,11 @@ const Header: React.FC = () => {
         url: "/",
         active: path === "/" || path.startsWith("/") && path !== "/empresas"
       },
-      {
-        text: "Empresas",
-        url: "/empresas",
-        active: path === "/empresas" || path.startsWith("/empresas")
-      },
+      // {
+      //   text: "Empresas",
+      //   url: "/empresas",
+      //   active: path === "/empresas" || path.startsWith("/empresas")
+      // },
     ]
   }, [path])
 

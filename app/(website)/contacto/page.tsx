@@ -8,7 +8,7 @@ import { z } from "zod";
 import Banner from "@/modules/website/ui/Banner";
 import { useState } from "react";
 import Link from "next/link";
-import { MailIcon, PhoneIcon, POutlinedIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
+import { MailIcon, PhoneIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import CheckboxField from "@/modules/shared/components/CheckboxField";
 import CardDialog, { CardBodyDialog, CardFooterDialog, CardHeaderDialog } from "@/modules/shared/ui/CardDialog";
@@ -45,6 +45,9 @@ const ContactForm: React.FC = () => {
     },
     validators: {
       onChange: formSchema
+    },
+    onSubmitInvalid: () => {
+      addAlert("error", "", "")
     },
     onSubmit: ({ formApi }) => {
       addAlert("success", "¡Nos contactaremos contigo!", "El mensaje fue enviado exitosamente, uno de nuestros asesores se comunicará contigo lo más pronto posible. Recuerda que nuestro horario de atención comercial es de Lunes a Viernes de 8:00 a.m. - 5:30 p.m. y Sábados de 8:00 a.m. - 12:00 p. m.");
@@ -152,8 +155,8 @@ const ContactForm: React.FC = () => {
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
-                onBlur={field.handleBlur}
                 maxLength={20}
+                onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -202,7 +205,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Teléfono celular</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Teléfono celular</label>
               <InputField
                 type="number"
                 id={field.name}
@@ -535,16 +538,13 @@ const Contact: React.FC = () => {
       <section className="py-28 bg-gray-3 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(${getAssetPath("/images/contact/p.jpg")})`,
-                  maskImage: `url(${getAssetPath("/icons/p.svg")})`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+            <Image
+              src={getAssetPath("/images/contact/p.png")}
+              alt=""
+              width={822}
+              height={874}
+              className="fade-left -m-14"
+            />
 
             <div className="">
               <div className="space-y-[30px]">

@@ -24,7 +24,7 @@ const About: React.FC = () => {
         <Wrapper>
           <div className="space-y-14">
             <h2 className="text-[44px] text-blue-primary font-bold text-center">Promotec, más de 40 años protegiendo lo que más valoras.</h2>
-            <div className="text-[20px] space-y-8 text-text-3 font-medium text-center">
+            <div className="max-w-[1060px] min-w-0 w-full mx-auto text-[20px] space-y-8 text-text-3 font-medium text-center">
               <RichText text={about?.description || ""} />
             </div>
           </div>
@@ -88,7 +88,7 @@ const About: React.FC = () => {
       <section className="py-12 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full shrink-0">
+            {/* <div className="relative min-w-0 max-w-[576px] h-[576px] w-full shrink-0">
               <div
                 className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
                 style={{
@@ -97,7 +97,14 @@ const About: React.FC = () => {
                 }}
               />
               <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+            </div> */}
+            <Image
+              src={getAssetPath("/images/about/p.png")}
+              alt=""
+              width={822}
+              height={874}
+              className="fade-left -m-14"
+            />
             <div className="space-y-[50px]">
               <h2 className="text-[50px] text-text-4 font-bold leading-tight">Nuestra experiencia, el respaldo que necesitas</h2>
               <div className="space-y-10">

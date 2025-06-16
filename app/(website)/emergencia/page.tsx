@@ -1,54 +1,73 @@
 'use client';
-import { AxaIcon, BolivarIcon, ColmenaIcon, ContinentalIcon, EquidadIcon, HdiIcon, LibertyIcon, LlianzIcon, MapfreIcon, PrevisoraIcon, SbsIcon, SolidariaIcon, SuraIcon, ZurichIcon } from "@/modules/shared/components/SVGIcons";
 import { useIsMobile } from "@/modules/shared/hooks/useIsMobile";
 import { insurersStore } from "@/modules/shared/store/master";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
+import Image from "next/image";
 import Link from "next/link";
 
-const mapping: Record<string, { icon: React.ReactNode }> = {
+const mapping: Record<string, { src: string }> = {
+  // "METLIFE.": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
   "Allianz (II)": {
-    icon: <LlianzIcon />
+    src: getAssetPath("/images/policies/ALLIANZ.png") 
   },
-  "Suramericana": {
-    icon: <SuraIcon />
-  },
+  // "Suramericana": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
   "CONTINENTAL ASSIST": {
-    icon: <ContinentalIcon />
+    src: getAssetPath("/images/policies/ContinentalAssist.png") 
   },
-  "Aseguradora Solidaria": {
-    icon: <SolidariaIcon />
-  },
+  // "Aseguradora Solidaria": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
   "Colmena Seguros": {
-    icon: <ColmenaIcon />
+    src: getAssetPath("/images/policies/colmena.png") 
   },
   "Axa Colpatria": {
-    icon: <AxaIcon />
+    src: getAssetPath("/images/policies/AXA_COLPATRIA.png") 
   },
   "HDI Seguros": {
-    icon: <HdiIcon />
+    src: getAssetPath("/images/policies/HDI.png") 
   },
   "SBS Seguros": {
-    icon: <SbsIcon />
-  },
-  "Liberty Seguros": {
-    icon: <LibertyIcon />
+    src: getAssetPath("/images/policies/SBScolombia.png") 
   },
   "Equidad Seguros": {
-    icon: <EquidadIcon />
+    src: getAssetPath("/images/policies/Equidad.png") 
   },
-  "Zurich Seguros": {
-    icon: <ZurichIcon />
-  },
+  // "Zurich Seguros": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
   "Seguros Bolivar": {
-    icon: <BolivarIcon />
+    src: getAssetPath("/images/policies/BOLIVAR.png") 
   },
   "Mapfre Seguros": {
-    icon: <MapfreIcon />
+    src: getAssetPath("/images/policies/Mapfre.png") 
   },
-  "Previsora Seguros": {
-    icon: <PrevisoraIcon />
+  // "Previsora Seguros": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
+  "Pan-American Life.": {
+    src: getAssetPath("/images/policies/PREVISORA.png") 
   },
+  // "CARDIF COLOMBIA SEG. GENERALES S.A": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
+  // "CHUBB DE COLOMBIA CIA. DE SEG.S.A.": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
+  // "COMPAÑÍA MUNDIAL DE SEGUROS S.A.": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
+  // "BERKLEY INTERNATIONAL SEGUROS COLOMBIA S.A": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
+  // "SEGUROS DEL ESTADO S.A.": {
+  //   src: getAssetPath("/images/policies/") 
+  // },
 }
 
 type CardProps = {
@@ -60,13 +79,15 @@ const AttendanceCard: React.FC<CardProps> = ({ name, phone }) => {
 
   const isMobile = useIsMobile()
 
+  const attendance = mapping[name]
+
   return (
     <div className="fade-up rounded-[30px] overflow-hidden bg-gray-3 flex flex-col">
-      <div className="flex justify-center items-center flex-1 text-gray-4">
-        {mapping[name]?.icon}
+      <div className="flex justify-center items-center overflow-hidden flex-1 text-gray-4 p-4">
+        {attendance ? <Image src={attendance.src} alt={name} width={120} height={120} /> : <h2 className="text-[32px] text-text-1 text-center font-bold truncate" title={name}>{name}</h2>}
       </div>
-      <div className="flex items-center gap-8 px-10 py-6 bg-blue-terciary">
-        <h5 className="text-[40px] grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
+      <div className="flex shrink-0 h-[88px] items-center gap-8 px-10 py-6 bg-blue-terciary">
+        <h5 className="text-[40px] text-nowrap grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
         {isMobile && <a href={`tel:${phone}`} className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>}
       </div>
     </div>
