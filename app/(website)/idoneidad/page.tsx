@@ -104,10 +104,10 @@ const Suitability: React.FC = () => {
         img={getAssetPath("/images/suitability/banner.png")}
       />
 
-      <section className="py-[70px]">
+      <section className="py-[100px]">
         <Wrapper>
-          <h3 className="pt-[30px] pb-[100px] text-[30px] text-center text-blue-primary font-bold">Conoce el listado de idoneidad de nuestros funcionarios</h3>
-          <div className="py-16 px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
+          <h3 className="pb-[100px] text-[30px] text-center text-blue-primary font-bold">Conoce el listado de idoneidad de nuestros funcionarios</h3>
+          <div className="py-[75px] px-24 rounded-[30px] bg-gray-1 space-y-[30px]">
             <h3 className="text-3xl text-text-4 text-center font-bold">Listado de funcionarios acreditados</h3>
             <Table />
             <Pagination
