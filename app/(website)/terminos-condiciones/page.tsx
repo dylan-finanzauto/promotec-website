@@ -2,7 +2,6 @@
 import { AttendanceItem, DocumentItem } from "@/modules/shared/types/termConditions";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import React, { useState } from "react";
-import { } from "../../../public/images/policies/ALLIANZ.png"
 
 export const ATTENDANCES: AttendanceItem[] = [
   {
