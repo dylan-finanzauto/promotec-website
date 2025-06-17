@@ -2,7 +2,7 @@
 import { useForm } from "@tanstack/react-form";
 import Select from '../../../../modules/shared/components/Select'
 import { z } from 'zod';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { tdStore } from '@/modules/shared/store/master';
 import TextareaField from '@/modules/shared/components/TextareaField';
 import DateField from '@/modules/shared/components/DateField';
@@ -39,6 +39,8 @@ const formSchema = z.object({
 
 const FormLineaEtica: React.FC = () => {
     const { typeDocuments } = tdStore()
+    const forceRender = useState(0)[1];
+
     const form = useForm({
         defaultValues: {
             tipoReporte: -1,
@@ -70,11 +72,12 @@ const FormLineaEtica: React.FC = () => {
         value: t.id
     })), [typeDocuments])
 
+    const involucrados = form.getFieldValue("involucrados") || [];
 
     return (
         <div className="bg-[linear-gradient(to_bottom,_#D5E4F6_40%,_white_60%)] lg:bg-[linear-gradient(to_bottom,_#D5E4F6_68%,_white_32%)]">
             <div className="gap-y-2.5 min-w-0 mx-auto py-5 lg:flex-row justify-between w-[75%] lg:w-[73%]">
-                <Breadcrumb items={[{label: "Línea ética", href: "../linea-etica"}, {label: "Radicar novedad"}]} />
+                <Breadcrumb items={[{ label: "Línea ética", href: "../linea-etica" }, { label: "Radicar novedad" }]} />
                 <div className="flex flex-col items-center bg-[#f4f4f4] rounded-4xl p-4 lg:p-0">
                     <div>
                         <p className="text-[#041C3C] text-center font-bold text-[16px] mt-2 lg:mt-[75px] lg:text-[36px]">
@@ -188,115 +191,130 @@ const FormLineaEtica: React.FC = () => {
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            console.log("Botón Agregar otro clickeado");
-
-                                            const involucradosActuales = form.getFieldValue('involucrados') || [];
-                                            console.log("Involucrados antes de agregar:", involucradosActuales);
-
-                                            const nuevoInvolucrado = {
-                                                nombreCompleto: "",
-                                                cargo: "",
-                                                area: "",
-                                                informacionAdicional: ""
-                                            };
-
-                                            const nuevosInvolucrados = [...involucradosActuales, nuevoInvolucrado];
-                                            console.log("Involucrados después de agregar:", nuevosInvolucrados);
-
-                                            form.setFieldValue('involucrados', nuevosInvolucrados);
+                                            const involucradosActuales = form.getFieldValue("involucrados") || [];
+                                            const involucradosNuevos = [
+                                                {
+                                                    nombreCompleto: "",
+                                                    cargo: "",
+                                                    area: "",
+                                                    informacionAdicional: "",
+                                                },
+                                                ...involucradosActuales,
+                                            ];
+                                            forceRender((n) => n + 1);
+                                            form.setFieldValue("involucrados", involucradosNuevos);
                                         }}
-                                        className='bg-white border border-[#FF9302] rounded-md px-6 py-2 text-[#FF9302] hover cursor-pointer hover:border-[#747474] hover:text-[#747474] hover:bg-[#EFEFEF]'
+                                        className="bg-white border border-[#FF9302] rounded-md px-6 py-2 text-[#FF9302] hover cursor-pointer hover:border-[#747474] hover:text-[#747474] hover:bg-[#EFEFEF]"
                                     >
                                         Agregar otro
                                     </button>
-
-
                                 </div>
                                 <div className='mt-[30px]'>
-                                    <p className='text-[16px] text-[#466DA0] font-bold'>
-                                        Involucrado 1
-                                    </p>
-                                    {form.state.values.involucrados.map((_, index) => (
-                                        <React.Fragment key={index}>
-                                            <div className='lg:grid lg:grid-cols-3 mt-[25px] gap-3'>
-                                                <form.Field
-                                                    name={`involucrados[${index}].nombreCompleto`}
-                                                >
-                                                    {(field) => (
-                                                        <div className="flex flex-col gap-1">
-                                                            <label htmlFor="" className="text-sm font-medium">Nombre completo</label>
-                                                            <InputField
-                                                                type="text"
-                                                                id={field.name}
-                                                                name={field.name}
-                                                                error={field.state.meta.errors.length > 0}
-                                                                value={field.state.value}
-                                                                onBlur={field.handleBlur}
-                                                                onChange={(e) => field.handleChange(e.target.value)}
-                                                            />
-                                                        </div>
+                                    {[...involucrados].map((_, i, arr) => {
+                                        const index = arr.length - 1 - i;
+                                        const primerInvolucrado = index === 0;
+                                        return (
+                                            <React.Fragment key={index}>
+                                                <div className="flex">
+                                                    <p className='text-[16px] text-[#466DA0] font-bold my-1'>
+                                                        Involucrado {index + 1}
+                                                    </p>
+                                                    {!primerInvolucrado && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                const actuales = form.getFieldValue("involucrados") || [];
+                                                                const actualizados = [...actuales];
+                                                                actualizados.splice(index, 1);
+                                                                form.setFieldValue("involucrados", actualizados);
+                                                                forceRender((n) => n + 1);
+                                                            }}
+                                                            className="border-2 border-[#dee5ed] rounded-md w-8 h-8 mx-5 cursor-pointer"
+                                                            title="Eliminar"
+                                                        >
+                                                            -
+                                                        </button>
                                                     )}
-                                                </form.Field>
-                                                <form.Field
-                                                    name={`involucrados[${index}].cargo`}
-                                                >
-                                                    {(field) => (
-                                                        <div className="flex flex-col gap-1">
-                                                            <label htmlFor="" className="text-sm font-medium">Cargo</label>
-                                                            <InputField
-                                                                type="text"
-                                                                id={field.name}
-                                                                name={field.name}
-                                                                error={field.state.meta.errors.length > 0}
-                                                                value={field.state.value}
-                                                                onBlur={field.handleBlur}
-                                                                onChange={(e) => field.handleChange(e.target.value)}
-                                                            />
-                                                        </div>
-                                                    )}
-                                                </form.Field>
-                                                <form.Field
-                                                    name={`involucrados[${index}].area`}
-                                                >
-                                                    {(field) => (
-                                                        <div className="flex flex-col gap-1">
-                                                            <label htmlFor="" className="text-sm font-medium">Área</label>
-                                                            <InputField
-                                                                type="text"
-                                                                id={field.name}
-                                                                name={field.name}
-                                                                error={field.state.meta.errors.length > 0}
-                                                                value={field.state.value}
-                                                                onBlur={field.handleBlur}
-                                                                onChange={(e) => field.handleChange(e.target.value)}
-                                                            />
-                                                        </div>
-                                                    )}
-                                                </form.Field>
-                                            </div>
-                                            <div className='mt-[25px] mb-[20px]'>
-                                                <form.Field
-                                                    name={`involucrados[${index}].informacionAdicional`}>
-                                                    {(field) => (
-                                                        <div className="flex flex-col gap-1 mt-2">
-                                                            <label className="text-[13px] lg:text-sm font-medium">Información adicional (opcional)</label>
-                                                            <InputField
-                                                                type="text"
-                                                                id={field.name}
-                                                                placeholder='Ingrese aquí su comentario'
-                                                                name={field.name}
-                                                                error={field.state.meta.errors.length > 0}
-                                                                value={field.state.value}
-                                                                onBlur={field.handleBlur}
-                                                                onChange={(e) => field.handleChange(e.target.value)}
-                                                            />
-                                                        </div>
-                                                    )}
-                                                </form.Field>
-                                            </div>
-
-                                        </React.Fragment>
-                                    ))}
+                                                </div>
+                                                <div className='lg:grid lg:grid-cols-3 mt-[25px] gap-3'>
+                                                    <form.Field
+                                                        name={`involucrados[${index}].nombreCompleto`}
+                                                    >
+                                                        {(field) => (
+                                                            <div className="flex flex-col gap-1">
+                                                                <label htmlFor="" className="text-sm font-medium">Nombre completo</label>
+                                                                <InputField
+                                                                    type="text"
+                                                                    id={field.name}
+                                                                    name={field.name}
+                                                                    error={field.state.meta.errors.length > 0}
+                                                                    value={field.state.value}
+                                                                    onBlur={field.handleBlur}
+                                                                    onChange={(e) => field.handleChange(e.target.value)}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </form.Field>
+                                                    <form.Field
+                                                        name={`involucrados[${index}].cargo`}
+                                                    >
+                                                        {(field) => (
+                                                            <div className="flex flex-col gap-1">
+                                                                <label htmlFor="" className="text-sm font-medium">Cargo</label>
+                                                                <InputField
+                                                                    type="text"
+                                                                    id={field.name}
+                                                                    name={field.name}
+                                                                    error={field.state.meta.errors.length > 0}
+                                                                    value={field.state.value}
+                                                                    onBlur={field.handleBlur}
+                                                                    onChange={(e) => field.handleChange(e.target.value)}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </form.Field>
+                                                    <form.Field
+                                                        name={`involucrados[${index}].area`}
+                                                    >
+                                                        {(field) => (
+                                                            <div className="flex flex-col gap-1">
+                                                                <label htmlFor="" className="text-sm font-medium">Área</label>
+                                                                <InputField
+                                                                    type="text"
+                                                                    id={field.name}
+                                                                    name={field.name}
+                                                                    error={field.state.meta.errors.length > 0}
+                                                                    value={field.state.value}
+                                                                    onBlur={field.handleBlur}
+                                                                    onChange={(e) => field.handleChange(e.target.value)}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </form.Field>
+                                                </div>
+                                                <div className='mt-[25px] mb-[20px]'>
+                                                    <form.Field
+                                                        name={`involucrados[${index}].informacionAdicional`}>
+                                                        {(field) => (
+                                                            <div className="flex flex-col gap-1 mt-2">
+                                                                <label className="text-[13px] lg:text-sm font-medium">Información adicional (opcional)</label>
+                                                                <InputField
+                                                                    type="text"
+                                                                    id={field.name}
+                                                                    placeholder='Ingrese aquí su comentario'
+                                                                    name={field.name}
+                                                                    error={field.state.meta.errors.length > 0}
+                                                                    value={field.state.value}
+                                                                    onBlur={field.handleBlur}
+                                                                    onChange={(e) => field.handleChange(e.target.value)}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </form.Field>
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
