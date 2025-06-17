@@ -46,13 +46,11 @@ const About: React.FC = () => {
                 }}
               />
             </div>
-            <div className="fade-up grid md:grid-cols-3 auto-rows-fr gap-5">
-              <div
-                className="rounded-[30px] bg-blue-terciary bg-center bg-cover"
-                style={{
-                  backgroundImage: `url(${getAssetPath("/images/about/vision.jpg")})`
-                }}
-              />
+
+            <div className="fade-up grid md:grid-cols-3 auto-rows-fr gap-5 group">
+              <div className="relative rounded-[30px] overflow-hidden">
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover scale-[1.2] group-hover:scale-150 transition-all duration-500" src={getAssetPath("/images/about/vision.jpg")} alt="" width={748} height={499} />
+              </div>
               <div className="md:col-span-2 p-10 md:py-20 md:px-28 rounded-[30px] bg-blue-secondary space-y-10">
                 <h3 className="text-3xl font-bold text-blue-terciary">Nuestra <b className="text-white">Visión</b></h3>
                 <p className="text-[20px] text-white">{about?.vision}</p>
@@ -87,28 +85,20 @@ const About: React.FC = () => {
 
       <section className="py-12 overflow-hidden">
         <Wrapper>
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            {/* <div className="relative min-w-0 max-w-[576px] h-[576px] w-full shrink-0">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(${getAssetPath("/images/about/p.jpg")})`,
-                  maskImage: `url(${getAssetPath("/icons/p.svg")})`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div> */}
+          <div className="flex flex-col lg:flex-row items-center gap-14">
             <Image
               src={getAssetPath("/images/about/p.png")}
               alt=""
               width={822}
               height={874}
-              className="fade-left -m-14"
+              className="fade-left -m-24"
             />
             <div className="space-y-[50px]">
               <h2 className="text-[50px] text-text-4 font-bold leading-tight">Nuestra experiencia, el respaldo que necesitas</h2>
               <div className="space-y-10">
-                <p className="text-[20px] text-text-3 font-medium">{about?.experience}</p>
+                <p className="text-[20px] text-text-3 font-medium">
+                  <RichText text={about?.experience || ""} />
+                </p>
               </div>
             </div>
           </div>

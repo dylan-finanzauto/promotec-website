@@ -46,9 +46,26 @@ const ContactForm: React.FC = () => {
     validators: {
       onChange: formSchema
     },
-    onSubmitInvalid: () => {
-      addAlert("error", "", "")
+    // onSubmitInvalid: (error) => {
+    //   console.log("error: ", error)
+    //   addAlert("error", "", "")
+    // },
+    onSubmitInvalid: ({ formApi }) => {
+      const errors =
+        formApi.state.errorMap.onSubmit ?? {};
+
+      // Convierte { campo: 'msg', … } en una cadena legible
+      const descripcion = Object.entries(errors)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(' • ');
+
+      addAlert(
+        'error',
+        'Por favor corrige los campos marcados',
+        descripcion,
+      );
     },
+
     onSubmit: ({ formApi }) => {
       addAlert("success", "¡Nos contactaremos contigo!", "El mensaje fue enviado exitosamente, uno de nuestros asesores se comunicará contigo lo más pronto posible. Recuerda que nuestro horario de atención comercial es de Lunes a Viernes de 8:00 a.m. - 5:30 p.m. y Sábados de 8:00 a.m. - 12:00 p. m.");
       formApi.reset()
@@ -131,7 +148,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Tipo de documento</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Tipo de documento</label>
               <Select
                 items={tdItems}
                 name={field.name}
@@ -148,16 +165,22 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Número de identificación</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Número de identificación</label>
               <InputField
-                type="number"
+                type="text"
+                inputMode="numeric"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
                 maxLength={20}
                 onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (/^\d+$/.test(value)) {
+                    field.handleChange(value);
+                  }
+                }}
               />
             </div>
           )}
@@ -167,7 +190,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Nombre completo</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Nombre completo</label>
               <InputField
                 type="text"
                 id={field.name}
@@ -176,7 +199,16 @@ const ContactForm: React.FC = () => {
                 value={field.state.value}
                 maxLength={100}
                 onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  const nameRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]*$/;
+
+
+                  if (value === '' || nameRegex.test(value)) {
+                    field.handleChange(value);
+                  }
+
+                }}
               />
             </div>
           )}
@@ -186,7 +218,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Correo electrónico</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Correo electrónico</label>
               <InputField
                 type="text"
                 id={field.name}
@@ -207,14 +239,20 @@ const ContactForm: React.FC = () => {
             <div className="space-y-4">
               <label htmlFor={field.name} className="text-sm font-medium">Teléfono celular</label>
               <InputField
-                type="number"
+                type="text"
+                inputMode="numeric"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
                 maxLength={10}
                 onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (/^\d+$/.test(value)) {
+                    field.handleChange(value);
+                  }
+                }}
               />
             </div>
           )}
@@ -224,7 +262,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Tipo de produco</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Tipo de produco</label>
               <Select
                 items={tpItems}
                 name={field.name}
@@ -241,7 +279,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4 md:col-span-2">
-              <label htmlFor="" className="text-sm font-medium">Mensaje</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Mensaje</label>
               <TextareaField
                 name={field.name}
                 maxLength={500}
@@ -275,7 +313,7 @@ const ContactForm: React.FC = () => {
           selector={(state) => [state.canSubmit, state.isSubmitting]}
         >
           {([canSubmit, isSubmitting]) => (
-            <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer" disabled={!canSubmit || isSubmitting}>Enviar</button>
+            <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary disabled:bg-yellow-primary/50 hover:bg-yellow-primary-hover text-white transition-all cursor-pointer disabled:cursor-default" disabled={!canSubmit || isSubmitting}>Enviar</button>
           )}
         </form.Subscribe>
       </div>
@@ -523,7 +561,7 @@ const ConsultarPQRS: React.FC<{
 const Contact: React.FC = () => {
 
   const { contact } = contactStore();
-  
+
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [showQueryDialog, setShowQueryDialog] = useState(false);
 
