@@ -3,6 +3,7 @@ import { InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper"
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
+import Link from "next/link";
 
 const EthicalLine: React.FC = () => {
   return (
@@ -75,7 +76,9 @@ const EthicalLine: React.FC = () => {
             </div>
 
             <div className="flex justify-center">
-              <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Continuar</button>
+              <Link href="/linea-etica/formulario">
+                <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Continuar</button>
+              </Link>
             </div>
 
           </div>

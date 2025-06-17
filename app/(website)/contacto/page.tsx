@@ -46,23 +46,11 @@ const ContactForm: React.FC = () => {
     validators: {
       onChange: formSchema
     },
-    // onSubmitInvalid: (error) => {
-    //   console.log("error: ", error)
-    //   addAlert("error", "", "")
-    // },
-    onSubmitInvalid: ({ formApi }) => {
-      const errors =
-        formApi.state.errorMap.onSubmit ?? {};
-
-      // Convierte { campo: 'msg', … } en una cadena legible
-      const descripcion = Object.entries(errors)
-        .map(([k, v]) => `${k}: ${v}`)
-        .join(' • ');
-
+    onSubmitInvalid: ({ }) => {
       addAlert(
         'error',
-        'Por favor corrige los campos marcados',
-        descripcion,
+        'Campos inválidos',
+        'Por favor, diligencia los campos subrayados para continuar con la operación.',
       );
     },
 
@@ -573,7 +561,7 @@ const Contact: React.FC = () => {
         img={getAssetPath("/images/contact/banner.png")}
       />
 
-      <section className="py-28 bg-gray-3 overflow-hidden">
+      <section className="bg-gray-3 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <Image
@@ -581,7 +569,7 @@ const Contact: React.FC = () => {
               alt=""
               width={822}
               height={874}
-              className="fade-left -m-14"
+              className="fade-left"
             />
 
             <div className="">

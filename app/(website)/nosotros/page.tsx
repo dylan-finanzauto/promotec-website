@@ -1,6 +1,5 @@
 'use client';
 import RichText from "@/modules/shared/components/RichText";
-import { POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import { aboutStore } from "@/modules/shared/store/about";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
