@@ -88,6 +88,10 @@ export default function Select({ items, className, value, placeholder, error, di
           setActionPosition({ top: rect.bottom, left: rect.left, width: rect.width });
         }
       }
+
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
   }, [isOpen]);
 

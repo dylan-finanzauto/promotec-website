@@ -14,7 +14,7 @@ function Insurers() {
               {[...Array(4)].map((_, j) => (
                 <React.Fragment key={j}>
                   {ATTENDANCES.map((a, i) => (
-                    <Image key={`${j}-${i}`} src={a.url} alt="" width={80} height={32} />
+                    <Image key={`${j}-${i}`} src={a.url} alt="" width={120} height={120} />
                   ))}
                 </React.Fragment>
               ))}

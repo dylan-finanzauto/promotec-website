@@ -5,7 +5,7 @@ import RichText from "@/modules/shared/components/RichText";
 
 export const BenefitCard: React.FC<{ title: string, text: string, img: string }> = ({ title, text, img }) => {
   return (
-    <div className="zoom-in py-8 px-14 space-y-4 rounded-[20px] flex flex-col lg:flex-row items-center gap-7 bg-white">
+    <div className="zoom-in py-8 pl-12 pr-7 space-y-4 rounded-[20px] flex flex-col lg:flex-row items-center gap-7 bg-white">
       <Image
         src={img}
         alt=""

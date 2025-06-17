@@ -10,6 +10,7 @@ import { InputField } from '@/modules/shared/components/InputField';
 import RadioField from '@/modules/shared/components/RadioField';
 import CheckboxField from '@/modules/shared/components/CheckboxField';
 import { InfoIcon } from '@/modules/shared/components/SVGIcons';
+import Breadcrumb from "@/modules/shared/components/Breadcrumb";
 
 const formSchema = z.object({
     tipoReporte: z.number().min(0),
@@ -73,10 +74,7 @@ const FormLineaEtica: React.FC = () => {
     return (
         <div className="bg-[linear-gradient(to_bottom,_#D5E4F6_40%,_white_60%)] lg:bg-[linear-gradient(to_bottom,_#D5E4F6_68%,_white_32%)]">
             <div className="gap-y-2.5 min-w-0 mx-auto py-5 lg:flex-row justify-between w-[75%] lg:w-[73%]">
-                <p className='mt-[25px] mb-[35px]'>
-                    <a href="/linea-etica"> <span className="text-[#041C3C] text-[16px]">Línea ética</span> <span className="text-[#345BB0] text-[12px]">{' > '}</span></a>
-                    <span className="text-[#345BB0] font-bold text-[16px]">Radicar novedad</span>
-                </p>
+                <Breadcrumb items={[{label: "Línea ética", href: "../linea-etica"}, {label: "Radicar novedad"}]} />
                 <div className="flex flex-col items-center bg-[#f4f4f4] rounded-4xl p-4 lg:p-0">
                     <div>
                         <p className="text-[#041C3C] text-center font-bold text-[16px] mt-2 lg:mt-[75px] lg:text-[36px]">

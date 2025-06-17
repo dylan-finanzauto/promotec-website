@@ -1,6 +1,6 @@
 import Breadcrumb from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
-import { InfoCircleIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
+import { POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";

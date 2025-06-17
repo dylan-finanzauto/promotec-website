@@ -8,7 +8,7 @@ import { z } from "zod";
 import Banner from "@/modules/website/ui/Banner";
 import { useState } from "react";
 import Link from "next/link";
-import { MailIcon, PhoneIcon, POutlinedIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
+import { MailIcon, PhoneIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import CheckboxField from "@/modules/shared/components/CheckboxField";
 import CardDialog, { CardBodyDialog, CardFooterDialog, CardHeaderDialog } from "@/modules/shared/ui/CardDialog";
@@ -46,6 +46,14 @@ const ContactForm: React.FC = () => {
     validators: {
       onChange: formSchema
     },
+    onSubmitInvalid: ({ }) => {
+      addAlert(
+        'error',
+        'Campos inválidos',
+        'Por favor, diligencia los campos subrayados para continuar con la operación.',
+      );
+    },
+
     onSubmit: ({ formApi }) => {
       addAlert("success", "¡Nos contactaremos contigo!", "El mensaje fue enviado exitosamente, uno de nuestros asesores se comunicará contigo lo más pronto posible. Recuerda que nuestro horario de atención comercial es de Lunes a Viernes de 8:00 a.m. - 5:30 p.m. y Sábados de 8:00 a.m. - 12:00 p. m.");
       formApi.reset()
@@ -128,7 +136,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Tipo de documento</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Tipo de documento</label>
               <Select
                 items={tdItems}
                 name={field.name}
@@ -145,16 +153,22 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Número de identificación</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Número de identificación</label>
               <InputField
-                type="number"
+                type="text"
+                inputMode="numeric"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
-                onBlur={field.handleBlur}
                 maxLength={20}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onBlur={field.handleBlur}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (/^\d+$/.test(value)) {
+                    field.handleChange(value);
+                  }
+                }}
               />
             </div>
           )}
@@ -164,7 +178,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Nombre completo</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Nombre completo</label>
               <InputField
                 type="text"
                 id={field.name}
@@ -173,7 +187,16 @@ const ContactForm: React.FC = () => {
                 value={field.state.value}
                 maxLength={100}
                 onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  const nameRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]*$/;
+
+
+                  if (value === '' || nameRegex.test(value)) {
+                    field.handleChange(value);
+                  }
+
+                }}
               />
             </div>
           )}
@@ -183,7 +206,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Correo electrónico</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Correo electrónico</label>
               <InputField
                 type="text"
                 id={field.name}
@@ -202,16 +225,22 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Teléfono celular</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Teléfono celular</label>
               <InputField
-                type="number"
+                type="text"
+                inputMode="numeric"
                 id={field.name}
                 name={field.name}
                 error={field.state.meta.errors.length > 0}
                 value={field.state.value}
                 maxLength={10}
                 onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (/^\d+$/.test(value)) {
+                    field.handleChange(value);
+                  }
+                }}
               />
             </div>
           )}
@@ -221,7 +250,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4">
-              <label htmlFor="" className="text-sm font-medium">Tipo de produco</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Tipo de produco</label>
               <Select
                 items={tpItems}
                 name={field.name}
@@ -238,7 +267,7 @@ const ContactForm: React.FC = () => {
         >
           {(field) => (
             <div className="space-y-4 md:col-span-2">
-              <label htmlFor="" className="text-sm font-medium">Mensaje</label>
+              <label htmlFor={field.name} className="text-sm font-medium">Mensaje</label>
               <TextareaField
                 name={field.name}
                 maxLength={500}
@@ -272,7 +301,7 @@ const ContactForm: React.FC = () => {
           selector={(state) => [state.canSubmit, state.isSubmitting]}
         >
           {([canSubmit, isSubmitting]) => (
-            <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer" disabled={!canSubmit || isSubmitting}>Enviar</button>
+            <button type="submit" className="px-20 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary disabled:bg-yellow-primary/50 hover:bg-yellow-primary-hover text-white transition-all cursor-pointer disabled:cursor-default" disabled={!canSubmit || isSubmitting}>Enviar</button>
           )}
         </form.Subscribe>
       </div>
@@ -520,7 +549,7 @@ const ConsultarPQRS: React.FC<{
 const Contact: React.FC = () => {
 
   const { contact } = contactStore();
-  
+
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [showQueryDialog, setShowQueryDialog] = useState(false);
 
@@ -532,19 +561,16 @@ const Contact: React.FC = () => {
         img={getAssetPath("/images/contact/banner.png")}
       />
 
-      <section className="py-28 bg-gray-3 overflow-hidden">
+      <section className="bg-gray-3 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(${getAssetPath("/images/contact/p.jpg")})`,
-                  maskImage: `url(${getAssetPath("/icons/p.svg")})`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+            <Image
+              src={getAssetPath("/images/contact/p.png")}
+              alt=""
+              width={822}
+              height={874}
+              className="fade-left"
+            />
 
             <div className="">
               <div className="space-y-[30px]">

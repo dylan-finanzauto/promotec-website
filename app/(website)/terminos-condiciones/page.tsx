@@ -1,294 +1,259 @@
 'use client';
-import { AttendanceItem, DocumentItem } from "@/modules/shared/types/termConditions";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import Image from "next/image";
+import { getAssetPath } from "@/modules/shared/utils/paths";
 
-export const ATTENDANCES: AttendanceItem[] = [
+export interface DocumentItem {
+  title: string;
+  url: string;
+}
+export interface AttendanceItem {
+  name: string;
+  src: string;
+  document: DocumentItem[];
+}
+
+const ATTENDANCES: AttendanceItem[] = [
   {
-    id: 0,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/ALLIANZ.png" alt="Allianz_Icon" />,
+    name: "Allianz",
+    src: getAssetPath("/images/policies/ALLIANZ.png"),
     document: [
       {
-        idDocument: 1,
         title: "Pólizas de Carros y Motos",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pólizas de Mascotas",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Pólizas de Bicis",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Pólizas de Vida",
         url: "/"
       },
       {
-        idDocument: 5,
         title: "Pólizas de Hogar",
         url: "/"
       },
       {
-        idDocument: 6,
         title: "Pólizas de Exequias",
         url: "/"
       }
     ]
   },
   {
-    id: 1,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/AXA_COLPATRIA.png" alt="Axa_Icon" />,
+    name: "Axa colpatria",
+    src: getAssetPath("/images/policies/AXA_COLPATRIA.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
   {
-    id: 2,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/HDI.png" alt="HDI_icon" />,
+    name: "HDI",
+    src: getAssetPath("/images/policies/HDI.png"),
     document: [
       {
-        idDocument: 1,
         title: "Pólizas de Carros y Motos",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pólizas de Mascotas",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Pólizas de Bicis",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Pólizas de Vida",
         url: "/"
       },
       {
-        idDocument: 5,
         title: "Pólizas de Hogar",
         url: "/"
       },
       {
-        idDocument: 6,
         title: "Pólizas de Exequias",
         url: "/"
       }
     ]
   },
   {
-    id: 3,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/Equidad.png" alt="Equidad_icon" />,
+    name: "Equidad",
+    src: getAssetPath("/images/policies/Equidad.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
   {
-    id: 4,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/Mapfre.png" alt="Mapfre_icon" />,
+    name: "Mapfre",
+    src: getAssetPath("/images/policies/Mapfre.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
   {
-    id: 5,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/SBScolombia.png" alt="SBScolombia_icon" />,
+    name: "SBScolombia",
+    src: getAssetPath("/images/policies/SBScolombia.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
   {
-    id: 6,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/BOLIVAR.png" alt="BOLIVAR_icon" />,
+    name: "BOLIVAR_icon",
+    src: getAssetPath("/images/policies/BOLIVAR.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
   {
-    id: 7,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/ContinentalAssist.png" alt="ContinentalAssist_icon" />,
+    name: "ContinentalAssist_icon",
+    src: getAssetPath("/images/policies/ContinentalAssist.png"),
     document: [
       {
-        idDocument: 1,
         title: "Pólizas de Carros y Motos",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pólizas de Mascotas",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Pólizas de Bicis",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Pólizas de Vida",
         url: "/"
       },
       {
-        idDocument: 5,
         title: "Pólizas de Hogar",
         url: "/"
       },
       {
-        idDocument: 6,
         title: "Pólizas de Exequias",
         url: "/"
       }
     ]
   },
   {
-    id: 8,
-    icon: <img className="w-[120px] h-[120px] object-contain" src="/images/policies/PREVISORA.png" alt="PREVISORA_icon" />,
+    name: "PREVISORA_icon",
+    src: getAssetPath("/images/policies/PREVISORA.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
     ]
   },
     {
-    id: 9,
-    icon: <img  src="/images/policies/colmena.png" alt="colmena-logo_icon" />,
+    name: "colmena",
+    src: getAssetPath("/images/policies/colmena.png"),
     document: [
       {
-        idDocument: 1,
         title: "Taxis",
         url: "/"
       },
       {
-        idDocument: 2,
         title: "Pesados/Públicos",
         url: "/"
       },
       {
-        idDocument: 3,
         title: "Motos",
         url: "/"
       },
       {
-        idDocument: 4,
         title: "Particular",
         url: "/"
       }
@@ -298,28 +263,29 @@ export const ATTENDANCES: AttendanceItem[] = [
 
 const ButtonOption: React.FC<{
   active: boolean,
-  icon: React.ReactNode
+  name: string,
+  src: string,
   onClick: () => void
-}> = ({ active, icon, onClick }) => {
+}> = ({ active, src, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`h-[128px] w-[220px] rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? " bg-white border-[8px] border-yellow-primary text-white" : "border border-blue-terciary bg-white text-gray-4"}`}
+      className={`h-[128px] w-[220px] rounded-2xl flex justify-center items-center overflow-hidden cursor-pointer p-5 ${active ? " bg-white border-2 border-yellow-primary text-white" : "border border-blue-terciary bg-white text-gray-4"}`}
     >
-      {icon}
+      <Image src={src} alt="" width={120} height={120} />
     </button>
   )
 }
 type TermCardProps = {
   document: DocumentItem
-  icons: React.ReactNode
+  src: string
 }
-const TermCard: React.FC<TermCardProps> = ({ document, icons }) => {
+const TermCard: React.FC<TermCardProps> = ({ document, src }) => {
   return (
     <div className="w-[348px] h-[368px] rounded-[30px] overflow-hidden flex flex-col bg-[#F1F4FB] shadow-sm cursor-pointer">
       <div className="bg-[#F1F4FB] flex flex-col justify-center items-center flex-1 px-4 py-10justify-center">
         <div className=" h-[160px] w-[160px] flex justify-center items-center text-[#A1A2A1]">
-          {icons}
+          <Image src={src} alt="" width={120} height={120} />
         </div>
       </div>
       <div className="bg-[#D9E9FB] h-[126px] px-11 flex justify-center items-center">
@@ -334,6 +300,9 @@ const TermCard: React.FC<TermCardProps> = ({ document, icons }) => {
 }
 const TermsConditions: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
+
+  const attendance = useMemo(() => ATTENDANCES.at(index), [index])
+
   return (
     <div className="relative">
       <div className="h-[281px] w-full bg-blue-terciary absolute top-0 left-0"></div>
@@ -344,7 +313,8 @@ const TermsConditions: React.FC = () => {
               <ButtonOption
                 key={i}
                 active={index == i}
-                icon={a.icon}
+                name={a.name}
+                src={a.src}
                 onClick={() => setIndex(i)}
               />
             ))}
@@ -355,11 +325,11 @@ const TermsConditions: React.FC = () => {
               <p className="text-[20px] text-text-3 font-medium">Selecciona la categoría deseada.</p>
             </div>
             <div className="grid lg:grid-cols-[repeat(3,348px)] auto-cols-[348px] gap-4">
-              {ATTENDANCES[index].document.map((doc) => (
+              {attendance?.document.map((doc, i) => (
                 <TermCard
-                  key={doc.idDocument}
+                  key={i}
                   document={doc}
-                  icons={ATTENDANCES[index].icon}
+                  src={ATTENDANCES[index].src}
                 />
               ))}
             </div>

@@ -1,4 +1,4 @@
-import { LikeIcon, POutlinedIcon, UsersIcon } from "@/modules/shared/components/SVGIcons";
+import { LikeIcon, UsersIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import Image from "next/image";

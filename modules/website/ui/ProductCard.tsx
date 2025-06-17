@@ -17,8 +17,8 @@ export const ProductCard: React.FC<CardProps> = ({ href, image, text }) => {
           height: "100%"
         }} />
       </div>
-      <div className="min-h-[178px] px-12 py-16 grid grid-cols-2 items-center gap-2 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
-        <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold overflow-hidden">
+      <div className="min-h-[178px] px-12 py-16 flex items-center gap-2 bg-gray-3 group-hover:bg-blue-terciary transition-all duration-500">
+        <h3 className="text-[30px] grow text-text-1 group-hover:text-blue-primary leading-tight font-bold overflow-hidden">
           <RichText text={text} />
         </h3>
         <button className="h-12 w-[160px] justify-self-end rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Ver más</button>
