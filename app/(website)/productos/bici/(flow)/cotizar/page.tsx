@@ -2,21 +2,29 @@
 import CheckboxField from "@/modules/shared/components/CheckboxField";
 import { InputField } from "@/modules/shared/components/InputField";
 import Select from "@/modules/shared/components/Select";
+import { useTdStore } from "@/modules/shared/store/master";
+import { useQuotBikeStore } from "@/modules/shared/store/quot";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
-import Link from "next/link";
 
 const Quot: React.FC = () => {
+
+  const { typeDocuments } = useTdStore()
+  const { updateQuotBike } = useQuotBikeStore()
 
   const form = useForm({
     defaultValues: {
       name: "",
-      documentType: 0,
+      documentType: "",
       document: "",
       phone: "",
       email: "",
       terms: false
+    },
+    onSubmit: ({ value }) => {
+      const { terms, ...person } = value
+      updateQuotBike({ person: person })
     }
   })
 
@@ -27,7 +35,11 @@ const Quot: React.FC = () => {
           <Image className="max-w-full object-center object-cover h-full" src={getAssetPath("/images/products/bike/quot/picture.jpg")} alt="" width={515} height={686} />
         </div>
         <div className="py-10 flex justify-center grow">
-          <form className="max-w-[520px] min-w-0 w-full">
+          <form className="max-w-[520px] min-w-0 w-full" onSubmit={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            form.handleSubmit()
+          }}>
             <h3 className="mb-8 text-[30px] text-center text-blue-primary font-bold">Cotiza tu póliza</h3>
             <div className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
@@ -57,7 +69,7 @@ const Quot: React.FC = () => {
                     <div className="space-y-[6px]">
                       <label className="text-sm font-medium" htmlFor={field.name}>Tipo de documento</label>
                       <Select
-                        items={[]}
+                        items={typeDocuments.map(td => ({ key: td.name, value: td.name }))}
                         name={field.name}
                         value={field.state.value}
                         error={field.state.meta.errors.length > 0}
@@ -142,16 +154,13 @@ const Quot: React.FC = () => {
               </div>
 
               <div className="flex justify-center">
-                {/* <form.Subscribe
-                                    selector={(state) => [state.canSubmit, state.isSubmitting]}
-                                >
-                                    {([canSubmit, isSubmitting]) => (
-                                        <button type="submit" className="w-[260px] py-4 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer" disabled={!canSubmit || isSubmitting}>Cotizar</button>
-                                    )}
-                                </form.Subscribe> */}
-                <Link href="./process">
-                  <button className="w-[260px] py-4 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Cotizar</button>
-                </Link>
+                <form.Subscribe
+                  selector={(state) => [state.canSubmit, state.isSubmitting]}
+                >
+                  {([canSubmit, isSubmitting]) => (
+                    <button type="submit" className="w-[260px] py-4 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer" disabled={!canSubmit || isSubmitting}>Cotizar</button>
+                  )}
+                </form.Subscribe>
               </div>
 
             </div>

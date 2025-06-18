@@ -6,7 +6,7 @@ interface IContactStore {
     updateContact: (contact: Contact | null) => void
 }
 
-export const contactStore = create<IContactStore>((set) => ({
+export const useContactStore = create<IContactStore>((set) => ({
     contact: null,
     updateContact: (contact: Contact | null) => set({ contact })
 }))

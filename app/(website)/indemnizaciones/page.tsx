@@ -4,7 +4,7 @@ import React from "react";
 import Banner from "@/modules/website/ui/Banner";
 import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
-import { contactStore } from "@/modules/shared/store/contact";
+import { useContactStore } from "@/modules/shared/store/contact";
 
 const coverages = [
   { "name": "Croquis", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
@@ -62,7 +62,7 @@ function CoverageTable() {
 
 const Compensations: React.FC = () => {
 
-  const { contact } = contactStore()
+  const { contact } = useContactStore()
 
   return (
     <>

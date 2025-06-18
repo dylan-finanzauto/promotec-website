@@ -1,6 +1,6 @@
 'use client';
 import RichText from "@/modules/shared/components/RichText";
-import { aboutStore } from "@/modules/shared/store/about";
+import { useAboutStore } from "@/modules/shared/store/about";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const About: React.FC = () => {
 
-  const { about } = aboutStore()
+  const { about } = useAboutStore()
 
   return (
     <>

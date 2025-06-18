@@ -3,12 +3,12 @@ import { QueryClient, QueryClientProvider, useMutation } from "@tanstack/react-q
 import { useAnimations } from "../hooks/useAnimations";
 import { product } from "../services/product";
 import { useEffect } from "react";
-import { productStore } from "../store/product";
-import { insurersStore, tdStore } from "../store/master";
+import { useProductStore } from "../store/product";
+import { useInsurersStore, useTdStore } from "../store/master";
 import { typeDocument } from "../services/master";
-import { aboutStore } from "../store/about";
+import { useAboutStore } from "../store/about";
 import { about, contact } from "../services/about";
-import { contactStore } from "../store/contact";
+import { useContactStore } from "../store/contact";
 import { insurer } from "../services/insurer";
 import { AlertProvider } from "./AlertProvider";
 import AlertContainer from "../ui/AlertContainer";
@@ -40,11 +40,11 @@ const InitMutations: React.FC<{
 }> = ({
   children
 }) => {
-    const { updateTypeDocuments } = tdStore()
-    const { updateInsurers } = insurersStore()
-    const { updateProducts } = productStore()
-    const { updateAbout } = aboutStore()
-    const { updateContact } = contactStore()
+    const { updateTypeDocuments } = useTdStore()
+    const { updateInsurers } = useInsurersStore()
+    const { updateProducts } = useProductStore()
+    const { updateAbout } = useAboutStore()
+    const { updateContact } = useContactStore()
 
     const typeDocumentsMutation = useMutation({
       mutationFn: typeDocument,

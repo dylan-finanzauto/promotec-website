@@ -3,7 +3,7 @@ import { useForm } from "@tanstack/react-form";
 import Select from '../../../../modules/shared/components/Select'
 import { z } from 'zod';
 import React, { useMemo, useState } from 'react';
-import { tdStore } from '@/modules/shared/store/master';
+import { useTdStore } from '@/modules/shared/store/master';
 import TextareaField from '@/modules/shared/components/TextareaField';
 import DateField from '@/modules/shared/components/DateField';
 import { InputField } from '@/modules/shared/components/InputField';
@@ -38,7 +38,7 @@ const formSchema = z.object({
 });
 
 const FormLineaEtica: React.FC = () => {
-    const { typeDocuments } = tdStore()
+    const { typeDocuments } = useTdStore()
     const forceRender = useState(0)[1];
 
     const form = useForm({

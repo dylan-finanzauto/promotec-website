@@ -1,5 +1,5 @@
 'use client'
-import { productStore } from "@/modules/shared/store/product";
+import { useProductStore } from "@/modules/shared/store/product";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
@@ -19,7 +19,7 @@ const hrefs = [
 
 const Products: React.FC = () => {
 
-  const { products } = productStore();
+  const { products } = useProductStore();
 
   return (
     <>

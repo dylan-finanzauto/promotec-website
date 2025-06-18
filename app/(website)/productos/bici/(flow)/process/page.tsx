@@ -2,12 +2,15 @@
 import { InputField } from "@/modules/shared/components/InputField";
 import RadioField from "@/modules/shared/components/RadioField";
 import Select from "@/modules/shared/components/Select";
+import { useBikeTypesStore } from "@/modules/shared/store/master";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
 const Process: React.FC = () => {
+
+  const { bikeTypes } = useBikeTypesStore()
 
   const form = useForm({
     defaultValues: {
@@ -36,7 +39,7 @@ const Process: React.FC = () => {
               <div className="lg:col-span-2 space-y-[6px]">
                 <label className="text-sm font-medium" htmlFor={field.name}>Tipo de bicicleta</label>
                 <Select
-                  items={[]}
+                  items={bikeTypes.map(bt => ({ key: bt, value: bt }))}
                   name={field.name}
                   value={field.state.value}
                   error={field.state.meta.errors.length > 0}
@@ -143,12 +146,16 @@ const Process: React.FC = () => {
           </form.Field>
         </div>
         <div className="flex justify-center gap-4">
-          <button
-            className="h-10 w-[187px] text-yellow-primary border border-yellow-primary rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium"
-            onClick={() => { }}
+          <Link
+            href="cotizar"
           >
-            Atrás
-          </button>
+            <button
+              className="h-10 w-[187px] text-yellow-primary border border-yellow-primary rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium"
+              onClick={() => { }}
+            >
+              Atrás
+            </button>
+          </Link>
           <button
             className="h-10 w-[187px] bg-yellow-primary text-white rounded-[10px] cursor-pointer font-medium transition-all duration-500 hover:bg-yellow-primary-hover"
             onClick={() => { }}

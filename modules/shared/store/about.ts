@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { About } from "../types/about";
 
-interface AboutStore {
+interface IAboutStore {
     about: About | null,
     updateAbout: (about: About | null) => void
 }
 
-export const aboutStore = create<AboutStore>((set) => ({
+export const useAboutStore = create<IAboutStore>((set) => ({
     about: null,
     updateAbout: (about: About | null) => set({ about })
 }))

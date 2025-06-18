@@ -2,14 +2,14 @@
 import { PhoneIcon, WhatsappIcon } from "@/modules/shared/components/SVGIcons";
 import Tooltip from "@/modules/shared/components/Tooltip";
 import { useIsMobile } from "@/modules/shared/hooks/useIsMobile";
-import { contactStore } from "@/modules/shared/store/contact";
+import { useContactStore } from "@/modules/shared/store/contact";
 import Link from "next/link";
 
 const Attention: React.FC = () => {
 
   const isMobile = useIsMobile();
 
-  const { contact } = contactStore();
+  const { contact } = useContactStore();
 
   return (
     <div className="fixed z-40 right-0 top-1/2 -translate-y-1/2 mt-32">

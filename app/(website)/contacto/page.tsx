@@ -14,7 +14,7 @@ import CheckboxField from "@/modules/shared/components/CheckboxField";
 import CardDialog, { CardBodyDialog, CardFooterDialog, CardHeaderDialog } from "@/modules/shared/ui/CardDialog";
 import Image from "next/image";
 import { useAlert } from "@/modules/shared/hooks/useAlert";
-import { contactStore } from "@/modules/shared/store/contact";
+import { useContactStore } from "@/modules/shared/store/contact";
 
 const formSchema = z.object({
   tipoDocumento: z.number().min(0),
@@ -30,7 +30,6 @@ const formSchema = z.object({
 const ContactForm: React.FC = () => {
 
   const { addAlert } = useAlert()
-  // const { typeDocuments } = tdStore()
 
   const form = useForm({
     defaultValues: {
@@ -548,7 +547,7 @@ const ConsultarPQRS: React.FC<{
 
 const Contact: React.FC = () => {
 
-  const { contact } = contactStore();
+  const { contact } = useContactStore();
 
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [showQueryDialog, setShowQueryDialog] = useState(false);

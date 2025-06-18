@@ -11,12 +11,47 @@ interface IInsurersStore {
   updateInsurers: (insurers: Insurer[]) => void
 }
 
-export const tdStore = create<ITdStore>((set) => ({
-  typeDocuments: [],
+interface IBikeTypeStore {
+  bikeTypes: string[],
+  updateBikeTypes: (bikeTypes: string[]) => void
+}
+
+export const useTdStore = create<ITdStore>((set) => ({
+  typeDocuments: [
+    {
+      id: "",
+      name: "cédula de ciudadanía"
+    },
+    {
+      id: "",
+      name: "cédula de extranjería"
+    },
+    {
+      id: "",
+      name: "NIT"
+    },
+    {
+      id: "",
+      name: "pasaporte"
+    },
+  ],
   updateTypeDocuments: (typeDocuments: Master[]) => set({ typeDocuments })
 }))
 
-export const insurersStore = create<IInsurersStore>((set) => ({
+export const useInsurersStore = create<IInsurersStore>((set) => ({
   insurers: [],
   updateInsurers: (insurers: Insurer[]) => set({ insurers })
+}))
+
+export const useBikeTypesStore = create<IBikeTypeStore>((set) => ({
+  bikeTypes: [
+    "eléctricas",
+    "gasolina",
+    "montaña",
+    "plegables",
+    "ruta", 
+    "todoterreno", 
+    "urbana"
+  ],
+  updateBikeTypes: (bikeTypes: string[]) => set({ bikeTypes })
 }))

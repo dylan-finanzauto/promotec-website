@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { Product } from "../types/product";
 
-interface ProductStore {
+interface IProductStore {
     products: Product[],
     updateProducts: (products: Product[]) => void
 }
 
-export const productStore = create<ProductStore>((set) => ({
+export const useProductStore = create<IProductStore>((set) => ({
     products: [],
     updateProducts: (products: Product[]) => set({ products })
 }))

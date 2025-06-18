@@ -2,7 +2,7 @@
 import { BikeIcon, CarIcon, HeartbeatIcon, HomeIcon, KeyFilledIcon, MapPinIcon, PawFilledIcon, SeedlingIcon, ShieldIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { AlterProductCard, ProductCard } from "./ProductCard";
-import { productStore } from "@/modules/shared/store/product";
+import { useProductStore } from "@/modules/shared/store/product";
 import InsuranceSelect from "../components/InsuranceSelect";
 import { useMemo } from "react";
 import { useForm } from "@tanstack/react-form";
@@ -49,7 +49,7 @@ const mapping: Record<string, any> = {
 
 const PolicyBar: React.FC = () => {
 
-  const { products } = productStore();
+  const { products } = useProductStore();
 
   const form = useForm({
     defaultValues: {
@@ -106,7 +106,7 @@ const PolicyBar: React.FC = () => {
 
 function Quotes() {
 
-  const { products } = productStore();
+  const { products } = useProductStore();
 
   return (
     <section className="relative pt-10 lg:pt-28 pb-14">
