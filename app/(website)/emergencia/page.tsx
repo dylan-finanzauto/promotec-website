@@ -87,7 +87,7 @@ const AttendanceCard: React.FC<CardProps> = ({ name, phone }) => {
         {attendance ? <Image src={attendance.src} alt={name} width={120} height={120} /> : <h2 className="text-[32px] text-text-1 text-center font-bold truncate" title={name}>{name}</h2>}
       </div>
       <div className="flex shrink-0 h-[88px] items-center gap-8 px-10 py-6 bg-blue-terciary">
-        <h5 className="text-[40px] text-nowrap grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
+        <h5 className="text-3xl text-nowrap grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
         {isMobile && <a href={`tel:${phone}`} className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>}
       </div>
     </div>

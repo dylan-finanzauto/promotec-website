@@ -5,6 +5,7 @@ import Banner from "@/modules/website/ui/Banner";
 import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useContactStore } from "@/modules/shared/store/contact";
+import Image from "next/image";
 
 const coverages = [
   { "name": "Croquis", "ppd": true, "ptd": true, "pph": true, "pth": true, "rce": true },
@@ -71,19 +72,16 @@ const Compensations: React.FC = () => {
         img={getAssetPath("/images/compensations/banner.png")}
       />
 
-      <section className="py-28 bg-gray-3">
+      <section className="py-12 bg-gray-3">
         <Wrapper>
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(${getAssetPath("/images/compensations/p.jpg")})`,
-                  maskImage: `url(${getAssetPath("/icons/p.svg")})`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+          <div className="flex flex-col lg:flex-row items-center gap-14">
+            <Image
+              src={getAssetPath("/images/compensations/p.png")}
+              alt=""
+              width={822}
+              height={874}
+              className="fade-left -m-24"
+            />
 
             <div className="overflow-hidden">
               <div className="space-y-[30px]">

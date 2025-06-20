@@ -21,7 +21,7 @@ export const ProductCard: React.FC<CardProps> = ({ href, image, text }) => {
         <h3 className="text-[30px] grow text-text-1 group-hover:text-blue-primary leading-tight font-bold overflow-hidden">
           <RichText text={text} />
         </h3>
-        <button className="h-12 w-[160px] justify-self-end rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Ver más</button>
+        <button className="h-12 max-w-[160px] min-w-0 w-full justify-self-end rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary-hover text-white transition-all cursor-pointer">Cotizar</button>
       </div>
     </Link>
   )
@@ -34,7 +34,7 @@ export const AlterProductCard: React.FC<CardProps> = ({ href, image, text }) => 
         <h3 className="text-[30px] text-text-1 group-hover:text-blue-primary leading-tight font-bold">
           {text}
         </h3>
-        <button className="rounded-[10px] h-12 max-w-[200px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Ver más</button>
+        <button className="rounded-[10px] h-12 max-w-[200px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
       </div>
       <div className="grow overflow-hidden">
         <Image className="object-center object-cover group-hover:scale-110 transition-all duration-500" src={image} alt="" width={200} height={100} style={{
