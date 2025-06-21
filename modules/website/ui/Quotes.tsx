@@ -104,6 +104,8 @@ const PolicyBar: React.FC = () => {
   )
 }
 
+const exceptions = new Set(["Accidentes Personales", "Asistencia en viajes"]);
+
 function Quotes() {
 
   const { products } = useProductStore();
@@ -122,16 +124,22 @@ function Quotes() {
             <p className="text-[20px] text-center text-text-3 font-medium">Ofrecemos una amplia gama de seguros, diseñados para proteger lo que más valoras.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[408px] gap-5">
-            {products.slice(0, 1).map((p, i) => (
-              <AlterProductCard key={i} href={mapping[p.name]?.href || ''} image={p.images} text={`Póliza de ${p.name}`} />
-            ))}
 
-            {products.slice(1, 5).map((p, i) => (
-              <ProductCard
+            {products.slice(0, 1).map((p, i) => (
+              <AlterProductCard
                 key={i}
                 href={mapping[p.name]?.href || ''}
                 image={p.images}
-                text={`Póliza de ${p.name}`}
+                text={exceptions.has(p.name) ? p.name : `Póliza de ${p.name}`}
+              />
+            ))}
+
+            {products.slice(1).map((p, i) => (
+              <ProductCard
+                key={i + 1}
+                href={mapping[p.name]?.href || ''}
+                image={p.images}
+                text={exceptions.has(p.name) ? p.name : `Póliza de ${p.name}`}
               />
             ))}
 

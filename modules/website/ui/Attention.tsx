@@ -24,19 +24,19 @@ const Attention: React.FC = () => {
               </div>
             </a>
           ) : (
-          <Link href="/contacto">
-            <button className="w-24 flex justify-end">
-              <div
-                className="size-20 bg-yellow-primary rounded-l-full grid place-items-center cursor-default transition-all duration-300 hover:w-24 shadow-lg hover:shadow-2xl"
-              >
-                <PhoneIcon className="text-white" />
-              </div>
-            </button> 
-          </Link>
+            <Link href="/contacto">
+              <button className="w-24 flex justify-end">
+                <div
+                  className="size-20 bg-yellow-primary rounded-l-full grid place-items-center cursor-default transition-all duration-300 hover:w-24 shadow-lg hover:shadow-2xl"
+                >
+                  <PhoneIcon className="text-white" />
+                </div>
+              </button>
+            </Link>
           )}
         </Tooltip>
         <Tooltip text="Whatsapp" position="left">
-          <a className="w-24 flex justify-end" href={`https://wa.me/${contact?.chatLine}`} target="_blank" rel="noopener noreferrer">
+          <a className="w-24 flex justify-end" href={`https://wa.me/${contact?.chatLine.replace(/\s+/g, '')}`} target="_blank" rel="noopener noreferrer">
             <div
               className="size-20 bg-yellow-primary rounded-l-full grid place-items-center cursor-default transition-all duration-300 hover:w-full shadow-lg hover:shadow-2xl"
             >
