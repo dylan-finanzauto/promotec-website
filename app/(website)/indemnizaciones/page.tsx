@@ -2,7 +2,7 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import React from "react";
 import Banner from "@/modules/website/ui/Banner";
-import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon, POutlinedIcon } from "@/modules/shared/components/SVGIcons";
+import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon } from "@/modules/shared/components/SVGIcons";
 import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useContactStore } from "@/modules/shared/store/contact";
 import Image from "next/image";
@@ -35,9 +35,8 @@ function CoverageTable() {
         {coverages.map((item: Record<string, string | boolean>, idx) => (
           <div
             key={idx}
-            className={`grid grid-cols-[2fr_repeat(5,1fr)] ${
-              idx % 2 === 0 ? "bg-transparent" : "bg-gray-2 rounded-2xl"
-            }`}
+            className={`grid grid-cols-[2fr_repeat(5,1fr)] ${idx % 2 === 0 ? "bg-transparent" : "bg-gray-2 rounded-2xl"
+              }`}
           >
             <div className="py-5 px-10 col-span-2 md:col-span-1 font-medium flex items-center">
               {item.name}

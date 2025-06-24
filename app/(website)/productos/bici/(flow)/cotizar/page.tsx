@@ -24,6 +24,7 @@ const Quot: React.FC = () => {
     },
     onSubmit: ({ value }) => {
       const { terms, ...person } = value
+      if (!terms) return
       updateQuotBike({ person: person })
     }
   })
