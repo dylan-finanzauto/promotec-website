@@ -4,7 +4,7 @@ import { Insurer } from "../types/master";
 
 export const insurer = async (): Promise<Insurer[]> => {
     try {
-        const response = await axios.get<BasicResponse<Insurer[]>>(`${process.env.NEXT_PUBLIC_API_URL}/insurer`);
+        const response = await axios.get<BasicResponse<Insurer[]>>(`${process.env.NEXT_PUBLIC_API_URL}/insurance`);
 
         if (response.data.isFailure) {
             throw new Error(response.data.error.description);

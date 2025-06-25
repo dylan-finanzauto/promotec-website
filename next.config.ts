@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // output: "standalone",
+  output: "export",
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

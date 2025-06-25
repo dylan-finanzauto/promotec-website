@@ -81,11 +81,13 @@ export default function Select({ items, className, value, placeholder, error, di
         const dropdownHeight = 248;
         const spaceBelow = windowHeight - rect.bottom;
         const spaceAbove = rect.top;
+        const dropdownWidth = rect.width; // Puedes ajustar el ancho si lo deseas
+        const left = rect.left + (rect.width / 2) - (dropdownWidth / 2);
 
         if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
-          setActionPosition({ top: rect.top - dropdownHeight, left: rect.left, width: rect.width, });
+          setActionPosition({ top: rect.top - dropdownHeight, left });
         } else {
-          setActionPosition({ top: rect.bottom, left: rect.left, width: rect.width });
+          setActionPosition({ top: rect.bottom, left });
         }
       }
 
@@ -102,7 +104,7 @@ export default function Select({ items, className, value, placeholder, error, di
       style={{
         top: actionPosition.top,
         left: actionPosition.left,
-        width: actionPosition.width,
+        // width: actionPosition.width,
       }}
     >
       {items.map((i) => (

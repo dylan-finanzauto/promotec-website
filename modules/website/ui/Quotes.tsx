@@ -134,7 +134,7 @@ function Quotes() {
               />
             ))}
 
-            {products.slice(1).map((p, i) => (
+            {products.slice(1, 5).map((p, i) => (
               <ProductCard
                 key={i + 1}
                 href={mapping[p.name]?.href || ''}
