@@ -88,7 +88,7 @@ const AttendanceCard: React.FC<CardProps> = ({ name, phone }) => {
       </div>
       <div className="flex shrink-0 h-[88px] items-center gap-8 px-10 py-6 bg-blue-terciary">
         <h5 className="text-3xl text-nowrap grow overflow-auto scroll-hidden text-text-1 font-bold">{phone}</h5>
-        {isMobile && <a href={`tel:${phone}`} className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>}
+        {isMobile && <a href={`tel:${encodeURIComponent(phone)}`} className="px-7 py-3 rounded-[10px] text-[20px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Llamar</a>}
       </div>
     </div>
   )
