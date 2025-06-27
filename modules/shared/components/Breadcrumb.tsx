@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { ChevronRightDoubleIcon, ChevronRightIcon } from "./SVGIcons";
+import { ChevronRightIcon } from "./SVGIcons";
 
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   label: string;
   href?: string;
 }

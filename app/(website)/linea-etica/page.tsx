@@ -9,9 +9,9 @@ const EthicalLine: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="Línea"
-        titleBottom="ética"
-        img={getAssetPath("/images/ethical/banner.png")}
+        title="Línea"
+        subtitle="ética"
+        image="/images/ethical/banner.png"
       />
 
       <section className="py-14">

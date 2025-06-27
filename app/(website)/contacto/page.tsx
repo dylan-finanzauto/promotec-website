@@ -555,20 +555,20 @@ const Contact: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="Comunícate"
-        titleBottom="con nosotros"
-        img={getAssetPath("/images/contact/banner.png")}
+        title="Comunícate"
+        subtitle="con nosotros"
+        image="/images/contact/banner.png"
       />
 
-      <section className="bg-gray-3 overflow-hidden">
+      <section className="py-12 bg-gray-3 overflow-hidden">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <Image
-              src={getAssetPath("/images/contact/p.png")}
+              src="/images/contact/p.png"
               alt=""
               width={822}
               height={874}
-              className="fade-left"
+              className="fade-left -m-24"
             />
 
             <div className="">

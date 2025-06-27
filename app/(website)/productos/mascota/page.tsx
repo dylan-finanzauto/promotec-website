@@ -3,6 +3,7 @@ import RichText from "@/modules/shared/components/RichText";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import Insurers from "@/modules/website/ui/Insurers";
 import PlanCard from "@/modules/website/ui/PlanCard";
@@ -79,18 +80,12 @@ const faqs = [
 const Pet: React.FC = () => {
     return (
         <>
-            <div className="h-[448px] relative bg-blue-terciary">
-                <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
-                <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-                <Wrapper>
-                    <div className="absolute top-0 mt-10">
-                        <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Mascotas' }]} />
-                    </div>
-                    <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-                        <RichText text="Protege a tu peludo **ante**\n **cualquier eventualidad**" />
-                    </h1>
-                </Wrapper>
-            </div>
+            <ProductBanner
+                title="Protege a tu peludo ante"
+                subtitle="cualquier eventualidad"
+                background="/images/products/vehicle/banner.png"
+                breadcrumbItems={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Mascotas' }]}
+            />
 
             <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
                 <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro de Mascotas?</h3>

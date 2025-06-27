@@ -99,9 +99,9 @@ const Suitability: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="Listado de"
-        titleBottom="Idoneidad"
-        img={getAssetPath("/images/suitability/banner.png")}
+        title="Listado de"
+        subtitle="Idoneidad"
+        image="/images/suitability/banner.png"
       />
 
       <section className="py-[100px]">

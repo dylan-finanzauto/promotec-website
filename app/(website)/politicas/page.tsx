@@ -31,9 +31,9 @@ const Policies: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="Nuestras"
-        titleBottom="políticas"
-        img={getAssetPath("/images/policies/banner.svg")}
+        title="Nuestras"
+        subtitle="políticas"
+        image="/images/policies/banner.svg"
       />
 
       <section className="py-20">

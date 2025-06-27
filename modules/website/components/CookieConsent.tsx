@@ -26,7 +26,7 @@ const CookieConsent: React.FC = () => {
     <div className="fixed z-20 left-0 bottom-0 w-full mb-10">
       <Wrapper>
         <div
-          className="flex items-center gap-5 p-5 rounded-2xl bg-blue-terciary shadow-2xl"
+          className="flex flex-col md:flex-row items-center gap-5 p-5 rounded-2xl bg-blue-terciary shadow-2xl"
         >
           <CircleAlertIcon className="size-8 shrink-0 text-blue-primary" />
           <p className="text-sm text-blue-primary">

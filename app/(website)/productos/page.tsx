@@ -26,9 +26,9 @@ const Products: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="Nuestros"
-        titleBottom="productos"
-        img={getAssetPath("/images/products/banner.png")}
+        title="Nuestros"
+        subtitle="productos"
+        image={"/images/products/banner.png"}
       />
 
       <section className="py-[100px]">

@@ -4,6 +4,7 @@ import { InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
@@ -89,19 +90,12 @@ const faqs = [
 const Bici: React.FC = () => {
   return (
     <>
-      <div className="h-[448px] relative bg-blue-terciary">
-        <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt="" />
-        <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-        <Wrapper>
-          <div className="absolute top-0 mt-10">
-            <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Bicis' }]} />
-          </div>
-          <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
-            <span className="text-4xl md:text-[50px] text-blue-terciary font-semibold">Rueda seguro</span>
-            <span className="text-4xl md:text-[50px] text-white font-extrabold">con tu Póliza de Bici</span>
-          </h1>
-        </Wrapper>
-      </div>
+      <ProductBanner 
+        title="Rueda seguro" 
+        subtitle="con tu Póliza de Bici" 
+        background="/images/products/bike/banner.png" 
+        breadcrumbItems={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Bicis' }]}
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro de Bici?</h3>

@@ -1,8 +1,9 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcrumb";
 import { PlayerPlayFilledIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import { getAssetPath } from "@/modules/shared/utils/paths";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
@@ -124,21 +125,15 @@ const faqs = [
 ];
 
 const Vehicle: React.FC = () => {
+
+    const breadcrumbItems: BreadcrumbItem[] = [
+        { label: 'Productos', href: '../productos' },
+        { label: 'Póliza de Vehículos' }
+    ];
+
     return (
         <>
-            <div className="h-[448px] relative bg-blue-terciary">
-                <Image className="fade-left hidden md:block absolute left-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src={getAssetPath("/images/products/vehicle/banner.png")} alt=""/>
-                <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-                <Wrapper>
-                    <div className="absolute top-0 mt-10">
-                        <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Vehículos' }]} />
-                    </div>
-                    <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
-                        <span className="text-4xl md:text-[50px] text-blue-terciary font-semibold">Conduce seguro con la</span>
-                        <span className="text-4xl md:text-[50px] text-white font-extrabold">póliza de tu vehículo</span>
-                    </h1>
-                </Wrapper>
-            </div>
+            <ProductBanner background="/images/products/vehicle/banner.png" breadcrumbItems={breadcrumbItems} title="Conduce seguro con la" subtitle="póliza de tu vehículo" />
 
             <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
                 <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro para carros o motos?</h3>

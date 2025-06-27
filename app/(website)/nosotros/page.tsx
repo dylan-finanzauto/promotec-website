@@ -14,9 +14,9 @@ const About: React.FC = () => {
   return (
     <>
       <Banner
-        titleTop="¿Quiénes"
-        titleBottom="somos?"
-        img={getAssetPath("/images/about/banner.png")}
+        title="¿Quiénes"
+        subtitle="somos?"
+        image={"/images/about/banner.png"}
       />
 
       <section className="py-20 bg-gray-3">
@@ -41,7 +41,7 @@ const About: React.FC = () => {
               <div
                 className="rounded-[30px] bg-blue-terciary bg-center bg-cover"
                 style={{
-                  backgroundImage: `url(${getAssetPath("/images/about/mission.jpg")})`
+                  backgroundImage: `url(${"/images/about/mission.jpg"})`
                 }}
               />
             </div>
@@ -75,7 +75,7 @@ const About: React.FC = () => {
 
         <Image
           className="fade-left hidden xl:block absolute right-0 bottom-0 h-[90%] mr-20"
-          src={getAssetPath("/images/about/values.png")}
+          src="/images/about/values.png"
           alt=""
           width={558}
           height={643}
@@ -86,7 +86,7 @@ const About: React.FC = () => {
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-14">
             <Image
-              src={getAssetPath("/images/about/p.png")}
+              src="/images/about/p.png"
               alt=""
               width={822}
               height={874}

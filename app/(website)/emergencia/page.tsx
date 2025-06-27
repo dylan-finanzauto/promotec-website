@@ -100,7 +100,7 @@ const Emergency: React.FC = () => {
 
   return (
     <>
-      <Banner titleTop="¿Tienes una" titleBottom="emergencia?" img="images/emergency/banner.png" />
+      <Banner title="¿Tienes una" subtitle="emergencia?" image="images/emergency/banner.png" />
 
       <section className="py-[100px]">
         <Wrapper>
