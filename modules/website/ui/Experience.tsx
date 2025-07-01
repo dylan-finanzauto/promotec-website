@@ -1,6 +1,5 @@
 import { LikeIcon, UsersIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ function Experience() {
       <Wrapper>
         <div className="flex flex-col lg:flex-row items-center gap-10">
           <Image
-            src={getAssetPath("/images/contact/p.png")}
+            src="/images/contact/p.png"
             alt=""
             width={822}
             height={874}

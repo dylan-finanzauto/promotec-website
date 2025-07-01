@@ -1,7 +1,6 @@
 import { BikeIcon, CarIcon, HeartbeatIcon, HomeIcon } from '@/modules/shared/components/SVGIcons'
 import WebsiteProviders from '@/modules/shared/providers/WebsiteProviders'
 import Wrapper from '@/modules/shared/ui/Wrapper'
-import { getAssetPath } from '@/modules/shared/utils/paths'
 import Footer from '@/modules/website/components/Footer'
 import Header from '@/modules/website/components/Header'
 import Navigation from '@/modules/website/components/Navigation'
@@ -70,7 +69,7 @@ const NotFound = () => {
 
           <Image
             className="absolute right-0 bottom-0"
-            src={getAssetPath("/images/404/person.png")}
+            src="/images/404/person.png"
             alt="Imágen de hombre con una expresión aburrida"
             width={667}
             height={664}

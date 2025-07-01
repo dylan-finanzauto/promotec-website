@@ -1,7 +1,6 @@
 'use client'
 import { useProductStore } from "@/modules/shared/store/product";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 import { AlterProductCard, ProductCard } from "@/modules/website/ui/ProductCard";
 

@@ -1,7 +1,6 @@
 'use client';
 import Pagination from "@/modules/shared/components/Pagination";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 
 const cols = ["Nombre y apellidos", "Tipo de documento", "Identificación", "Agencia de seguros", "Nit", "Fecha de vinculación"];

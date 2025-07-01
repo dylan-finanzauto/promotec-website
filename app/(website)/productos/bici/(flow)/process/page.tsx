@@ -3,7 +3,6 @@ import { InputField } from "@/modules/shared/components/InputField";
 import RadioField from "@/modules/shared/components/RadioField";
 import Select from "@/modules/shared/components/Select";
 import { useBikeTypesStore } from "@/modules/shared/store/master";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +25,7 @@ const Process: React.FC = () => {
   return (
     <div className="w-full bg-gray-1 rounded-[30px] overflow-hidden mb-[70px]">
       <div className="h-[220px]">
-        <Image className="w-full object-center object-cover h-full" src={getAssetPath("/images/products/bike/quot/banner.jpg")} alt="" width={1200} height={1000} />
+        <Image className="w-full object-center object-cover h-full" src="/images/products/bike/quot/banner.jpg" alt="" width={1200} height={1000} />
       </div>
 
       <div className="pt-[30px] pb-10 max-w-[1200px] min-w-0 w-full mx-auto space-y-[30px]">

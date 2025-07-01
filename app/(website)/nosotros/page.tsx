@@ -2,7 +2,6 @@
 import RichText from "@/modules/shared/components/RichText";
 import { useAboutStore } from "@/modules/shared/store/about";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 import Certified from "@/modules/website/ui/Certified";
 import Image from "next/image";
@@ -48,7 +47,7 @@ const About: React.FC = () => {
 
             <div className="fade-up grid md:grid-cols-3 auto-rows-fr gap-5 group">
               <div className="relative rounded-[30px] overflow-hidden">
-                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover scale-[1.2] group-hover:scale-150 transition-all duration-500" src={getAssetPath("/images/about/vision.jpg")} alt="" width={748} height={499} />
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover scale-[1.2] group-hover:scale-150 transition-all duration-500" src="/images/about/vision.jpg" alt="" width={748} height={499} />
               </div>
               <div className="md:col-span-2 p-10 md:py-20 md:px-28 rounded-[30px] bg-blue-secondary space-y-10">
                 <h3 className="text-3xl font-bold text-blue-terciary">Nuestra <b className="text-white">Visión</b></h3>

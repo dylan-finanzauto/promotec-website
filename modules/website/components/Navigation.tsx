@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { HamburgerIcon, XIcon } from "@/modules/shared/components/SVGIcons";
 import { useEffect, useState } from "react";
 
@@ -104,7 +103,7 @@ const Navigation: React.FC = () => {
       <div className="h-20 bg-gray-3 border-b-[0.5px] border-blue-terciary">
         <Wrapper className="flex justify-between gap-10 py-[18px] h-full">
           <Link className="shrink-0" href={"/"}>
-            <Image src={`${getAssetPath("/icons/promotec.svg")}`} alt="Logo" width={156} height={44} />
+            <Image src="/icons/promotec.svg" alt="Logo" width={156} height={44} />
           </Link>
 
           <div className="hidden md:flex flex-grow items-center gap-8 overflow-auto scroll-hidden">

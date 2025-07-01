@@ -1,5 +1,4 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,7 +32,7 @@ function Consulting() {
 
         <Image
           className="fade-right pt-20 md:pt-0 md:absolute top-0 right-0 md:-mb-20 md:-mr-14 w-[1028px]"
-          src={getAssetPath("/images/home/family.png")}
+          src="/images/home/family.png"
           alt=""
           width={793}
           height={566}

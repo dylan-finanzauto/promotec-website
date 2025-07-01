@@ -2,71 +2,70 @@
 import { useIsMobile } from "@/modules/shared/hooks/useIsMobile";
 import { useInsurersStore } from "@/modules/shared/store/master";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 import Image from "next/image";
 import Link from "next/link";
 
 const mapping: Record<string, { src: string }> = {
   // "METLIFE.": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   "Allianz (II)": {
-    src: getAssetPath("/images/policies/ALLIANZ.png") 
+    src: "/images/policies/ALLIANZ.png"
   },
   // "Suramericana": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   "CONTINENTAL ASSIST": {
-    src: getAssetPath("/images/policies/ContinentalAssist.png") 
+    src: "/images/policies/ContinentalAssist.png"
   },
   // "Aseguradora Solidaria": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   "Colmena Seguros": {
-    src: getAssetPath("/images/policies/colmena.png") 
+    src: "/images/policies/colmena.png"
   },
   "Axa Colpatria": {
-    src: getAssetPath("/images/policies/AXA_COLPATRIA.png") 
+    src: "/images/policies/AXA_COLPATRIA.png"
   },
   "HDI Seguros": {
-    src: getAssetPath("/images/policies/HDI.png") 
+    src: "/images/policies/HDI.png"
   },
   "SBS Seguros": {
-    src: getAssetPath("/images/policies/SBScolombia.png") 
+    src: "/images/policies/SBScolombia.png"
   },
   "Equidad Seguros": {
-    src: getAssetPath("/images/policies/Equidad.png") 
+    src: "/images/policies/Equidad.png"
   },
   // "Zurich Seguros": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   "Seguros Bolivar": {
-    src: getAssetPath("/images/policies/BOLIVAR.png") 
+    src: "/images/policies/BOLIVAR.png"
   },
   "Mapfre Seguros": {
-    src: getAssetPath("/images/policies/Mapfre.png") 
+    src: "/images/policies/Mapfre.png"
   },
   // "Previsora Seguros": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   "Pan-American Life.": {
-    src: getAssetPath("/images/policies/PREVISORA.png") 
+    src: "/images/policies/PREVISORA.png"
   },
   // "CARDIF COLOMBIA SEG. GENERALES S.A": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   // "CHUBB DE COLOMBIA CIA. DE SEG.S.A.": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   // "COMPAÑÍA MUNDIAL DE SEGUROS S.A.": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   // "BERKLEY INTERNATIONAL SEGUROS COLOMBIA S.A": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
   // "SEGUROS DEL ESTADO S.A.": {
-  //   src: getAssetPath("/images/policies/") 
+  //   src: "/images/policies/"
   // },
 }
 

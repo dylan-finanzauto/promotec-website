@@ -3,7 +3,6 @@ import RichText from "@/modules/shared/components/RichText";
 import { InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
@@ -15,15 +14,15 @@ import Link from "next/link";
 const coverages = [
   {
     title: "**Bicicletas tradicionales de pedal (ruta, montaña y urbana)**",
-    img: getAssetPath("/images/products/bike/coverages/1.jpg")
+    img: "/images/products/bike/coverages/1.jpg"
   },
   {
     title: "**Bicicletas tradicionales plegables**",
-    img: getAssetPath("/images/products/bike/coverages/2.jpg")
+    img: "/images/products/bike/coverages/2.jpg"
   },
   {
     title: "**Bicicletas o patinetas eléctricas**",
-    img: getAssetPath("/images/products/bike/coverages/3.jpg")
+    img: "/images/products/bike/coverages/3.jpg"
   },
 ]
 
@@ -49,22 +48,22 @@ const benefits = [
   {
     title: 'Seguro personalizado',
     text: 'Nuestro equipo de asesores especializados está a tu disposición para ayudarte a encontrar tu póliza de seguro ideal.',
-    img: getAssetPath('/images/products/bike/benefits/1.png')
+    img: '/images/products/bike/benefits/1.png'
   },
   {
     title: 'Proceso 100% multicanal',
     text: '¡Simplificamos nuestro proceso!\n Todos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
-    img: getAssetPath('/images/products/bike/benefits/2.png')
+    img: '/images/products/bike/benefits/2.png'
   },
   {
     title: 'Atención personalizada',
     text: 'Nuestro equipo de asesores especializados te brindará el acompañamiento que mereces.',
-    img: getAssetPath('/images/products/bike/benefits/3.png')
+    img: '/images/products/bike/benefits/3.png'
   },
   {
     title: 'Renovación digital',
     text: 'Facilitamos la renovación de tu Póliza de Bicicleta, renuévala sin salir de tu casa.',
-    img: getAssetPath('/images/products/bike/benefits/4.png')
+    img: '/images/products/bike/benefits/4.png'
   },
 ]
 
@@ -90,10 +89,10 @@ const faqs = [
 const Bici: React.FC = () => {
   return (
     <>
-      <ProductBanner 
-        title="Rueda seguro" 
-        subtitle="con tu Póliza de Bici" 
-        background="/images/products/bike/banner.png" 
+      <ProductBanner
+        title="Rueda seguro"
+        subtitle="con tu Póliza de Bici"
+        background="/images/products/bike/banner.png"
         breadcrumbItems={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Bicis' }]}
       />
 
@@ -110,7 +109,7 @@ const Bici: React.FC = () => {
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
-              <Image width={576} height={576} className="w-full h-full absolute top-0 left-0 text-blue-primary" src={getAssetPath("/images/products/bike/p.png")} alt="" />
+              <Image width={576} height={576} className="w-full h-full absolute top-0 left-0 text-blue-primary" src="/images/products/bike/p.png" alt="" />
             </div>
             <div className="overflow-hidden">
               <div className="space-y-[50px]">

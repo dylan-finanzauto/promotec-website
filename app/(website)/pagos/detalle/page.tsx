@@ -1,7 +1,6 @@
 import { ChevronLeftFilledIcon } from "@/modules/shared/components/SVGIcons";
 import Tooltip from "@/modules/shared/components/Tooltip";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -121,7 +120,7 @@ const Detail: React.FC = () => {
           <div className="pt-[70px] px-5 pb-[30px] space-y-12 rounded-[14px] bg-white shadow-lg">
             <div className="flex justify-center">
               <Image
-                src={getAssetPath("/icons/colmena-seguros.svg")}
+                src="/icons/colmena-seguros.svg"
                 alt="Imágen logo asegurador"
                 width={220}
                 height={67}

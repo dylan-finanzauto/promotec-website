@@ -3,7 +3,6 @@ import Wrapper from "@/modules/shared/ui/Wrapper";
 import React from "react";
 import Banner from "@/modules/website/ui/Banner";
 import { CheckCircleFilledIcon, CheckCircleIcon, MailIcon, PhoneIcon } from "@/modules/shared/components/SVGIcons";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useContactStore } from "@/modules/shared/store/contact";
 import Image from "next/image";
 
@@ -67,15 +66,16 @@ const Compensations: React.FC = () => {
   return (
     <>
       <Banner
-        titleBottom="Indemnizaciones"
-        img={getAssetPath("/images/compensations/banner.png")}
+        title=""
+        subtitle="Indemnizaciones"
+        image="/images/compensations/banner.png"
       />
 
       <section className="py-12 bg-gray-3">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-14">
             <Image
-              src={getAssetPath("/images/compensations/p.png")}
+              src="/images/compensations/p.png"
               alt=""
               width={822}
               height={874}

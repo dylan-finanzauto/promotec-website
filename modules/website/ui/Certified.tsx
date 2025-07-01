@@ -1,5 +1,4 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Image from "next/image";
 
 function Certified() {
@@ -15,7 +14,7 @@ function Certified() {
           <div className="flex justify-center">
             <Image
               className="zoom-in"
-              src={getAssetPath("/icons/iso9001.svg")}
+              src="/icons/iso9001.svg"
               alt=""
               width={259}
               height={119}

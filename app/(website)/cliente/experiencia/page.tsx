@@ -1,6 +1,5 @@
 import RadioField from "@/modules/shared/components/RadioField";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 
 const questions = [
   "¿Qué tan fácil fue encontrar la información que buscabas?",
@@ -21,7 +20,7 @@ const Experience: React.FC = () => {
 
           <div className="rounded-xl overflow-hidden">
             <header className="h-[393px] bg-cover bg-center" style={{
-              backgroundImage: `url(${getAssetPath('/images/experience/banner.png')})`
+              backgroundImage: `url(/images/experience/banner.png)`
             }}></header>
             <div className="py-14 px-28 space-y-12 bg-blue-terciary">
               <div className="space-y-[30px]">

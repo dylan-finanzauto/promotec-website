@@ -2,7 +2,6 @@ import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcru
 import { PlayerPlayFilledIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
@@ -12,73 +11,73 @@ import Image from "next/image";
 import Link from "next/link";
 
 const coverages = [
-    {
-        title: "**Responsabilidad civil extracontractual**",
-        img: getAssetPath("/images/products/vehicle/coverages/1.jpg")
-    },
-    {
-        title: "**Asistencia al vehículo**",
-        img: getAssetPath("/images/products/vehicle/coverages/2.jpg")
-    },
-    {
-        title: "**Conductor elegido**",
-        description: "***Asistencia Plus**",
-        img: getAssetPath("/images/products/vehicle/coverages/3.jpg")
-    },
-    {
-        title: "**Pérdida total, daño y/o hurto**",
-        img: getAssetPath("/images/products/vehicle/coverages/4.jpg")
-    },
-    {
-        title: "**Pérdida Parcial, daño y/o hurto**",
-        img: getAssetPath("/images/products/vehicle/coverages/5.jpg")
-    },
-    {
-        title: "**Vehículo de reemplazo**",
-        description: "***Asistencia Plus**",
-        img: getAssetPath("/images/products/vehicle/coverages/6.jpg")
-    },
+  {
+    title: "**Responsabilidad civil extracontractual**",
+    img: "/images/products/vehicle/coverages/1.jpg"
+  },
+  {
+    title: "**Asistencia al vehículo**",
+    img: "/images/products/vehicle/coverages/2.jpg"
+  },
+  {
+    title: "**Conductor elegido**",
+    description: "***Asistencia Plus**",
+    img: "/images/products/vehicle/coverages/3.jpg"
+  },
+  {
+    title: "**Pérdida total, daño y/o hurto**",
+    img: "/images/products/vehicle/coverages/4.jpg"
+  },
+  {
+    title: "**Pérdida Parcial, daño y/o hurto**",
+    img: "/images/products/vehicle/coverages/5.jpg"
+  },
+  {
+    title: "**Vehículo de reemplazo**",
+    description: "***Asistencia Plus**",
+    img: "/images/products/vehicle/coverages/6.jpg"
+  },
 ]
 
 const benefits = [
-    {
-        title: 'Seguro personalizado',
-        text: 'Nuestro equipo de asesores especializados está a tu disposición para ayudarte a encontrar tu póliza de seguro ideal.',
-        img: getAssetPath('/icons/benefit-001.svg')
-    },
-    {
-        title: 'Proceso 100% multicanal',
-        text: '¡Simplificamos nuestro proceso!  Cotiza y adquiere tu póliza de seguro online, sin salir de tu casa.',
-        img: getAssetPath('/icons/benefit-002.svg')
-    },
-    {
-        title: 'Atención personalizada',
-        text: 'Nuestro equipo de asesores especializados te brindará asesoramiento personalizado.',
-        img: getAssetPath('/icons/benefit-003.svg')
-    },
-    {
-        title: 'Renovación digital',
-        text: 'Facilitamos la renovación de tus pólizas de seguros; renuévala sin salir de casa.',
-        img: getAssetPath('/icons/benefit-004.svg')
-    },
+  {
+    title: 'Seguro personalizado',
+    text: 'Nuestro equipo de asesores especializados está a tu disposición para ayudarte a encontrar tu póliza de seguro ideal.',
+    img: '/icons/benefit-001.svg'
+  },
+  {
+    title: 'Proceso 100% multicanal',
+    text: '¡Simplificamos nuestro proceso!  Cotiza y adquiere tu póliza de seguro online, sin salir de tu casa.',
+    img: '/icons/benefit-002.svg'
+  },
+  {
+    title: 'Atención personalizada',
+    text: 'Nuestro equipo de asesores especializados te brindará asesoramiento personalizado.',
+    img: '/icons/benefit-003.svg'
+  },
+  {
+    title: 'Renovación digital',
+    text: 'Facilitamos la renovación de tus pólizas de seguros; renuévala sin salir de casa.',
+    img: '/icons/benefit-004.svg'
+  },
 ]
 
 const plans = [
-    {
-        title: "Póliza",
-        subtitle: "Básica",
-        coverages: ["Responsabilidad civil - RCE.", "Pérdidas totales (daños - hurto).", "Eventos de la naturaleza. ", "Amparo patrimonial.", "Asistencia jurídica.", "Gastos de transporte PT."]
-    },
-    {
-        title: "Póliza",
-        subtitle: "Intermedia",
-        coverages: ["Todas las coberturas básicas.", "Pérdida parcial (daños - hurto).", "Patios por inmovilización.", "Gastos casa cárcel.", "Grúa.", "Revisión en viaje.", "Emergencia en carretera.", "Asistencia plus.", "Marcación de seguridad."]
-    },
-    {
-        title: "Póliza",
-        subtitle: "Full",
-        coverages: ["Todas las coberturas básicas.", "Todas las coberturas adicionales.", "Médico domiciliario."]
-    },
+  {
+    title: "Póliza",
+    subtitle: "Básica",
+    coverages: ["Responsabilidad civil - RCE.", "Pérdidas totales (daños - hurto).", "Eventos de la naturaleza. ", "Amparo patrimonial.", "Asistencia jurídica.", "Gastos de transporte PT."]
+  },
+  {
+    title: "Póliza",
+    subtitle: "Intermedia",
+    coverages: ["Todas las coberturas básicas.", "Pérdida parcial (daños - hurto).", "Patios por inmovilización.", "Gastos casa cárcel.", "Grúa.", "Revisión en viaje.", "Emergencia en carretera.", "Asistencia plus.", "Marcación de seguridad."]
+  },
+  {
+    title: "Póliza",
+    subtitle: "Full",
+    coverages: ["Todas las coberturas básicas.", "Todas las coberturas adicionales.", "Médico domiciliario."]
+  },
 ]
 
 const faqs = [
@@ -126,119 +125,119 @@ const faqs = [
 
 const Vehicle: React.FC = () => {
 
-    const breadcrumbItems: BreadcrumbItem[] = [
-        { label: 'Productos', href: '../productos' },
-        { label: 'Póliza de Vehículos' }
-    ];
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Productos', href: '../productos' },
+    { label: 'Póliza de Vehículos' }
+  ];
 
-    return (
-        <>
-            <ProductBanner background="/images/products/vehicle/banner.png" breadcrumbItems={breadcrumbItems} title="Conduce seguro con la" subtitle="póliza de tu vehículo" />
+  return (
+    <>
+      <ProductBanner background="/images/products/vehicle/banner.png" breadcrumbItems={breadcrumbItems} title="Conduce seguro con la" subtitle="póliza de tu vehículo" />
 
-            <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
-                <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro para carros o motos?</h3>
-                <Link
-                    href={"/productos/vehiculo/cotizar"}
-                >
-                    <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotiza aquí</button>
-                </Link>
-            </section>
+      <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
+        <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro para carros o motos?</h3>
+        <Link
+          href={"/productos/vehiculo/cotizar"}
+        >
+          <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotiza aquí</button>
+        </Link>
+      </section>
 
-            <section className="py-[70px]">
-                <Wrapper>
-                    <div className="space-y-10">
-                        <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce las coberturas y asistencias que te brindan los seguros para carros y motos</h2>
-                        <div className="grid grid-cols-6 auto-rows-[368px] overflow-x-auto gap-4">
-                            {coverages.map((c, i) => (
-                                <CoverageCard
-                                    key={i}
-                                    title={c.title}
-                                    description={c.description}
-                                    img={c.img}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
+      <section className="py-[70px]">
+        <Wrapper>
+          <div className="space-y-10">
+            <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce las coberturas y asistencias que te brindan los seguros para carros y motos</h2>
+            <div className="grid grid-cols-6 auto-rows-[368px] overflow-x-auto gap-4">
+              {coverages.map((c, i) => (
+                <CoverageCard
+                  key={i}
+                  title={c.title}
+                  description={c.description}
+                  img={c.img}
+                />
+              ))}
+            </div>
+          </div>
+        </Wrapper>
+      </section>
 
-            <section className="py-[100px] bg-gray-3">
-                <Wrapper>
-                    <div className="space-y-[30px] w-10/12 mx-auto">
-                        <h4 className="text-[40px] text-blue-primary text-center font-bold">Conoce los beneficios de tener una póliza con Promotec</h4>
-                        <p className="text-[20px] text-center text-text-3 font-medium">Encuentra en Promotec una amplia gama de seguros para todas las necesidades y presupuestos.</p>
-                        <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
-                            {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
-                        </div>
-                        <div className="flex justify-center">
-                            <Link
-                                href={"/productos/vehiculo/cotizar"}
-                            >
-                                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
-                            </Link>
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
+      <section className="py-[100px] bg-gray-3">
+        <Wrapper>
+          <div className="space-y-[30px] w-10/12 mx-auto">
+            <h4 className="text-[40px] text-blue-primary text-center font-bold">Conoce los beneficios de tener una póliza con Promotec</h4>
+            <p className="text-[20px] text-center text-text-3 font-medium">Encuentra en Promotec una amplia gama de seguros para todas las necesidades y presupuestos.</p>
+            <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
+              {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
+            </div>
+            <div className="flex justify-center">
+              <Link
+                href={"/productos/vehiculo/cotizar"}
+              >
+                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
+              </Link>
+            </div>
+          </div>
+        </Wrapper>
+      </section>
 
-            <section className="py-[100px] bg-blue-terciary">
-                <Wrapper>
-                    <div className="flex items-center gap-4">
-                        <div className="w-2/5 space-y-10">
-                            <h3 className="text-[60px] text-blue-primary font-bold leading-none">El seguro perfecto para cada tipo de vehículo</h3>
-                            <p className="text-[20px] text-text-3 font-medium">Asegura con nosotros tu carro particular o de servicio público, motocicleta o vehículo de carga pesada.</p>
-                        </div>
-                        <div className="grow aspect-video bg-[#454545] grid place-items-center rounded-[30px]">
-                            <div className="size-[150px] rounded-full bg-white/40 grid place-items-center">
-                                <div className="size-[125px] rounded-full bg-yellow-primary grid place-items-center">
-                                    <PlayerPlayFilledIcon className="size-12 text-white" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
+      <section className="py-[100px] bg-blue-terciary">
+        <Wrapper>
+          <div className="flex items-center gap-4">
+            <div className="w-2/5 space-y-10">
+              <h3 className="text-[60px] text-blue-primary font-bold leading-none">El seguro perfecto para cada tipo de vehículo</h3>
+              <p className="text-[20px] text-text-3 font-medium">Asegura con nosotros tu carro particular o de servicio público, motocicleta o vehículo de carga pesada.</p>
+            </div>
+            <div className="grow aspect-video bg-[#454545] grid place-items-center rounded-[30px]">
+              <div className="size-[150px] rounded-full bg-white/40 grid place-items-center">
+                <div className="size-[125px] rounded-full bg-yellow-primary grid place-items-center">
+                  <PlayerPlayFilledIcon className="size-12 text-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Wrapper>
+      </section>
 
-            <Insurers />
+      <Insurers />
 
-            <section className="py-[80px] bg-gray-3">
-                <Wrapper>
-                    <div className="space-y-10">
-                        <h4 className="text-[40px] text-center font-bold">Coberturas en tu plan</h4>
-                        <div className="grid grid-cols-3 gap-6">
-                            {plans.map((p, i) => (
-                                <PlanCard
-                                    key={i}
-                                    title={p.title}
-                                    subtitle={p.subtitle}
-                                    coverages={p.coverages}
-                                />
-                            ))}
-                        </div>
-                        <div className="flex justify-center">
-                            <Link
-                                href={"/productos/vehiculo/cotizar"}
-                            >
-                                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
-                            </Link>
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
+      <section className="py-[80px] bg-gray-3">
+        <Wrapper>
+          <div className="space-y-10">
+            <h4 className="text-[40px] text-center font-bold">Coberturas en tu plan</h4>
+            <div className="grid grid-cols-3 gap-6">
+              {plans.map((p, i) => (
+                <PlanCard
+                  key={i}
+                  title={p.title}
+                  subtitle={p.subtitle}
+                  coverages={p.coverages}
+                />
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <Link
+                href={"/productos/vehiculo/cotizar"}
+              >
+                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
+              </Link>
+            </div>
+          </div>
+        </Wrapper>
+      </section>
 
-            <section className="py-[100px] bg-white">
-                <Wrapper>
-                    <div className="space-y-10">
-                        <h4 className="text-[40px] text-center font-bold">Preguntas frecuentes</h4>
-                        <div className="space-y-[10px]">
-                            {faqs.map((f, i) => <Accordion key={i} title={f.question} content={f.answer} />)}
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
+      <section className="py-[100px] bg-white">
+        <Wrapper>
+          <div className="space-y-10">
+            <h4 className="text-[40px] text-center font-bold">Preguntas frecuentes</h4>
+            <div className="space-y-[10px]">
+              {faqs.map((f, i) => <Accordion key={i} title={f.question} content={f.answer} />)}
+            </div>
+          </div>
+        </Wrapper>
+      </section>
 
-        </>
-    )
+    </>
+  )
 }
 
 export default Vehicle;

@@ -1,7 +1,6 @@
 'use client';
 import { InputField } from "@/modules/shared/components/InputField";
 import Wrapper from "@/modules/shared/ui/Wrapper";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
 import Link from "next/link";
@@ -80,7 +79,7 @@ const Cliente: React.FC = () => {
       <Wrapper className="relative">
         <Image
           className="fade-right absolute right-0 bottom-0"
-          src={getAssetPath("/images/client/banner.png")}
+          src="/images/client/banner.png"
           alt=""
           width={1138}
           height={652}

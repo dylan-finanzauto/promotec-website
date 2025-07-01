@@ -1,7 +1,6 @@
 'use client';
 import { InputField } from "@/modules/shared/components/InputField";
 import Select from "@/modules/shared/components/Select";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Stepper from "@/modules/website/components/Stepper";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
@@ -32,7 +31,7 @@ const Process: React.FC = () => {
   return (
     <div className="w-full bg-gray-1 rounded-[30px] overflow-hidden mb-[70px]">
       <div className="h-[220px]">
-        <Image className="w-full object-center object-cover h-full" src={getAssetPath("/images/products/vehicle/quot/banner.jpg")} alt="" width={1200} height={1000} />
+        <Image className="w-full object-center object-cover h-full" src="/images/products/vehicle/quot/banner.jpg" alt="" width={1200} height={1000} />
       </div>
 
       <div className="pt-[30px] pb-10 max-w-[1200px] min-w-0 w-full mx-auto space-y-[30px]">
@@ -280,18 +279,18 @@ const Process: React.FC = () => {
           </form.Field>
         </div>
         <div className="flex justify-center gap-4">
-            <button
-              className="h-10 w-[187px] text-yellow-primary border border-yellow-primary rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium"
-              onClick={() => setStep(curr => curr - 1)}
-            >
-              Atrás
-            </button>
-            <button
-              className="h-10 w-[187px] bg-yellow-primary text-white rounded-[10px] cursor-pointer font-medium transition-all duration-500 hover:bg-yellow-primary-hover"
-              onClick={() => setStep(curr => curr + 1)}
-            >
-              Confirmar
-            </button>
+          <button
+            className="h-10 w-[187px] text-yellow-primary border border-yellow-primary rounded-[10px] bg-transparent transition-all duration-500 cursor-pointer font-medium"
+            onClick={() => setStep(curr => curr - 1)}
+          >
+            Atrás
+          </button>
+          <button
+            className="h-10 w-[187px] bg-yellow-primary text-white rounded-[10px] cursor-pointer font-medium transition-all duration-500 hover:bg-yellow-primary-hover"
+            onClick={() => setStep(curr => curr + 1)}
+          >
+            Confirmar
+          </button>
         </div>
       </div>
     </div>

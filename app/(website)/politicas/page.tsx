@@ -1,5 +1,4 @@
 import Wrapper from "@/modules/shared/ui/Wrapper"
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { POLICIES } from "@/modules/website/data/policies";
 import Banner from "@/modules/website/ui/Banner";
 

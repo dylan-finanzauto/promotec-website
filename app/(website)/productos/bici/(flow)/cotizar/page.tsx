@@ -4,7 +4,6 @@ import { InputField } from "@/modules/shared/components/InputField";
 import Select from "@/modules/shared/components/Select";
 import { useTdStore } from "@/modules/shared/store/master";
 import { useQuotBikeStore } from "@/modules/shared/store/quot";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import { useForm } from "@tanstack/react-form";
 import Image from "next/image";
 
@@ -33,7 +32,7 @@ const Quot: React.FC = () => {
     <>
       <div className="max-w-[1230px] min-w-0 w-full flex bg-gray-1 rounded-[30px] mx-auto mb-[150px] overflow-hidden">
         <div className="w-2/5">
-          <Image className="max-w-full object-center object-cover h-full" src={getAssetPath("/images/products/bike/quot/picture.jpg")} alt="" width={515} height={686} />
+          <Image className="max-w-full object-center object-cover h-full" src="/images/products/bike/quot/picture.jpg" alt="" width={515} height={686} />
         </div>
         <div className="py-10 flex justify-center grow">
           <form className="max-w-[520px] min-w-0 w-full" onSubmit={(e) => {

@@ -9,7 +9,6 @@ import Banner from "@/modules/website/ui/Banner";
 import { useState } from "react";
 import Link from "next/link";
 import { MailIcon, PhoneIcon, WhatsappIcon, XIcon } from "@/modules/shared/components/SVGIcons";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import CheckboxField from "@/modules/shared/components/CheckboxField";
 import CardDialog, { CardBodyDialog, CardFooterDialog, CardHeaderDialog } from "@/modules/shared/ui/CardDialog";
 import Image from "next/image";
@@ -651,7 +650,7 @@ const Contact: React.FC = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-4 auto-rows-[432px]">
               <div className="zoom-in relative group rounded-[30px] overflow-hidden">
-                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src={getAssetPath("/images/contact/b1.jpg")} alt="" width={200} height={200} />
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src="/images/contact/b1.jpg" alt="" width={200} height={200} />
                 <div className="absolute w-full h-full top-0 left-0 bg-blue-secondary/80 flex flex-col justify-center gap-12 p-10 md:px-32">
                   <h4 className="text-[40px] text-blue-terciary leading-none font-semibold ">
                     <div className="">Radica</div>
@@ -664,7 +663,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="zoom-in relative group rounded-[30px] overflow-hidden">
-                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src={getAssetPath("/images/contact/b2.jpg")} alt="" width={200} height={200} />
+                <Image className="absolute top-0 left-0 w-full h-full object-center object-cover group-hover:scale-110 transition-all" src="/images/contact/b2.jpg" alt="" width={200} height={200} />
                 <div className="absolute w-full h-full top-0 left-0 bg-blue-secondary/80 flex flex-col justify-center gap-12 p-10 md:px-32">
                   <h4 className="text-[40px] text-blue-terciary leading-none font-semibold ">
                     <div className="">Consulta</div>

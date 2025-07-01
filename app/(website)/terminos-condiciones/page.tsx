@@ -2,7 +2,6 @@
 import Wrapper from "@/modules/shared/ui/Wrapper";
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
-import { getAssetPath } from "@/modules/shared/utils/paths";
 
 export interface DocumentItem {
   title: string;
@@ -17,7 +16,7 @@ export interface AttendanceItem {
 const ATTENDANCES: AttendanceItem[] = [
   {
     name: "Allianz",
-    src: getAssetPath("/images/policies/ALLIANZ.png"),
+    src: "/images/policies/ALLIANZ.png",
     document: [
       {
         title: "Pólizas de Carros y Motos",
@@ -47,7 +46,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "Axa colpatria",
-    src: getAssetPath("/images/policies/AXA_COLPATRIA.png"),
+    src: "/images/policies/AXA_COLPATRIA.png",
     document: [
       {
         title: "Taxis",
@@ -69,7 +68,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "HDI",
-    src: getAssetPath("/images/policies/HDI.png"),
+    src: "/images/policies/HDI.png",
     document: [
       {
         title: "Pólizas de Carros y Motos",
@@ -99,7 +98,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "Equidad",
-    src: getAssetPath("/images/policies/Equidad.png"),
+    src: "/images/policies/Equidad.png",
     document: [
       {
         title: "Taxis",
@@ -121,7 +120,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "Mapfre",
-    src: getAssetPath("/images/policies/Mapfre.png"),
+    src: "/images/policies/Mapfre.png",
     document: [
       {
         title: "Taxis",
@@ -143,7 +142,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "SBScolombia",
-    src: getAssetPath("/images/policies/SBScolombia.png"),
+    src: "/images/policies/SBScolombia.png",
     document: [
       {
         title: "Taxis",
@@ -165,7 +164,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "BOLIVAR_icon",
-    src: getAssetPath("/images/policies/BOLIVAR.png"),
+    src: "/images/policies/BOLIVAR.png",
     document: [
       {
         title: "Taxis",
@@ -187,7 +186,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "ContinentalAssist_icon",
-    src: getAssetPath("/images/policies/ContinentalAssist.png"),
+    src: "/images/policies/ContinentalAssist.png",
     document: [
       {
         title: "Pólizas de Carros y Motos",
@@ -217,7 +216,7 @@ const ATTENDANCES: AttendanceItem[] = [
   },
   {
     name: "PREVISORA_icon",
-    src: getAssetPath("/images/policies/PREVISORA.png"),
+    src: "/images/policies/PREVISORA.png",
     document: [
       {
         title: "Taxis",
@@ -237,9 +236,9 @@ const ATTENDANCES: AttendanceItem[] = [
       }
     ]
   },
-    {
+  {
     name: "colmena",
-    src: getAssetPath("/images/policies/colmena.png"),
+    src: "/images/policies/colmena.png",
     document: [
       {
         title: "Taxis",

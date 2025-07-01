@@ -1,7 +1,6 @@
 import CheckboxField from "@/modules/shared/components/CheckboxField";
 import { InfoCircleIcon } from "@/modules/shared/components/SVGIcons";
 import Wrapper from "@/modules/shared/ui/Wrapper"
-import { getAssetPath } from "@/modules/shared/utils/paths";
 import Banner from "@/modules/website/ui/Banner";
 import Link from "next/link";
 
@@ -26,7 +25,7 @@ const EthicalLine: React.FC = () => {
             <div className="grid grid-cols-3 gap-5">
               <div
                 style={{
-                  backgroundImage: `url(${getAssetPath("/images/ethical/info.jpg")})`
+                  backgroundImage: `url(/images/ethical/info.jpg)`
                 }}
                 className="fade-up rounded-[30px] bg-blue-terciary bg-center bg-cover"
               />
