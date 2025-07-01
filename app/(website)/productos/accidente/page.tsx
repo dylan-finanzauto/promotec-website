@@ -1,7 +1,8 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import Insurers from "@/modules/website/ui/Insurers";
 import PlanCard from "@/modules/website/ui/PlanCard";
@@ -76,20 +77,20 @@ const faqs = [
 ];
 
 const Accident: React.FC = () => {
+
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Productos', href: '../productos' },
+    { label: 'Póliza de Accidentes Personales' }
+  ];
+
   return (
     <>
-      <div className="h-[448px] relative bg-blue-terciary">
-        <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src="/images/products/vehicle/banner.png" alt="" />
-        <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-        <Wrapper>
-          <div className="absolute top-0 mt-10">
-            <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Accidentes Personales' }]} />
-          </div>
-          <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-            <RichText text="Seguridad personal ante\n**cualquier accidente**" />
-          </h1>
-        </Wrapper>
-      </div>
+      <ProductBanner 
+        background="/images/products/accident/banner.jpg" 
+        breadcrumbItems={breadcrumbItems} 
+        title="Seguridad personal ante" 
+        subtitle="cualquier accidente"
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro de Accidentes Personales?</h3>
@@ -104,11 +105,11 @@ const Accident: React.FC = () => {
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <Image
-              className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible"
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
               src="/images/products/accident/p.png"
               alt=""
-              width={576}
-              height={576}
+              width={615}
+              height={654}
             />
 
             <div className="overflow-hidden">
@@ -123,11 +124,11 @@ const Accident: React.FC = () => {
         </Wrapper>
       </section>
 
-      <section className="py-[80px] bg-gray-3">
+      <section className="relative py-[80px] bg-gray-3">
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Amparos</h4>
-            <div className="grid justify-center grid-cols-[464px] gap-6">
+            <div className="grid justify-center auto-cols-[450px] grid-flow-col gap-6">
               {plans.map((p, i) => (
                 <PlanCard
                   key={i}
@@ -139,16 +140,24 @@ const Accident: React.FC = () => {
             </div>
           </div>
         </Wrapper>
+
+        <Image
+          className="absolute bottom-0 right-0 mr-[50px] object-cover"
+          src="/images/products/accident/plan.png"
+          alt=""
+          width={460}
+          height={686}
+        />
       </section>
 
       <Insurers />
 
       <section className="py-[100px] bg-blue-terciary">
         <Wrapper>
-          <div className="space-y-[30px] w-10/12 mx-auto">
+          <div className="space-y-[30px]">
             <h4 className="text-[40px] text-text-4 text-center font-bold">Conoce los beneficios de contratar tu Póliza de Accidentes Personales</h4>
             <p className="text-[20px] text-center text-text-3 font-medium">Encuentra el mejor Seguro de Accidentes Personales, con coberturas que brindan la tranquilidad que tú y tu familia necesitan</p>
-            <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
+            <div className="w-10/12 mx-auto grid md:grid-cols-2 auto-rows-auto gap-5">
               {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
             </div>
           </div>

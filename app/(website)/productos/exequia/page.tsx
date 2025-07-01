@@ -1,8 +1,9 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
 import { POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
@@ -81,20 +82,20 @@ const faqs = [
 ];
 
 const Funeral: React.FC = () => {
+
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Productos', href: '../productos' },
+    { label: 'Póliza de Exequias' }
+  ];
+
   return (
     <>
-      <div className="h-[448px] relative bg-blue-terciary">
-        <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src="/images/products/vehicle/banner.png" alt="" />
-        <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-        <Wrapper>
-          <div className="absolute top-0 mt-10">
-            <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Exequias' }]} />
-          </div>
-          <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-            <RichText text="Estar protegido en los\n**momentos más difíciles**" />
-          </h1>
-        </Wrapper>
-      </div>
+      <ProductBanner 
+        background="/images/products/funeral/banner.jpg" 
+        breadcrumbItems={breadcrumbItems} 
+        title="Estar protegido en los" 
+        subtitle="momentos más difíciles"
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Póliza de Exequias?</h3>
@@ -108,16 +109,13 @@ const Funeral: React.FC = () => {
       <section className="py-10 bg-blue-terciary">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(/images/products/life/p.png)`,
-                  maskImage: `url(/icons/p.svg)`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+            <Image
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
+              src="/images/products/funeral/p.png"
+              alt=""
+              width={615}
+              height={654}
+            />
 
             <div className="overflow-hidden">
               <div className="space-y-[50px]">
@@ -136,7 +134,7 @@ const Funeral: React.FC = () => {
           <div className="space-y-10">
             <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce las condiciones de tu Seguro Exequial</h2>
             <p className="text-xl text-center text-text-3 font-medium">Asegura la tranquilidad de tus seres queridos con beneficios y coberturas para un servicio digno y respetuoso en los momentos más difíciles.</p>
-            <div className="grid grid-cols-3 auto-rows-[368px] overflow-x-auto gap-4">
+            <div className="grid auto-cols-[minmax(220px,1fr)] grid-flow-col overflow-x-auto gap-4">
               {coverages.map((c, i) => (
                 <CoverageCard
                   key={i}
@@ -153,7 +151,7 @@ const Funeral: React.FC = () => {
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Escoge tu solución integral</h4>
-            <div className="grid justify-center grid-cols-[repeat(2,464px)] gap-6">
+            <div className="grid justify-center auto-cols-[450px] grid-flow-col gap-6">
               {plans.map((p, i) => (
                 <PlanCard
                   key={i}

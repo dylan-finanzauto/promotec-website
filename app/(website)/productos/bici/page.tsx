@@ -92,7 +92,7 @@ const Bici: React.FC = () => {
       <ProductBanner
         title="Rueda seguro"
         subtitle="con tu Póliza de Bici"
-        background="/images/products/bike/banner.png"
+        background="/images/products/bike/banner.jpg"
         breadcrumbItems={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Bicis' }]}
       />
 
@@ -108,9 +108,14 @@ const Bici: React.FC = () => {
       <section className="py-10 bg-blue-terciary">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
-              <Image width={576} height={576} className="w-full h-full absolute top-0 left-0 text-blue-primary" src="/images/products/bike/p.png" alt="" />
-            </div>
+            <Image
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
+              src="/images/products/bike/p.png"
+              alt=""
+              width={615}
+              height={654}
+            />
+
             <div className="overflow-hidden">
               <div className="space-y-[50px]">
                 <h2 className="text-[50px] text-text-4 font-bold">Conoce el Seguro de Bici</h2>
@@ -128,7 +133,7 @@ const Bici: React.FC = () => {
           <div className="space-y-10">
             <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce qué bicis puedes asegurar</h2>
             <p className="text-xl text-center text-text-3 font-medium">No importa el tipo de bicicleta que tengas ni cómo la uses, tenemos una póliza diseñada para adaptarse perfectamente a tu estilo de vida.</p>
-            <div className="grid grid-cols-3 auto-rows-[368px] overflow-x-auto gap-4">
+            <div className="grid auto-cols-[minmax(220px,1fr)] grid-flow-col auto-rows-[368px] overflow-x-auto scroll-hidden gap-4">
               {coverages.map((c, i) => (
                 <CoverageCard
                   key={i}
@@ -152,7 +157,7 @@ const Bici: React.FC = () => {
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Arma tu plan</h4>
-            <div className="grid grid-cols-[repeat(3,464px)] gap-6">
+            <div className="grid auto-cols-[450px] grid-flow-col overflow-x-auto scroll-hidden gap-6">
               {plans.map((p, i) => (
                 <PlanCard
                   key={i}

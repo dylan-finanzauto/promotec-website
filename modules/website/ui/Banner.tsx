@@ -58,7 +58,7 @@ export const ProductBanner = ({
     backgroundPosition: 'right center',
   }}>
 
-    <div className="h-56 min-w-0 max-w-[782px] w-full absolute top-1/2 -translate-y-1/2 left-0 md:rounded-e-[40px] bg-blue-primary"></div>
+    <div className="h-56 min-w-0 max-w-[831px] w-full absolute top-1/2 -translate-y-1/2 left-0 md:rounded-e-[40px] bg-blue-primary"></div>
     <Wrapper>
       {breadcrumbItems && breadcrumbItems.length > 0 && (
         <div className="absolute top-0 mt-10">
@@ -66,7 +66,7 @@ export const ProductBanner = ({
         </div>
       )}
 
-      <h1 className="h-56 max-w-[500px] w-full min-w-0 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
+      <h1 className="h-56 max-w-[540px] w-full min-w-0 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none">
         <span className="text-4xl md:text-[40px] text-blue-terciary font-semibold">{title}</span>
         <span className="text-4xl md:text-[40px] text-white font-extrabold">{subtitle}</span>
       </h1>

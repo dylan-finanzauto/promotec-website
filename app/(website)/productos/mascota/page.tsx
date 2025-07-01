@@ -1,4 +1,3 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
@@ -30,7 +29,7 @@ const benefits = [
   },
   {
     title: 'Proceso 100% multicanal',
-    text: '¡Simplificamos nuestro proceso!\n Todos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
+    text: '¡Simplificamos nuestro proceso!\\n Todos nuestros canales se encuentran integrados y disponibles para que adquieras tu póliza de seguro.',
     img: '/images/products/bike/benefits/2.png'
   },
   {
@@ -47,32 +46,24 @@ const benefits = [
 
 const faqs = [
   {
-    question: "¿Quién debe asumir el pago del seguro?",
-    answer: "El pago del seguro está a tu cargo como propietario de la vivienda."
+    question: "¿Qué cubre?",
+    answer: "Responsabilidad civil por daños a terceros: Cubre daños materiales, lesiones o muerte causados por tu mascota a otras personas o bienes.\\n Gastos veterinarios: Incluye consultas, hospitalización, exámenes, procedimientos y medicamentos.\\n Gastos exequiales o funerarios: En caso de fallecimiento o eutanasia de la mascota.\\n Gastos por robo o pérdida: Auxilio económico para la búsqueda de la mascota\\n Entre otros amparos."
   },
   {
-    question: "¿Qué documentación se requiere para expedir el seguro?",
-    answer: "La documentación que se requiere para expedir póliza es Sarlaft Persona Natural y/o, Persona Jurídica, formulario de solicitud de seguro, Copia documento de identidad, certificado laboral original, desprendibles de pago. Entre otros."
+    question: "¿Qué edad deben tener las mascotas para el ingreso de la póliza?",
+    answer: "Desde los 3 meses hasta los 12 años para nuevas pólizas. (Depende de la aseguradora)\\n Renovación hasta los 11 años "
   },
   {
-    question: "¿Qué es el SARLAFT y en qué momento lo debo diligenciar?",
-    answer: "El SARLAFT es un documento de control que nos exige la Superintendencia Financiera para prevenir el lavado de activos y financiación del terrorismo. Lo debes diligenciar cuando vas a contratar la póliza por primera vez o cuando la compañía aseguradora lo solicite."
+    question: "¿Qué mascotas cubren en la póliza?",
+    answer: "Esta póliza va dirigida únicamente para perros y gatos domésticos."
   },
   {
-    question: "¿Cuál es el costo aproximado del seguro de arrendamiento?",
-    answer: "Corresponde aproximadamente al 50% del canon de arrendamiento mensual, más cuota de administración, cuota aproximada de servicios públicos. Sí aplica."
+    question: "¿Puedo elegir cualquier veterinario?",
+    answer: "La mayoría de pólizas permiten usar cualquier veterinario, con reembolso de gastos - con previa autorización\\n Algunas aseguradoras tienen convenios con clínicas específicas (tarifas preferenciales o atención sin pago anticipado)"
   },
   {
-    question: "¿Cuánto tiempo de vigencia tiene el seguro de arrendamiento?",
-    answer: "El seguro de arredramiento, se rige según el contrato o solicitud de asegurabilidad que se haya firmado y haya sido consensuado por ambas partes."
-  },
-  {
-    question: "¿Qué hacer si tengo un siniestro o necesito una asistencia?",
-    answer: "Comunícate al numeral de tu Aseguradora.\\nPara resolver cualquier duda, solicitud o inquietud, comunícate con nosotros a nuestra área de siniestros al (601) 7423700 opción 1-6-1 o al correo electrónico: analista.indemnizaciones@promotec.com.co"
-  },
-  {
-    question: "¿Qué valor agregado me ofrece Promotec?",
-    answer: "Te permite comparar entre diversas aseguradoras y encontrar la póliza ideal para ti.\\nTe brindamos asesoría personalizada en todo el proceso de compra."
+    question: "¿Qué pasa si mi mascota muere?",
+    answer: "La póliza puede incluir servicio funerario, cremación o eutanasia digna\\n Algunas ofrecen apoyo psicológico al dueño"
   },
 ];
 
@@ -82,7 +73,7 @@ const Pet: React.FC = () => {
       <ProductBanner
         title="Protege a tu peludo ante"
         subtitle="cualquier eventualidad"
-        background="/images/products/vehicle/banner.png"
+        background="/images/products/pet/banner.jpg"
         breadcrumbItems={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Mascotas' }]}
       />
 
@@ -99,18 +90,20 @@ const Pet: React.FC = () => {
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <Image
-              className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible"
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
               src="/images/products/pet/p.png"
               alt=""
-              width={576}
-              height={576}
+              width={615}
+              height={654}
             />
 
             <div className="overflow-hidden">
               <div className="space-y-[50px]">
-                <h2 className="text-[50px] text-text-4 font-bold">Conoce el Seguro de mascotas</h2>
+                <h2 className="text-[50px] leading-tight text-text-4 font-bold">
+                  <RichText text="Conoce el Seguro\nde mascotas" />
+                </h2>
                 <p className="text-[20px] text-text-4 font-medium">
-                  <RichText text="Tu mascota es parte esencial de tu familia y su bienestar es nuestra prioridad. La póliza te brinda tranquilidad los 365 días del año con asistencias veterinarias disponibles las 24 horas, para que siempre reciban el cuidado que merecen." />
+                  <RichText text="Tu mascota es parte esencial de tu familia y su bienestar es nuestra prioridad.\nLa póliza te brinda tranquilidad los 365 días del año con asistencias veterinarias disponibles las 24 horas, para que siempre reciban el cuidado que merecen." />
                 </p>
               </div>
             </div>
@@ -118,11 +111,11 @@ const Pet: React.FC = () => {
         </Wrapper>
       </section>
 
-      <section className="py-[80px] bg-gray-3">
+      <section className="py-[80px] bg-gray-3 relative overflow-hidden">
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Amparos</h4>
-            <div className="grid justify-center grid-cols-[repeat(2,464px)] gap-6">
+            <div className="grid justify-center auto-cols-[450px] grid-flow-col gap-6">
               {plans.map((p, i) => (
                 <PlanCard
                   key={i}
@@ -134,16 +127,24 @@ const Pet: React.FC = () => {
             </div>
           </div>
         </Wrapper>
+
+        <Image
+          className="absolute bottom-0 right-0 -mb-20 scale-x-[-1] object-cover"
+          src="/images/products/pet/plan.png"
+          alt=""
+          width={645}
+          height={512}
+        />
       </section>
 
       <Insurers />
 
       <section className="py-[100px] bg-blue-terciary">
         <Wrapper>
-          <div className="space-y-[30px] w-10/12 mx-auto">
+          <div className="space-y-[30px]">
             <h4 className="text-[40px] text-text-4 text-center font-bold">Conoce los beneficios de contratar tu póliza de Mascotas con Promotec</h4>
             <p className="text-[20px] text-center text-text-3 font-medium">Encuentra el mejor Seguro de mascotas, con coberturas que brindan la tranquilidad que tú y tu mejor amigo merecen.</p>
-            <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
+            <div className="w-10/12 mx-auto grid md:grid-cols-2 auto-rows-auto gap-5">
               {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
             </div>
           </div>

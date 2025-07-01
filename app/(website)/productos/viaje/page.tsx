@@ -1,7 +1,8 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
@@ -66,20 +67,20 @@ const faqs = [
 ];
 
 const Travel: React.FC = () => {
+
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Productos', href: '../productos' },
+    { label: 'Seguro de Viajes' }
+  ];
+
   return (
     <>
-      <div className="h-[448px] relative bg-blue-terciary">
-        <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src="/images/products/vehicle/banner.png" alt="" />
-        <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-        <Wrapper>
-          <div className="absolute top-0 mt-10">
-            <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Seguro de Viajes' }]} />
-          </div>
-          <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-            <RichText text="Viaja con la tranquilidad de\n**saber que estás protegido**" />
-          </h1>
-        </Wrapper>
-      </div>
+      <ProductBanner 
+        background="/images/products/travel/banner.jpg" 
+        breadcrumbItems={breadcrumbItems} 
+        title="Viaja con la tranquilidad de" 
+        subtitle="saber que estás protegido"
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro de Viaje?</h3>
@@ -94,11 +95,11 @@ const Travel: React.FC = () => {
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
             <Image
-              className="relative min-w-0 max-w-[600px] h-[600px] w-full -my-10 overflow-hidden md:overflow-visible"
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
               src="/images/products/travel/p.png"
               alt=""
-              width={576}
-              height={576}
+              width={615}
+              height={654}
             />
 
             <div className="overflow-hidden">
@@ -118,7 +119,7 @@ const Travel: React.FC = () => {
           <div className="space-y-10">
             <h2 className="text-3xl text-center text-blue-primary font-bold">¿Por qué tener un Seguro de Viajes?</h2>
             <p className="text-xl text-center text-text-3 font-medium">Viajar es una experiencia emocionante, pero los imprevistos pueden ocurrir en cualquier momento.  No importa a dónde vayas, lleva contigo la seguridad de estar respaldado.</p>
-            <div className="grid grid-cols-3 auto-rows-[368px] overflow-x-auto gap-4">
+            <div className="grid auto-cols-[450px] grid-flow-col auto-rows-[368px] overflow-x-auto gap-4">
               {coverages.map((c, i) => (
                 <CoverageCard
                   key={i}
@@ -135,10 +136,10 @@ const Travel: React.FC = () => {
 
       <section className="py-[100px] bg-blue-terciary">
         <Wrapper>
-          <div className="space-y-[30px] w-10/12 mx-auto">
+          <div className="space-y-[30px]">
             <h4 className="text-[40px] text-text-4 text-center font-bold">Conoce los beneficios de contratar tu Asistencia en Viaje con Promotec</h4>
             <p className="text-[20px] text-center text-text-3 font-medium">Encuentra el mejor Seguro, con coberturas que brindan la tranquilidad que tú y tus compañeros de viaje necesitan.</p>
-            <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
+            <div className="w-10/12 mx-auto grid md:grid-cols-2 auto-rows-auto gap-5">
               {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
             </div>
             <div className="flex justify-center">

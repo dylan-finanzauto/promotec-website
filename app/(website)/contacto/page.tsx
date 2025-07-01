@@ -567,7 +567,7 @@ const Contact: React.FC = () => {
               alt=""
               width={822}
               height={874}
-              className="fade-left -m-24"
+              className="fade-left -my-24 -mx-16"
             />
 
             <div className="">

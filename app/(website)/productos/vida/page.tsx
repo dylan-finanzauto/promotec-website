@@ -1,8 +1,9 @@
-import Breadcrumb from "@/modules/shared/components/Breadcrumb";
+import Breadcrumb, { BreadcrumbItem } from "@/modules/shared/components/Breadcrumb";
 import RichText from "@/modules/shared/components/RichText";
 import { POutlinedIcon } from "@/modules/shared/components/SVGIcons";
 import Accordion from "@/modules/shared/ui/Accordion";
 import Wrapper from "@/modules/shared/ui/Wrapper";
+import { ProductBanner } from "@/modules/website/ui/Banner";
 import { BenefitCard } from "@/modules/website/ui/Benefits";
 import CoverageCard from "@/modules/website/ui/CoverageCard";
 import Insurers from "@/modules/website/ui/Insurers";
@@ -115,20 +116,20 @@ const faqs = [
 ];
 
 const Life: React.FC = () => {
+
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Productos', href: '../productos' },
+    { label: 'Póliza de Vida' }
+  ];
+
   return (
     <>
-      <div className="h-[448px] relative bg-blue-terciary">
-        <Image className="fade-left hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center" width={200} height={200} src="/images/products/vehicle/banner.png" alt="" />
-        <div className="h-56 min-w-0 w-2/5 absolute top-1/2 -translate-y-1/2 left-0 rounded-e-[40px] bg-blue-primary"></div>
-        <Wrapper>
-          <div className="absolute top-0 mt-10">
-            <Breadcrumb items={[{ label: 'Productos', href: '../productos' }, { label: 'Póliza de Vida' }]} />
-          </div>
-          <h1 className="h-56 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center leading-none text-4xl md:text-[50px] text-blue-terciary">
-            <RichText text="Tu futuro, **seguro y**\n **protegido**" />
-          </h1>
-        </Wrapper>
-      </div>
+      <ProductBanner 
+        background="/images/products/life/banner.jpg" 
+        breadcrumbItems={breadcrumbItems} 
+        title="Tu futuro, seguro y" 
+        subtitle="protegido"
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro de Vida?</h3>
@@ -142,16 +143,13 @@ const Life: React.FC = () => {
       <section className="py-10 bg-blue-terciary">
         <Wrapper>
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="relative min-w-0 max-w-[576px] h-[576px] w-full overflow-hidden md:overflow-visible">
-              <div
-                className="fade-left w-full h-full bg-cover bg-center mask-no-repeat mask-center mask-size-contain"
-                style={{
-                  backgroundImage: `url(/images/products/life/p.png)`,
-                  maskImage: `url(/icons/p.svg)`
-                }}
-              />
-              <POutlinedIcon className="w-full h-full absolute top-0 left-0 -ml-6 rotate-12" />
-            </div>
+            <Image
+              className="relative shrink-0 min-w-0 max-w-[615px] h-[654px] w-full -my-16 overflow-hidden md:overflow-visible"
+              src="/images/products/life/p.png"
+              alt=""
+              width={615}
+              height={654}
+            />
 
             <div className="overflow-hidden">
               <div className="space-y-[50px]">
@@ -170,7 +168,7 @@ const Life: React.FC = () => {
           <div className="space-y-10">
             <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce algunas coberturas</h2>
             <p className="text-xl text-center text-text-3 font-medium">Dependiendo del plan que elijas, el  Seguro de Vida puede brindar protección en los siguientes casos:</p>
-            <div className="grid grid-cols-3 auto-rows-[368px] overflow-x-auto gap-4">
+            <div className="grid auto-cols-[minmax(220px,1fr)] grid-flow-col auto-rows-[368px] overflow-x-auto gap-4">
               {coverages.map((c, i) => (
                 <CoverageCard
                   key={i}
@@ -187,7 +185,7 @@ const Life: React.FC = () => {
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Seguro de Vida Individual</h4>
-            <div className="grid justify-center grid-cols-[repeat(3,464px)] gap-6">
+            <div className="grid justify-center auto-cols-[450px] grid-flow-col gap-6">
               {plans1.map((p, i) => (
                 <PlanCard
                   key={i}
@@ -198,7 +196,7 @@ const Life: React.FC = () => {
               ))}
             </div>
             <h4 className="text-[40px] text-center font-bold">Seguro de Vida Deudor</h4>
-            <div className="grid justify-center grid-cols-[repeat(2,464px)] gap-6">
+            <div className="grid justify-center auto-cols-[450px] grid-flow-col gap-6">
               {plans2.map((p, i) => (
                 <PlanCard
                   key={i}
@@ -216,18 +214,11 @@ const Life: React.FC = () => {
 
       <section className="py-[100px] bg-blue-terciary">
         <Wrapper>
-          <div className="space-y-[30px] w-10/12 mx-auto">
+          <div className="space-y-[30px]">
             <h4 className="text-[40px] text-text-4 text-center font-bold">Conoce los beneficios de Asegurar tu Bicicleta con Promotec</h4>
             <p className="text-[20px] text-center text-text-3 font-medium">Encuentra el mejor Seguro para Bici, protege tu bicicleta contra robo, daño y mucho más.</p>
-            <div className="grid md:grid-cols-2 auto-rows-auto gap-5">
+            <div className="w-10/12 mx-auto grid md:grid-cols-2 auto-rows-auto gap-5">
               {benefits.map((b, i) => <BenefitCard key={i} title={b.title} text={b.text} img={b.img} />)}
-            </div>
-            <div className="flex justify-center">
-              <Link
-                href={"/productos/vehiculo/cotizar"}
-              >
-                <button className="px-20 py-4 rounded-[10px] font-medium bg-yellow-primary hover:bg-yellow-primary/80 text-white cursor-pointer">Cotizar</button>
-              </Link>
             </div>
           </div>
         </Wrapper>

@@ -132,7 +132,12 @@ const Vehicle: React.FC = () => {
 
   return (
     <>
-      <ProductBanner background="/images/products/vehicle/banner.png" breadcrumbItems={breadcrumbItems} title="Conduce seguro con la" subtitle="póliza de tu vehículo" />
+      <ProductBanner 
+        background="/images/products/vehicle/banner.jpg" 
+        breadcrumbItems={breadcrumbItems} 
+        title="Conduce seguro con la" 
+        subtitle="póliza de tu vehículo"
+      />
 
       <section className="py-11 bg-gray-1 flex flex-col items-center gap-6">
         <h3 className="text-xl font-bold text-text-4">¿Quieres cotizar tu Seguro para carros o motos?</h3>
@@ -147,7 +152,8 @@ const Vehicle: React.FC = () => {
         <Wrapper>
           <div className="space-y-10">
             <h2 className="text-3xl text-center text-blue-primary font-bold">Conoce las coberturas y asistencias que te brindan los seguros para carros y motos</h2>
-            <div className="grid grid-cols-6 auto-rows-[368px] overflow-x-auto gap-4">
+            {/* <div className="grid grid-cols-6 auto-rows-[368px] overflow-x-auto gap-4"> */}
+            <div className="grid auto-cols-[minmax(220px,1fr)] grid-flow-col auto-rows-[368px] overflow-x-auto scroll-hidden gap-4">
               {coverages.map((c, i) => (
                 <CoverageCard
                   key={i}
@@ -182,9 +188,9 @@ const Vehicle: React.FC = () => {
 
       <section className="py-[100px] bg-blue-terciary">
         <Wrapper>
-          <div className="flex items-center gap-4">
-            <div className="w-2/5 space-y-10">
-              <h3 className="text-[60px] text-blue-primary font-bold leading-none">El seguro perfecto para cada tipo de vehículo</h3>
+          <div className="flex flex-col lg:flex-row items-center gap-4">
+            <div className="lg:w-2/5 space-y-10">
+              <h3 className="text-[60px] text-center lg:text-left text-blue-primary font-bold leading-none">El seguro perfecto para cada tipo de vehículo</h3>
               <p className="text-[20px] text-text-3 font-medium">Asegura con nosotros tu carro particular o de servicio público, motocicleta o vehículo de carga pesada.</p>
             </div>
             <div className="grow aspect-video bg-[#454545] grid place-items-center rounded-[30px]">
@@ -204,7 +210,8 @@ const Vehicle: React.FC = () => {
         <Wrapper>
           <div className="space-y-10">
             <h4 className="text-[40px] text-center font-bold">Coberturas en tu plan</h4>
-            <div className="grid grid-cols-3 gap-6">
+            {/* <div className="grid grid-cols-3 gap-6"> */}
+            <div className="grid auto-cols-[minmax(450px,1fr)] grid-flow-col overflow-x-auto scroll-hidden gap-6">
               {plans.map((p, i) => (
                 <PlanCard
                   key={i}
